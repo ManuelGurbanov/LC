@@ -59,9 +59,9 @@ export default function Pricing() {
   };
 
   return (
-<div className="w-full min-h-full bg-black">
+<div className="w-full bg-black h-[190vh] sm:h-[100vh]">
   <main>
-    <div id="pricing-section" className=''>
+    <div id="pricing-section" className='h-min'>
       <div className="flow-root py-16 sm:pt-32 lg:pb-0 mb-80">
         <div className="px-6 mx-auto max-w-7xl lg:px-8">
           <div className="relative z-10">

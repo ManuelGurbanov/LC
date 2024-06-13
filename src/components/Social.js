@@ -17,7 +17,7 @@ export default function Social() {
   return (
   <div className="flex flex-col items-center justify-start text-white h-[70vh]" id="social-section">
     <div className="flex flex-col items-center justify-start w-[80vw]">
-      <h1 className='mt-20 text-4xl font-bold' data-aos="fade-up" data-aos-delay="100">Nuestras Redes</h1>
+      <h1 className='mt-24 text-4xl font-bold' data-aos="fade-up" data-aos-delay="100">Nuestras Redes</h1>
       <p className='mt-4 text-xl font-regular' data-aos="fade-up" data-aos-delay="200">
         Contactanos tanto por Instagram como por WhatsApp para adquirir tus monedas al mejor precio del mercado.
       </p>
