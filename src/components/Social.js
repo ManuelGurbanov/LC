@@ -1,0 +1,42 @@
+import { useState } from 'react'
+import {Radio, RadioGroup } from '@headlessui/react'
+import { CheckIcon, XMarkIcon as XMarkIconMini } from '@heroicons/react/20/solid'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+import Instagram from '../img/instagram.svg'
+import WhatsApp from '../img/wpp.svg'
+
+AOS.init({
+    duration: 500,
+    once: true,
+    });
+
+export default function Social() {
+
+  return (
+  <div className="flex flex-col items-center justify-start text-white h-[70vh]" id="social-section">
+    <div className="flex flex-col items-center justify-start w-[80vw]">
+      <h1 className='mt-20 text-4xl font-bold' data-aos="fade-up" data-aos-delay="100">Nuestras Redes</h1>
+      <p className='mt-4 text-xl font-regular' data-aos="fade-up" data-aos-delay="200">
+        Contactanos tanto por Instagram como por WhatsApp para adquirir tus monedas al mejor precio del mercado.
+      </p>
+      </div>
+      <div className="flex flex-col items-center justify-start w-[80vw] mt-10" data-aos="fade-up" data-aos-delay="300">
+        <div className="flex flex-row items-center justify-center w-[80vw] gap-20">
+
+          <a href="https://www.instagram.com/monedas_fifalc/" className="flex items-center justify-center h-16 rounded-lg">
+            <img className="w-8 h-8" src={Instagram} alt="Instagram"/>
+            <p className="ml-2 font-bold text-white">Instagram</p>
+          </a>
+
+          <a href="https://wa.me/message/OWAU65Z5WGWMI1" className="flex items-center justify-center h-16 rounded-lg">
+            <img className="w-8 h-8" src={WhatsApp} alt="WhatsApp"/>
+            <p className="ml-2 font-bold text-white">WhatsApp</p>
+          </a>
+        </div>
+
+    </div>
+  </div>
+  )
+}
