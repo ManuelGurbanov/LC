@@ -15,8 +15,8 @@ function Main() {
     });
   }, []);
   return (
-    <section className="flex flex-col items-start justify-start w-[80vw] h-[80vh] mt-24 text-white gap-4">
-        <h1 className='font-bold text-7xl' data-aos="fade-up">LC MONEDAS</h1>
+    <section className="flex flex-col items-start justify-start w-[80vw] h-[70vh] mt-24 text-white gap-4">
+        <h1 className='text-4xl font-bold sm:text-7xl' data-aos="fade-up">LC MONEDAS</h1>
         <p className='text-xl font-regular' data-aos="fade-up" data-aos-delay="200">Comprá tus coins al mejor precio.</p>
         <p className='text-lg font-thin' data-aos="fade-up" data-aos-delay="300">Seguro, confiable y rápido.</p>
         <h2 className='text-lg font-bold' data-aos="fade-up" data-aos-delay="400">+11.000 personas confian en nosotros.</h2>

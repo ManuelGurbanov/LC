@@ -59,9 +59,9 @@ export default function Pricing() {
   };
 
   return (
-<div className="w-full h-70vh">
+<div className="w-full min-h-full bg-black">
   <main>
-    <div id="pricing-section">
+    <div id="pricing-section" className=''>
       <div className="flow-root py-16 sm:pt-32 lg:pb-0 mb-80">
         <div className="px-6 mx-auto max-w-7xl lg:px-8">
           <div className="relative z-10">
@@ -74,7 +74,7 @@ export default function Pricing() {
               Precios para cada región
             </p>
             <div data-aos="fade-up" data-aos-delay="300"
-            className="flex justify-center mt-16">
+            className="flex justify-center mt-10">
               <fieldset aria-label="Payment frequency">
                 <RadioGroup
                   value={frequency}
