@@ -18,7 +18,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="bg-cardGreen bg-opacity-60">
+    <header className="bg-cardGreen2 bg-opacity-60">
       <nav className="items-center justify-between hidden p-2 mx-auto lg:flex max-w-7xl lg:px-8" aria-label="Global">
         <Link to="/">
           <span className="sr-only">LC</span>

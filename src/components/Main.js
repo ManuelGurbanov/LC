@@ -4,6 +4,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Pricing from './Pricing';
 import CardComponent from './CardComponent';
+import Footer from './Footer';
 
 function Main() {
   const scrollToPricingSection = () => {
@@ -19,9 +20,8 @@ function Main() {
   }, []);
 
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <section className="flex flex-col items-center justify-center w-screen h-auto mt-24 text-black lg:flex-row lg:items-start gap-30 lg:gap-10">
-
         <div className="flex flex-col items-start justify-start w-full h-auto gap-4 p-5 mt-5 md:w-2/5">
           <h1 className='text-6xl font-bold sm:text-7xl' data-aos="fade-up">LC MONEDAS</h1>
           <p className='text-2xl sm:text-xl font-regular' data-aos="fade-up" data-aos-delay="200">Comprá tus coins al mejor precio.</p>
@@ -31,14 +31,13 @@ function Main() {
             onClick={scrollToPricingSection}
           >Ver Precios</button>
         </div>
-        
-        <CardComponent/>
+        <CardComponent />
       </section>
 
-      <section id="pricing-section">
-        <Pricing/>
+      <section id="pricing-section" className="flex-grow">
+        <Pricing />
       </section>
-    </>
+    </div>
   );
 }
 

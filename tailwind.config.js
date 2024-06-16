@@ -20,7 +20,8 @@ module.exports = {
     },
     extend: {
       colors: {
-        cardGreen: '#70FF99', // Reemplaza con el código hexadecimal de tu color verde personalizado
+        cardGreen: '#70FF99',
+        cardGreen2: '#60DB83'
       },
       keyframes: {
         scroll: {

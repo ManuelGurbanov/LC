@@ -16,36 +16,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-#pricing-section {
-  /* background-image: url('./img/dark/main_3.jpg'); */
-  background-color: white;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-}
-
-
-#social-section {
-  background-image: url('./img/dark/main_1.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: left;
-  width: 100vw;
-  height: 100vh;
-}
-
-@media (max-width: 768px) {
-  body {
-    background-size: auto 100vh;
-  }
-
-  #pricing-section {
-    background-repeat: no-repeat;
-    background-size: auto 160vh;
-    background-position: center;
-    width: 100vw;
-    height: 160vh;
-  }
-}

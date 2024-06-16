@@ -9,7 +9,8 @@ import Pricing from './components/Pricing';
 import AboutUs from './components/AboutUs';
 import SellCoins from './components/SellCoins';
 import Social from './components/Social';
-
+import Background from './components/Background';
+import Footer from './components/Footer';
 function App() {
   useEffect(() => {
     AOS.init({
@@ -20,17 +21,21 @@ function App() {
 
   return (
     <Router>
-      <div className="app">
-        <Navbar />
-        <main className="main-content">
-          <Routes>
-            <Route path="/" element={<Main />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/about-us" element={<AboutUs />} />
-            <Route path="/sell-coins" element={<SellCoins />} />
-            <Route path="/social" element={<Social />} />
-          </Routes>
-        </main>
+      <div className="relative w-full h-full">
+        <Background />
+        <div className="relative z-10">
+          <Navbar />
+          <main className="main-content">
+            <Routes>
+              <Route path="/" element={<Main />} />
+              <Route path="/pricing" element={<Pricing />} />
+              <Route path="/about-us" element={<AboutUs />} />
+              <Route path="/sell-coins" element={<SellCoins />} />
+              <Route path="/social" element={<Social />} />
+            </Routes>
+          </main>
+          <Footer/>
+        </div>
       </div>
     </Router>
   );
