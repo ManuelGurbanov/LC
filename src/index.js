@@ -1,23 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Main from './Main';
+import App from './App.js';
 import reportWebVitals from './reportWebVitals';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import Navbar from './components/Navbar';
-import Pricing from './components/Pricing';
 
-import Social from './components/Social';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      <Navbar />
-    <section className="flex flex-col items-center justify-center">
-      <Main />
-      <Pricing />
-      <Social />
-    </section>
+    <App />
   </React.StrictMode>
 );
 

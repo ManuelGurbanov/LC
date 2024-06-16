@@ -18,14 +18,17 @@ code {
 }
 
 #pricing-section {
-  background-image: url('./img/pricing_bg.jpg');
+  /* background-image: url('./img/dark/main_3.jpg'); */
+  background-color: white;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   height: 100vh;
 }
+
+
 #social-section {
-  background-image: url('./img/main_1.jpg');
+  background-image: url('./img/dark/main_1.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: left;
