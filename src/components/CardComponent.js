@@ -5,7 +5,7 @@ import Card_3 from '../img/card_3.png';
 
 export default function CardComponent() {
   return (
-    <div className="relative w-[60vw] lg:w-[30vw] h-[30vh] lg:h-[80vh] lg:mt-0 mt-20">
+    <div className="relative w-[90vw] lg:w-[30vw] h-[30vh] lg:h-[50vh] lg:mt-0 mt-20">
       <div className="absolute top-0 z-10 flex flex-col items-start justify-start w-6/12 transform -translate-x-1/2 left-1/2 lg:left-0 lg:transform-none">
         <img
           className="object-cover w-[90%] h-auto"
