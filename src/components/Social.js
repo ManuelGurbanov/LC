@@ -35,10 +35,10 @@ export default function Social() {
             <p className="ml-2 font-bold text-black">WhatsApp</p>
           </a>
 
-          <a href="https://wa.me/message/OWAU65Z5WGWMI1" className="flex items-center justify-center px-3 py-2 transition-all duration-75 rounded-lg bg-cardGreen2 hover:bg-opacity-45">
+          <div  className="flex items-center justify-center px-3 py-2 transition-all duration-75 rounded-lg bg-cardGreen2 ">
             <img className="w-8 h-8" src={WhatsApp} alt="WhatsApp"/>
             <p className="ml-2 font-bold text-black">+54 9 2235 27-4447</p>
-          </a>
+          </div>
         </div>
 
     </div>

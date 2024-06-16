@@ -11,7 +11,7 @@ const methods = [
 ]
 const Payment = () => {
     return (
-        <section className="grid grid-cols-2 sm:flex sm:flex-row items-center justify-center justify-items-center w-[100vw] h-[10vh] text-black sm:gap-4">
+        <section className="mt-12 mb-12 sm:m-0 grid grid-cols-2 sm:flex sm:flex-row items-center justify-center justify-items-center w-[100vw] h-[10vh] text-black sm:gap-4">
             {methods.map((method, index) => (
                 <img key={index} src={method} alt={`Payment method ${index}`}
                      className='w-24 h-auto sm:w-32 opacity-30' />
