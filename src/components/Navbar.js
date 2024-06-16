@@ -29,8 +29,8 @@ export default function Navbar() {
             <Link
               key={item.name}
               to={item.href}
-              className={`text-sm font-semibold leading-6 transition-all duration-75 hover:text-cardGreen px-3 py-2 ${
-                location.pathname === item.href ? 'bg-cardGreen text-black rounded-md' : 'text-gray-800'
+              className={`text-sm font-semibold leading-6 transition-all duration-75  px-3 py-2 ${
+                location.pathname === item.href ? 'bg-cardGreen text-black rounded-md hover:bg-cardGreen2' : 'text-gray-800 hover:text-white hover:bg-cardGreen2'
               }`}
             >
               {item.name}

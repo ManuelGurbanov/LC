@@ -3,6 +3,13 @@ import Card_1 from '../img/card_1.png';
 import Card_2 from '../img/card_2.png';
 import Card_3 from '../img/card_3.png';
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+AOS.init({
+  duration: 500,
+  once: true,
+});
 export default function CardComponent() {
   return (
     <div className="relative w-[90vw] lg:w-[30vw] h-[30vh] lg:h-[50vh] lg:mt-0 mt-20">
@@ -11,6 +18,8 @@ export default function CardComponent() {
           className="object-cover w-[90%] h-auto"
           src={Card_1}
           alt="Card 1"
+          data-aos="fade-down"
+          data-aos-delay="400"
         />
       </div>
       <div className="absolute top-[10%] left-[calc(50%-30%)] transform -translate-x-1/2 lg:left-[-4%] flex flex-col items-center justify-start w-6/12">
@@ -18,6 +27,8 @@ export default function CardComponent() {
           className="object-cover w-[90%] h-auto"
           src={Card_2}
           alt="Card 2"
+          data-aos="fade-right"
+          data-aos-delay="320"
         />
       </div>
       <div className="absolute top-[10%] left-[calc(50%+24%)] transform -translate-x-1/2 lg:left-[24%] lg:transform-none flex flex-col items-center justify-start w-6/12">
@@ -25,6 +36,8 @@ export default function CardComponent() {
           className="object-cover w-[90%] h-auto"
           src={Card_3}
           alt="Card 3"
+          data-aos="fade-left"
+          data-aos-delay="300"
         />
       </div>
     </div>
