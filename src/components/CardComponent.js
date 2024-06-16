@@ -13,7 +13,7 @@ export default function CardComponent() {
           alt="Card 1"
         />
       </div>
-      <div className="absolute top-[10%] left-[calc(50%-24%)] transform -translate-x-1/2 lg:left-[-24%] lg:transform-none flex flex-col items-center justify-start w-6/12">
+      <div className="absolute top-[10%] left-[calc(50%-30%)] transform -translate-x-1/2 lg:left-[-4%] flex flex-col items-center justify-start w-6/12">
         <img
           className="object-cover w-[90%] h-auto"
           src={Card_2}
