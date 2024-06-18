@@ -1,5 +1,4 @@
 import React from 'react';
-import Payment from './Payment';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Social from './Social';
@@ -18,7 +17,6 @@ function SellCoins() {
         <p className="p-4 text-xl font-regular" data-aos="fade-left" data-aos-delay="300">Para saber los precios, por favor consultar al privado.</p>
 
         <Social />
-        <Payment />
       </section>
     </>
   );

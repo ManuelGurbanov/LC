@@ -21,7 +21,7 @@ const Pricing = () => {
   const tiers = [
     {
       name: '100K',
-      mainFeatures: ['Entrega rápida', 'Sin riesgo de Baneo'],
+      mainFeatures: ['Transaccion segura', 'Entrega rapida y confiable.', 'Asesoria gratuita para tu equipo.'],
     },
     {
       name: '200K',

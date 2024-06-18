@@ -7,6 +7,7 @@ const navigation = [
   { name: 'Home', href: '/' },
   { name: 'Nosotros', href: '/about-us' },
   { name: 'Vende tus Monedas', href: '/sell-coins' },
+  { name: 'Métodos de Pago', href: '/payment' },
 ];
 
 export default function Navbar() {

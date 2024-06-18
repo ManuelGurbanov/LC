@@ -20,16 +20,21 @@ const methods = [
 
 const Payment = () => {
     return (
-        <section className="mt-12 mb-12 sm:mt-0 sm:mb-0 grid grid-cols-3 sm:grid-cols-none sm:flex sm:flex-row items-center justify-center justify-items-center w-[100vw] h-auto text-black gap-4">
-            {methods.map((method, index) => (
-                <img 
-                    key={index} 
-                    src={method} 
-                    alt={`Payment method ${index}`} 
-                    className='w-24 h-auto sm:w-28 opacity-30' 
-                />
-            ))}
-        </section>
+        <div className="flex flex-col items-center justify-center w-screen h-[80vh]">
+            <h1 className='font-bold text-4xl w-[80vw] text-black mt-8 text-center'>Métodos de Pago</h1>
+            <section className="flex flex-col items-center justify-start w-[80vw] sm:w-[60vw] flex-grow mt-4 sm:mt-12 text-black gap-1">
+                <section className="grid items-center justify-center w-full h-auto grid-cols-3 gap-4 mt-12 mb-12 text-black sm:mt-0 sm:mb-0 sm:gap-0 sm:m-0 sm:grid-cols-4 justify-items-center">
+                    {methods.map((method, index) => (
+                        <img 
+                            key={index} 
+                            src={method} 
+                            alt={`Payment method`} 
+                            className='w-full h-auto p-1 sm:w-28 opacity-30' 
+                        />
+                    ))}
+                </section>
+            </section>
+        </div>
     );
 }
 

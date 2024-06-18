@@ -1,5 +1,4 @@
 import React from 'react';
-import Payment from './Payment';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -17,7 +16,6 @@ function AboutUs() {
         <p className="w-full p-4 text-xl sm:w-auto font-regular" data-aos="fade-right" data-aos-delay="400">Tenemos una gran base de clientes y proveedores y stock constante.</p>
         <p className="mt-2 text-lg font-thin">Comentarios de clientes.</p>
       </section>
-        <Payment />
     </div>
   );
 }

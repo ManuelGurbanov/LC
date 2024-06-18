@@ -32,6 +32,7 @@ function App() {
               <Route path="/about-us" element={<AboutUs />} />
               <Route path="/sell-coins" element={<SellCoins />} />
               <Route path="/social" element={<Social />} />
+              <Route path="/payment" element={<Payment />} />
             </Routes>
           </main>
           <Footer/>
