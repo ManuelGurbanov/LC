@@ -10,30 +10,33 @@ AOS.init({
   duration: 500,
   once: true,
 });
+
 export default function CardComponent() {
   return (
-    <div className="relative w-[90vw] lg:w-[30vw] h-[30vh] lg:h-[50vh] lg:mt-0 mt-20">
-      <div className="absolute top-0 z-10 flex flex-col items-center justify-start w-6/12 transform -translate-x-1/2 lg:w-9/12 left-1/2">
+    <div className="relative w-[90vw] lg:w-[30vw] h-auto mt-20 lg:mt-0 flex flex-col items-center justify-center">
+      {/* Contenedor de Cartas */}
+      <div className="relative flex items-center justify-center w-full">
+        {/* Carta 1 */}
         <img
-          className="object-cover w-[90%] h-auto max-w-[340px]"
+          className="object-cover w-[70%] h-auto max-w-[300px] z-20"
           src={Card_1}
           alt="Card 1"
           data-aos="fade-down"
           data-aos-delay="400"
         />
-      </div>
-      <div className="absolute top-[10%] left-[calc(50%-15%)] lg:left-[12%] transform -translate-x-1/2 flex flex-col items-center justify-start w-6/12 lg:w-9/12">
+        
+        {/* Carta 2 */}
         <img
-          className="object-cover w-[90%] h-auto max-w-[300px]"
+          className="object-cover w-[70%] h-auto max-w-[300px] z-10 ml-[-30%] lg:ml-0"
           src={Card_2}
           alt="Card 2"
           data-aos="fade-right"
           data-aos-delay="320"
         />
-      </div>
-      <div className="absolute top-[10%] left-[calc(50%+15%)] lg:left-[88%] transform -translate-x-1/2 flex flex-col items-center justify-start w-6/12 lg:w-9/12">
+        
+        {/* Carta 3 */}
         <img
-          className="object-cover w-[90%] h-auto max-w-[300px]"
+          className="object-cover w-[70%] h-auto max-w-[300px] z-10 mr-[-30%] lg:mr-0"
           src={Card_3}
           alt="Card 3"
           data-aos="fade-left"

@@ -18,46 +18,37 @@ const Pricing = () => {
     eurusd: 4,
   };
 
+  const mainFeatures = ['Transaccion segura', 'Entrega rapida y confiable.', 'Asesoria gratuita para tu equipo.'];
   const tiers = [
     {
       name: '100K',
-      mainFeatures: ['Transaccion segura', 'Entrega rapida y confiable.', 'Asesoria gratuita para tu equipo.'],
     },
     {
       name: '200K',
-      mainFeatures: ['Entrega rápida', 'Sin riesgo de Baneo'],
     },
     {
       name: '300K',
-      mainFeatures: ['Entrega rápida', 'Sin riesgo de Baneo'],
     },
     {
       name: '400K',
-      mainFeatures: ['Entrega rápida', 'Sin riesgo de Baneo'],
     },
     {
       name: '500K',
-      mainFeatures: ['Entrega rápida', 'Sin riesgo de Baneo'],
     },
     {
       name: '600K',
-      mainFeatures: ['Entrega rápida', 'Sin riesgo de Baneo'],
     },
     {
       name: '700K',
-      mainFeatures: ['Entrega rápida', 'Sin riesgo de Baneo'],
     },
     {
       name: '800K',
-      mainFeatures: ['Entrega rápida', 'Sin riesgo de Baneo'],
     },
     {
       name: '900K',
-      mainFeatures: ['Entrega rápida', 'Sin riesgo de Baneo'],
     },
     {
       name: '1M',
-      mainFeatures: ['Mejora TOP para tu equipo', 'Entrega rápida', 'Sin riesgo de Baneo'],
     },
   ];
 
@@ -111,69 +102,70 @@ const Pricing = () => {
           </RadioGroup>
         </fieldset>
       </div>
-      <div className="relative grid w-full max-w-screen-lg grid-cols-1 mx-auto mt-2 gap-y-2 lg:mx-0 lg:-mb-14 lg:grid-cols-3">
+
+      {/* Grid de tiers */}
+      <div className="relative grid w-4/5 max-w-screen-lg grid-cols-1 mx-auto mt-2 gap-y-2 md:grid-cols-3 sm:grid-cols-2 sm:gap-x-3 lg:mx-0 lg:-mb-14">
         
-  <div className="hidden lg:absolute lg:inset-x-px lg:bottom-0 lg:top-4 lg:block lg:rounded-t-2xl bg-gray-800/80 ring-1 ring-white/10" aria-hidden="true" />
+        <div className="hidden lg:absolute lg:inset-x-px lg:bottom-0 lg:top-4 lg:block lg:rounded-t-2xl bg-gray-800/80 ring-1 ring-white/10" aria-hidden="true" />
 
-  {tiers.map((tier, index) => {
-    const tierPrice = basePrices[frequency] * (index + 1);
-    const randomHref = hrefOptions[Math.floor(Math.random() * hrefOptions.length)];
-    return (
-      <div
-        key={index}
-        className='bg-gray-800/80 ring-1 ring-white/10 lg:bg-transparent lg:pb-14 lg:ring-0 relative rounded-2xl w-full max-w-[300px] mx-auto'
-      >
-        <div className="p-8 lg:pt-12 xl:p-10 xl:pt-14">
-          <div className="flex items-center justify-start gap-2">
-            <h2 id={tier.name} className="text-2xl font-semibold leading-6 text-cardGreen">
-              {tier.name}
-            </h2>
-            <img className="w-8 h-auto" src={Coins} alt="Coins" />
-          </div>
-          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between lg:flex-col lg:items-stretch">
-            <div className="flex items-center mt-2 gap-x-4">
-              <p className="text-3xl font-bold tracking-tight text-white">
-                ${getPriceWithSymbol(tierPrice, frequency)}
-              </p>
-            </div>
-            <a
-              href={randomHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-describedby={tier.name}
-              className="px-3 py-2 text-sm font-semibold leading-6 text-center text-white rounded-md shadow-sm bg-cardGreen hover:bg-gray-800 focus-visible:outline-cardGreen focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+        {tiers.map((tier, index) => {
+          const tierPrice = basePrices[frequency] * (index + 1);
+          const randomHref = hrefOptions[Math.floor(Math.random() * hrefOptions.length)];
+          return (
+            <div
+              key={index}
+              className="bg-gray-800/80 ring-1 ring-white/10 lg:bg-transparent lg:pb-14 lg:ring-0 relative rounded-2xl w-full max-w-[300px] mx-auto"
             >
-              Comprar
-            </a>
-          </div>
-          <div className="flow-root mt-8 sm:mt-10">
-            <ul
-              role="list"
-              className="-my-2 text-sm leading-6 text-gray-900 border-t divide-y divide-gray-900/5 border-gray-900/5"
-            >
-              {tier.mainFeatures.map((mainFeature, idx) => (
-                <li key={idx} className="flex py-2 text-white gap-x-3">
-                  <svg
-                    className="flex-none w-5 h-6 text-cardGreen"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
+              <div className="p-8 lg:pt-12 xl:p-10 xl:pt-14">
+                <div className="flex items-center justify-start gap-2">
+                  <h2 id={tier.name} className="text-2xl font-semibold leading-6 text-cardGreen">
+                    {tier.name}
+                  </h2>
+                  <img className="w-8 h-auto" src={Coins} alt="Coins" />
+                </div>
+                <div className="flex flex-col gap-6 sm:justify-between lg:flex-col lg:items-stretch">
+                  <div className="flex items-center mt-2 gap-x-4">
+                    <p className="text-3xl font-bold tracking-tight text-white">
+                      ${getPriceWithSymbol(tierPrice, frequency)}
+                    </p>
+                  </div>
+                  <a
+                    href={randomHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-describedby={tier.name}
+                    className="px-3 py-2 text-sm font-semibold leading-6 text-center text-white rounded-md shadow-sm bg-cardGreen hover:bg-gray-800 focus-visible:outline-cardGreen focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  {mainFeature}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+                    Comprar
+                  </a>
+                </div>
+                <div className="flow-root mt-8 sm:mt-10">
+                  <ul
+                    role="list"
+                    className="-my-2 text-sm leading-6 text-gray-900 border-t divide-y divide-gray-900/5 border-gray-900/5"
+                  >
+                    {mainFeatures.map((mainFeature, idx) => (
+                      <li key={idx} className="flex py-2 text-white gap-x-3">
+                        <svg
+                          className="flex-none w-5 h-6 text-cardGreen"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          aria-hidden="true"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        {mainFeature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </div>
-    );
-  })}
-</div>;
-
     </div>
   );
 };
