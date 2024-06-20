@@ -50,7 +50,7 @@ const Faq = () => {
   let currentDelay = 100;
 
   return (
-    <div className="max-w-[70vw] sm:max-w-[30vw] mx-auto my-8">
+    <div className="max-w-[70vw] sm:max-w-[50vw] mx-auto my-8">
       <h1 className='mb-10 text-4xl font-bold text-center text-black'>Preguntas Frecuentes</h1>
       {faqs.map((faq, index) => {
         const delay = currentDelay;
@@ -65,7 +65,7 @@ const Faq = () => {
             <div className="font-bold text-center text-black bg-cardGreen">
               {faq.question}
             </div>
-            {faq.isOpen && <div className="mt-2 text-gray-700">{faq.answer}</div>}
+            {faq.isOpen && <div className="mt-2 text-gray-800">{faq.answer}</div>}
           </div>
         );
       })}

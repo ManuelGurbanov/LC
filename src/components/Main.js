@@ -7,6 +7,7 @@ import CardComponent from './CardComponent';
 import Social from './Social';
 import Faq from './Faq';
 import Cards from '../img/cards.png'
+import Logo from '../img/Logo.png'
 function Main() {
   const scrollToPricingSection = () => {
     const pricingSection = document.getElementById('pricing-section');
@@ -25,9 +26,14 @@ function Main() {
       <section className="flex flex-col items-center justify-center w-screen h-auto mt-8 text-black lg:mt-24 md:flex-row lg:items-start gap-30 lg:gap-10">
 
         <div className="flex flex-col items-start justify-start w-full h-auto gap-4 p-5 mt-5 md:w-2/5">
-          <h1 className='text-4xl font-bold sm:text-7xl' data-aos="fade-up">
-            <span className='italic font-black'>LC </span>MONEDAS
-          </h1>
+          <div className='flex items-center justify-center gap-4'>
+            <img src={Logo}
+                  className='mt-3 w-14'
+                  data-aos="fade-up"></img>
+            <h1 className='text-6xl font-bold sm:text-7xl' data-aos="fade-up">
+              MONEDAS
+            </h1>
+          </div>
           <p className='text-3xl font-bold sm:text-xl' data-aos="fade-up" data-aos-delay="200">El mejor lugar para depositar tu confianza</p>
           <p className='text-2xl font-regular sm:text-lg' data-aos="fade-up" data-aos-delay="300">Comprá tus coins al mejor precio del mercado.</p>
           <h2 className='text-2xl font-bold sm:text-lg' data-aos="fade-up" data-aos-delay="400">Ofrecemos servicios de boosting.</h2>
