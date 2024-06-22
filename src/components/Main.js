@@ -25,7 +25,7 @@ function Main() {
     <div className="flex flex-col">
       <section className="flex flex-col items-center justify-center w-screen h-auto mt-8 text-black lg:mt-24 md:flex-row lg:items-start gap-30 lg:gap-10">
 
-        <div className="flex flex-col items-start justify-start w-full h-auto gap-4 p-5 mt-5 md:w-2/5">
+        <div className="flex flex-col items-start justify-start h-auto gap-4 p-5 mt-5 sm:w-full md:w-2/5">
           <div className='flex items-center justify-center gap-4'>
             <img src={Logo}
                   className='mt-3 w-14'
@@ -34,9 +34,9 @@ function Main() {
               MONEDAS
             </h1>
           </div>
-          <p className='text-3xl font-bold sm:text-xl' data-aos="fade-up" data-aos-delay="200">El mejor lugar para depositar tu confianza</p>
-          <p className='text-2xl font-regular sm:text-lg' data-aos="fade-up" data-aos-delay="300">Comprá tus coins al mejor precio del mercado.</p>
-          <h2 className='text-2xl font-bold sm:text-lg' data-aos="fade-up" data-aos-delay="400">Ofrecemos servicios de boosting.</h2>
+          <p className='text-3xl font-black sm:text-2xl' data-aos="fade-up" data-aos-delay="200">El mejor lugar para depositar tu confianza</p>
+          <p className='text-xl font-bold sm:text-2xl' data-aos="fade-up" data-aos-delay="300">Comprá tus coins al mejor precio del mercado.</p>
+          <h2 className='text-xl font-bold sm:text-2xl' data-aos="fade-up" data-aos-delay="400">Ofrecemos servicios de boosting.</h2>
           <button className='px-4 py-2 text-xl font-bold transition-all duration-150 rounded-lg cursor-pointer bg-cardGreen hover:scale-110 bg-opacity-80'
             onClick={scrollToPricingSection}
           >Ver Precios</button>

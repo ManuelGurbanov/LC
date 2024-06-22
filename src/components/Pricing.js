@@ -2,6 +2,19 @@ import React, { useState } from 'react';
 import { RadioGroup, Radio } from '@headlessui/react';
 import Coins from '../img/coins.png';
 
+import flagArg from '../img/flags/arg.png';
+import flagChi from '../img/flags/chi.png';
+import flagCol from '../img/flags/col.png';
+import flagEurusd from '../img/flags/eurusd.png';
+
+const currencyFlags = {
+  arg: flagArg,
+  chi: flagChi,
+  col: flagCol,
+  eurusd: flagEurusd,
+};
+
+
 const Pricing = () => {
   const [frequency, setFrequency] = useState('arg');
 
@@ -86,19 +99,23 @@ const Pricing = () => {
             onChange={handleFrequencyChange}
             className="grid grid-cols-4 p-1 text-xs font-semibold leading-5 text-center text-black rounded-full gap-x-1"
           >
-            {['arg', 'chi', 'col', 'eurusd'].map((option) => (
-              <Radio
-                key={option}
-                value={option}
-                className={({ checked }) =>
-                  checked
-                    ? 'bg-cardGreen cursor-pointer rounded-full px-2.5 py-1 transition-colors duration-150 overflow-hidden text-black'
-                    : 'bg-transparent cursor-pointer rounded-full px-2.5 py-1 transition-colors duration-150 overflow-hidden text-black'
-                }
-              >
-                {option.toUpperCase()}
-              </Radio>
-            ))}
+                        {['arg', 'chi', 'col', 'eurusd'].map((option) => (
+                            <Radio
+                                key={option}
+                                value={option}
+                                className={({ checked }) =>
+                                    checked
+                                        ? 'bg-cardGreen cursor-pointer rounded-full px-2.5 py-1 transition-colors duration-150 overflow-hidden text-black w-16 h-8 flex items-center justify-center'
+                                        : 'bg-transparent cursor-pointer rounded-full px-2.5 py-1 transition-colors duration-150 overflow-hidden text-black w-16 h-8 flex items-center justify-center'
+                                }
+                            >
+                                <img 
+                                    src={currencyFlags[option]} 
+                                    alt={`${option} flag`} 
+                                    className="w-6 h-4"
+                                />
+                            </Radio>
+                        ))}
           </RadioGroup>
         </fieldset>
       </div>

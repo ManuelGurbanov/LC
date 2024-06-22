@@ -15,11 +15,23 @@ import s11 from '../img/sponsors/payment11.png';
 import s12 from '../img/sponsors/payment12.png';
 import s13 from '../img/sponsors/payment13.png';
 
+import flagArg from '../img/flags/arg.png';
+import flagChi from '../img/flags/chi.png';
+import flagCol from '../img/flags/col.png';
+import flagEurusd from '../img/flags/eurusd.png';
+
 const methodsByCurrency = {
     arg: [s0, s1, s2, s3, s4],
     chi: [s6, s7, s8, s9],
     col: [s9, s10, s11, s12],
     eurusd: [s3, s5, s13],
+};
+
+const currencyFlags = {
+    arg: flagArg,
+    chi: flagChi,
+    col: flagCol,
+    eurusd: flagEurusd,
 };
 
 const Payment = () => {
@@ -46,11 +58,15 @@ const Payment = () => {
                                 value={option}
                                 className={({ checked }) =>
                                     checked
-                                        ? 'bg-cardGreen cursor-pointer rounded-full px-2.5 py-1 transition-colors duration-150 overflow-hidden text-black'
-                                        : 'bg-transparent cursor-pointer rounded-full px-2.5 py-1 transition-colors duration-150 overflow-hidden text-black'
+                                        ? 'bg-cardGreen cursor-pointer rounded-full px-2.5 py-1 transition-colors duration-150 overflow-hidden text-black w-16 h-8 flex items-center justify-center'
+                                        : 'bg-transparent cursor-pointer rounded-full px-2.5 py-1 transition-colors duration-150 overflow-hidden text-black w-16 h-8 flex items-center justify-center'
                                 }
                             >
-                                {option.toUpperCase()}
+                                <img 
+                                    src={currencyFlags[option]} 
+                                    alt={`${option} flag`} 
+                                    className="w-6 h-4"
+                                />
                             </Radio>
                         ))}
                     </RadioGroup>
