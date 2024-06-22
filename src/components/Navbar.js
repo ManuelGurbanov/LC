@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Dialog, DialogPanel } from '@headlessui/react';
 import { Link, useLocation } from 'react-router-dom';
 import Logo from '../img/Logo.png';
+import { auth } from '../firebase';
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -13,9 +14,34 @@ const navigation = [
 export default function Navbar() {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(null);
+      }
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
   const handleLinkClick = () => {
     setMobileMenuOpen(false);
+  };
+
+  const handleLogout = () => {
+    auth.signOut()
+      .then(() => {
+        setUser(null);
+      })
+      .catch((error) => {
+        console.error('Error al cerrar sesión:', error);
+      });
   };
 
   return (
@@ -37,6 +63,26 @@ export default function Navbar() {
               {item.name}
             </Link>
           ))}
+          {user ? (
+            <div className="flex items-center space-x-4">
+              <div className="text-sm font-semibold leading-6 text-gray-800">
+                {user.displayName || user.email}
+              </div>
+              <button
+                onClick={handleLogout}
+                className="px-3 py-2 text-sm font-semibold leading-6 text-white transition-all duration-75 bg-red-600 rounded-md hover:bg-red-500"
+              >
+                Cerrar Sesión
+              </button>
+            </div>
+          ) : (
+            <Link
+              to="/login"
+              className={`text-sm font-semibold leading-6 transition-all duration-75 px-3 py-2 text-gray-800 rounded-md hover:text-white hover:bg-cardGreen2`}
+            >
+              Iniciar Sesión
+            </Link>
+          )}
         </div>
       </nav>
 
@@ -105,6 +151,27 @@ export default function Navbar() {
                     {item.name}
                   </Link>
                 ))}
+                {user ? (
+                  <div className="block px-3 py-2 -mx-3 text-base font-semibold leading-7 text-gray-800 rounded-lg">
+                    {user.displayName || user.email}
+                  </div>
+                ) : (
+                  <Link
+                    to="/login"
+                    className={`block px-3 py-2 -mx-3 text-base font-semibold leading-7 text-gray-800 rounded-lg hover:text-white hover:bg-gray-800/10`}
+                    onClick={handleLinkClick}
+                  >
+                    Iniciar Sesión
+                  </Link>
+                )}
+                {user && (
+                  <button
+                    onClick={handleLogout}
+                    className="block px-3 py-2 -mx-3 text-base font-semibold leading-7 text-white bg-red-600 rounded-md hover:bg-red-500"
+                  >
+                    Cerrar Sesión
+                  </button>
+                )}
               </div>
             </div>
           </div>

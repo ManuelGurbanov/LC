@@ -12,6 +12,10 @@ import Social from './components/Social';
 import Background from './components/Background';
 import Footer from './components/Footer';
 import Payment from './components/Payment';
+import Register from './components/Register'; // Importa el componente Register
+import Login from './components/Login'; // Importa el componente Login
+import MessageSlider from './components/MessageSlider'; // Importa el componente Login
+
 function App() {
   useEffect(() => {
     AOS.init({
@@ -33,6 +37,9 @@ function App() {
               <Route path="/sell-coins" element={<SellCoins />} />
               <Route path="/social" element={<Social />} />
               <Route path="/payment" element={<Payment />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/messageslider" element={<MessageSlider />} />
             </Routes>
           </main>
           <Footer/>

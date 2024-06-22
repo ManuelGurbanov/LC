@@ -3,11 +3,13 @@ import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Pricing from './Pricing';
-import CardComponent from './CardComponent';
 import Social from './Social';
 import Faq from './Faq';
 import Cards from '../img/cards.png'
 import Logo from '../img/Logo.png'
+
+import SendMessage from './SendMessaje';
+
 function Main() {
   const scrollToPricingSection = () => {
     const pricingSection = document.getElementById('pricing-section');
@@ -41,7 +43,7 @@ function Main() {
             onClick={scrollToPricingSection}
           >Ver Precios</button>
         </div>
-        {/* <CardComponent /> */}
+        {/* <SendMessage /> */}
         <div className='flex items-center justify-center'>
           <img className='w-4/5'
           src={Cards} data-aos="fade-down" data-aos-delay="100">
