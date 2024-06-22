@@ -9,8 +9,14 @@ import Cards from '../img/cards.png'
 import Logo from '../img/Logo.png'
 
 import SendMessage from './SendMessaje';
+import MessageSlider from './MessageSlider';
+
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../firebase';
 
 function Main() {
+  const [user] = useAuthState(auth);
+  
   const scrollToPricingSection = () => {
     const pricingSection = document.getElementById('pricing-section');
     pricingSection.scrollIntoView({ behavior: 'smooth' });
@@ -24,40 +30,47 @@ function Main() {
   }, []);
 
   return (
-    <div className="flex flex-col">
+    <section className="flex flex-col">
       <section className="flex flex-col items-center justify-center w-screen h-auto mt-8 text-black lg:mt-24 md:flex-row lg:items-start gap-30 lg:gap-10">
-
-        <div className="flex flex-col items-start justify-start h-auto gap-4 p-5 mt-5 sm:w-full md:w-2/5">
-          <div className='flex items-center justify-center gap-4'>
-            <img src={Logo}
-                  className='mt-3 w-14'
-                  data-aos="fade-up"></img>
-            <h1 className='text-6xl font-bold sm:text-7xl' data-aos="fade-up">
-              MONEDAS
-            </h1>
+          <div className="flex flex-col items-start justify-start h-auto gap-4 p-5 mt-5 sm:w-full md:w-2/5">
+            <div className='flex items-center justify-center gap-4'>
+              <img src={Logo}
+                    className='mt-3 w-14'
+                    data-aos="fade-up"></img>
+              <h1 className='text-6xl font-bold sm:text-7xl' data-aos="fade-up">
+                MONEDAS
+              </h1>
+            </div>
+            <p className='text-3xl font-black sm:text-2xl' data-aos="fade-up" data-aos-delay="200">El mejor lugar para depositar tu confianza</p>
+            <p className='text-xl font-bold sm:text-2xl' data-aos="fade-up" data-aos-delay="300">Comprá tus coins al mejor precio del mercado.</p>
+            <h2 className='text-xl font-bold sm:text-2xl' data-aos="fade-up" data-aos-delay="400">Ofrecemos servicios de boosting.</h2>
+            <button className='px-4 py-2 text-xl font-bold transition-all duration-150 rounded-lg cursor-pointer bg-cardGreen hover:scale-110 bg-opacity-80'
+              onClick={scrollToPricingSection}
+            >Ver Precios</button>
           </div>
-          <p className='text-3xl font-black sm:text-2xl' data-aos="fade-up" data-aos-delay="200">El mejor lugar para depositar tu confianza</p>
-          <p className='text-xl font-bold sm:text-2xl' data-aos="fade-up" data-aos-delay="300">Comprá tus coins al mejor precio del mercado.</p>
-          <h2 className='text-xl font-bold sm:text-2xl' data-aos="fade-up" data-aos-delay="400">Ofrecemos servicios de boosting.</h2>
-          <button className='px-4 py-2 text-xl font-bold transition-all duration-150 rounded-lg cursor-pointer bg-cardGreen hover:scale-110 bg-opacity-80'
-            onClick={scrollToPricingSection}
-          >Ver Precios</button>
-        </div>
-        {/* <SendMessage /> */}
-        <div className='flex items-center justify-center'>
-          <img className='w-4/5'
-          src={Cards} data-aos="fade-down" data-aos-delay="100">
+          <div className='flex items-center justify-center'>
+            <img className='w-4/5'
+            src={Cards} data-aos="fade-down" data-aos-delay="100">
 
-          </img>
-        </div>
+            </img>
+          </div>
       </section>
 
       <section id="pricing-section" className="flex-grow">
         <Pricing />
+
+        <section className="mt-10 nb-10">
+          {user ? <SendMessage currentUser={user} /> : <p>Inicia sesión para enviar una reseña.</p>}
+          <MessageSlider />
+        </section>
+
         <Faq/>
         <Social />
       </section>
-    </div>
+
+
+
+    </section>
   );
 }
 

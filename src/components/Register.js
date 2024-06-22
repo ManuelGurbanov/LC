@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { auth } from '../firebase';
-import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'; // Importar updateProfile
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 
 const Register = () => {
   const [email, setEmail] = useState('');

@@ -6,28 +6,23 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const MessageSlider = () => {
-  const [messages, setMessages] = useState([]);
+  const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    const fetchMessages = async () => {
-      try {
-        const q = query(collection(db, 'messages'), orderBy('timestamp', 'desc'));
-        const unsubscribe = onSnapshot(q, (querySnapshot) => {
-          const fetchedMessages = [];
-          querySnapshot.forEach((doc) => {
-            fetchedMessages.push({ id: doc.id, ...doc.data() });
-          });
-          setMessages(fetchedMessages);
+    const fetchReviews = () => {
+      const q = query(collection(db, 'reviews'), orderBy('timestamp', 'desc'));
+      const unsubscribe = onSnapshot(q, (querySnapshot) => {
+        const fetchedReviews = [];
+        querySnapshot.forEach((doc) => {
+          fetchedReviews.push({ id: doc.id, ...doc.data() });
         });
-        
-        // Cleanup function to unsubscribe from the snapshot listener
-        return () => unsubscribe();
-      } catch (error) {
-        console.error('Error al obtener mensajes:', error);
-      }
+        setReviews(fetchedReviews);
+      });
+
+      return () => unsubscribe();
     };
 
-    fetchMessages();
+    fetchReviews();
   }, []);
 
   const settings = {
@@ -39,13 +34,14 @@ const MessageSlider = () => {
   };
 
   return (
-    <div className="mt-8">
-      <h2 className="mb-4 text-2xl font-bold">Mensajes de Clientes</h2>
+    <div className="w-screen mt-12 mb-12">
+      <h2 className="mb-4 text-4xl font-bold text-center">Reseñas de Clientes</h2>
       <Slider {...settings}>
-        {messages.map((message) => (
-          <div key={message.id} className="text-center">
-            <p className="text-lg">{message.text}</p>
-            <p className="mt-2 text-gray-500">Enviado: {message.timestamp?.toDate().toLocaleString()}</p>
+        {reviews.map((review) => (
+          <div key={review.id} className="text-center">
+            <p className="text-2xl">{review.reviewtext}</p>
+            <p className="mt-2 text-xl text-gray-500">Enviado por: {review.username}</p>
+            <p className="mt-2 text-xl text-gray-500">{review.timestamp?.toDate().toLocaleString()}</p>
           </div>
         ))}
       </Slider>
