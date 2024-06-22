@@ -59,9 +59,9 @@ function Main() {
       <section id="pricing-section" className="flex-grow">
         <Pricing />
 
-        <section className="mt-10 nb-10">
-          {user ? <SendMessage currentUser={user} /> : <p>Inicia sesión para enviar una reseña.</p>}
+        <section className="mt-10 mb-10">
           <MessageSlider />
+          {user ? <SendMessage currentUser={user} /> : <p className='text-xl text-center'>Inicia sesión para enviar una reseña.</p>}
         </section>
 
         <Faq/>

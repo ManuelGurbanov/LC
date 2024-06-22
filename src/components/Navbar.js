@@ -65,8 +65,8 @@ export default function Navbar() {
           ))}
           {user ? (
             <div className="flex items-center space-x-4">
-              <div className="text-sm font-semibold leading-6 text-gray-800">
-                {user.displayName || user.email}
+              <div className="text-sm font-black leading-6 text-gray-800">
+                {user.displayName}
               </div>
               <button
                 onClick={handleLogout}
@@ -152,8 +152,8 @@ export default function Navbar() {
                   </Link>
                 ))}
                 {user ? (
-                  <div className="block px-3 py-2 -mx-3 text-base font-semibold leading-7 text-gray-800 rounded-lg">
-                    {user.displayName || user.email}
+                  <div className="block px-3 py-2 -mx-3 text-base font-black leading-7 text-gray-800 rounded-lg">
+                    {user.displayName}
                   </div>
                 ) : (
                   <Link
