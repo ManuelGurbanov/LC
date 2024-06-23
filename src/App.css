@@ -13,3 +13,7 @@ html, body {
   .min-h-screen {
     min-height: 100vh;
   }
+
+  textarea {
+    resize: none;
+  }

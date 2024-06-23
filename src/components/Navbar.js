@@ -34,15 +34,6 @@ export default function Navbar() {
     setMobileMenuOpen(false);
   };
 
-  const handleLogout = () => {
-    auth.signOut()
-      .then(() => {
-        setUser(null);
-      })
-      .catch((error) => {
-        console.error('Error al cerrar sesión:', error);
-      });
-  };
 
   return (
     <header className="w-full bg-opacity-75 bg-cardGreen2">
@@ -56,24 +47,25 @@ export default function Navbar() {
             <Link
               key={item.name}
               to={item.href}
-              className={`text-sm font-semibold leading-6 transition-all duration-75  px-3 py-2 ${
-                location.pathname === item.href ? 'bg-cardGreen text-black rounded-md hover:bg-cardGreen2' : 'text-gray-800 hover:text-white hover:bg-cardGreen2'
+              className={`text-sm font-semibold leading-6 transition-all duration-75 px-3 py-2 rounded-xl ${
+                location.pathname === item.href ? 'bg-cardGreen text-black  hover:bg-cardGreen2' : 'text-gray-800 hover:text-white hover:bg-cardGreen2 rounded-2xl'
               }`}
             >
               {item.name}
             </Link>
           ))}
           {user ? (
-            <div className="flex items-center space-x-4">
-              <div className="text-sm font-black leading-6 text-gray-800">
+            <div className="flex items-center gap-x-12">
+              <div className="px-3 py-2 text-sm font-black leading-6 text-gray-800">
                 {user.displayName}
               </div>
-              <button
-                onClick={handleLogout}
-                className="px-3 py-2 text-sm font-semibold leading-6 text-white transition-all duration-75 bg-red-600 rounded-md hover:bg-red-500"
-              >
-                Cerrar Sesión
-              </button>
+              <Link
+                    to="/acount"
+                    className={`bg-cardGreen2 px-3 py-2 -mx-3 text-base font-semibold leading-7 text-gray-800 rounded-lg hover:text-white `}
+                    onClick={handleLinkClick}
+                  >
+                    Mi Cuenta
+              </Link>
             </div>
           ) : (
             <Link
@@ -165,12 +157,14 @@ export default function Navbar() {
                   </Link>
                 )}
                 {user && (
-                  <button
-                    onClick={handleLogout}
-                    className="block px-3 py-2 -mx-3 text-base font-semibold leading-7 text-white bg-red-600 rounded-md hover:bg-red-500"
+                  
+                  <Link
+                    to="/acount"
+                    className={`block px-3 py-2 -mx-3 text-base font-semibold leading-7 text-gray-800 rounded-lg hover:text-white hover:bg-gray-800/10`}
+                    onClick={handleLinkClick}
                   >
-                    Cerrar Sesión
-                  </button>
+                    Mi Cuenta
+                  </Link>
                 )}
               </div>
             </div>

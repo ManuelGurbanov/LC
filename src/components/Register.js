@@ -57,7 +57,7 @@ const Register = () => {
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
+          placeholder="Correo"
           className="w-full p-2 mb-2 border rounded"
           required
         />

@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { db } from '../firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
@@ -12,18 +11,19 @@ const SendMessage = ({ currentUser }) => {
   }, [currentUser]);
 
   const sendReview = async () => {
-    console.log('Review to be sent:', review);
-    console.log('Current user details:', currentUser);
 
     if (!currentUser || !currentUser.email || review.trim() === '') {
       setError('El campo de reseña no puede estar vacío y el usuario debe estar autenticado.');
-      console.log('Error: Empty review or unauthenticated user');
       return;
     }
 
     if (review.length < 10) {
       setError('La reseña debe tener al menos 10 caracteres.');
-      console.log('Error: Review too short');
+      return;
+    }
+
+    if (review.length > 140) {
+      setError('La reseña no puede tener más de 140 caracteres.');
       return;
     }
 
@@ -46,16 +46,17 @@ const SendMessage = ({ currentUser }) => {
   return (
     <div className="flex items-center justify-center w-full p-4">
       <div className="flex flex-col items-center justify-center w-[60vw]">
-        <p className="mb-4 text-2xl font-bold text-center">Enviar Reseña</p>
+        <p className="mb-4 text-2xl font-bold text-center">Enviar Comentario</p>
         <textarea
           value={review}
           onChange={(e) => setReview(e.target.value)}
           placeholder="Escribe tu reseña..."
-          className="w-full p-2 mb-2 border rounded"
+          className="w-3/4 p-2 mb-2 border rounded"
+          maxLength="140"
           required
         />
-        <button onClick={sendReview} className="w-full p-2 text-white bg-blue-500 rounded">
-          Enviar Reseña
+        <button onClick={sendReview} className="w-3/4 p-2 text-white bg-blue-500 rounded">
+          Enviar
         </button>
         {error && <p className="mt-2 text-red-500 w-[60vw]">{error}</p>}
       </div>

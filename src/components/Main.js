@@ -35,13 +35,13 @@ function Main() {
           <div className="flex flex-col items-start justify-start h-auto gap-4 p-5 mt-5 sm:w-full md:w-2/5">
             <div className='flex items-center justify-center gap-4'>
               <img src={Logo}
-                    className='mt-3 w-14'
+                    className='w-12 mt-3 sm:w-14'
                     data-aos="fade-up"></img>
-              <h1 className='text-6xl font-bold sm:text-7xl' data-aos="fade-up">
+              <h1 className='text-4xl font-bold sm:text-7xl' data-aos="fade-up">
                 MONEDAS
               </h1>
             </div>
-            <p className='text-3xl font-black sm:text-2xl' data-aos="fade-up" data-aos-delay="200">El mejor lugar para depositar tu confianza</p>
+            <p className='text-2xl font-bold sm:text-3xl' data-aos="fade-up" data-aos-delay="200">El mejor lugar para depositar tu confianza</p>
             <p className='text-xl font-bold sm:text-2xl' data-aos="fade-up" data-aos-delay="300">Comprá tus coins al mejor precio del mercado.</p>
             <h2 className='text-xl font-bold sm:text-2xl' data-aos="fade-up" data-aos-delay="400">Ofrecemos servicios de boosting.</h2>
             <button className='px-4 py-2 text-xl font-bold transition-all duration-150 rounded-lg cursor-pointer bg-cardGreen hover:scale-110 bg-opacity-80'

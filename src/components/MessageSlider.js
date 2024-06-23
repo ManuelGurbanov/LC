@@ -35,10 +35,10 @@ const MessageSlider = () => {
 
   return (
     <div className="w-screen mt-12 mb-12">
-      <h2 className="mb-4 text-4xl font-bold text-center">Reseñas de Clientes</h2>
+      <h2 className="mb-4 text-4xl font-bold text-center">Comentarios de Clientes</h2>
       <Slider {...settings}>
         {reviews.map((review) => (
-          <div key={review.id} className="text-center">
+          <div key={review.id} className="p-5 text-center">
             <p className="text-2xl">{review.reviewtext}</p>
             <p className="mt-2 text-xl text-gray-500">Enviado por: {review.username}</p>
             <p className="mt-2 text-xl text-gray-500">{review.timestamp?.toDate().toLocaleString()}</p>

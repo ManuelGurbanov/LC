@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
 import { auth } from '../firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
   const [loginMessage, setLoginMessage] = useState('');
-
+  const navigate = useNavigate();
+  
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
       console.log('Usuario logueado exitosamente:', user);
-      setLoggedIn(true);
       setLoginMessage('Logueado correctamente');
+      navigate('/');
     } catch (error) {
       console.error('Error al iniciar sesión', error);
-      setLoggedIn(false);
       setLoginMessage('Error al iniciar sesión. Verifica tus credenciales.');
     }
   };
@@ -32,7 +32,7 @@ const Login = () => {
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
+          placeholder="Correo"
           className="w-full p-2 mb-2 border rounded"
           required
         />
@@ -40,7 +40,7 @@ const Login = () => {
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
+          placeholder="Contraseña"
           className="w-full p-2 mb-2 border rounded"
           required
         />
