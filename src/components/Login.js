@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { auth } from '../firebase';
+import { auth, provider } from '../firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
-
+import { signInWithPopup } from 'firebase/auth';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -23,10 +23,21 @@ const Login = () => {
       setLoginMessage('Error al iniciar sesión. Verifica tus credenciales.');
     }
   };
+  
+  const handleGoogleLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      console.log('Usuario logueado con Google:', user);
+      alert('Usuario logueado exitosamente con Google');
+    } catch (error) {
+      console.error('Error al loguear con Google', error);
+    }
+  };
 
   return (
     <div className="flex flex-col items-center justify-start min-h-screen mt-12">
-      <form onSubmit={handleLogin} className="p-4 rounded shadow-md bg-zinc-100">
+      <form onSubmit={handleLogin} className="w-4/5 p-4 rounded shadow-md sm:w-1/4 bg-zinc-100">
         <h2 className="mb-4 text-2xl font-bold">Iniciar Sesión</h2>
         <input
           type="email"
@@ -45,6 +56,11 @@ const Login = () => {
           required
         />
         <button type="submit" className="w-full p-2 mb-4 text-white bg-blue-500 rounded">Iniciar Sesión</button>
+
+        <button onClick={handleGoogleLogin} className="w-full p-2 text-white bg-red-500 rounded">
+        Iniciar sesión con Google
+        </button>
+        
         <h2 className={loggedIn ? 'text-green-500' : 'text-red-500'}>{loginMessage}</h2>
 
           <Link to="/register" className="text-blue-500 hover:underline">

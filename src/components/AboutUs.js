@@ -2,14 +2,14 @@ import React from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-import c00 from '../img/cards/c00.png';
-import c01 from '../img/cards/c01.png';
-import c02 from '../img/cards/c02.png';
-import c03 from '../img/cards/c03.png';
-import c04 from '../img/cards/c04.png';
-import c05 from '../img/cards/c05.png';
-import c06 from '../img/cards/c06.png';
-import c07 from '../img/cards/c07.png';
+import c00 from '../img/cards/c00.webp';
+import c01 from '../img/cards/c01.webp';
+import c02 from '../img/cards/c02.webp';
+import c03 from '../img/cards/c03.webp';
+import c04 from '../img/cards/c04.webp';
+import c05 from '../img/cards/c05.webp';
+import c06 from '../img/cards/c06.webp';
+import c07 from '../img/cards/c07.webp';
 
 import Logo from '../img/Logo.png';
 AOS.init({

@@ -5,7 +5,7 @@ import 'aos/dist/aos.css';
 import Pricing from './Pricing';
 import Social from './Social';
 import Faq from './Faq';
-import Cards from '../img/cards.png'
+import Cards from '../img/cards.webp'
 import Logo from '../img/Logo.png'
 
 import SendMessage from './SendMessaje';
@@ -44,6 +44,7 @@ function Main() {
             <p className='text-2xl font-bold sm:text-3xl' data-aos="fade-up" data-aos-delay="200">El mejor lugar para depositar tu confianza</p>
             <p className='text-xl font-bold sm:text-2xl' data-aos="fade-up" data-aos-delay="300">Comprá tus coins al mejor precio del mercado.</p>
             <h2 className='text-xl font-bold sm:text-2xl' data-aos="fade-up" data-aos-delay="400">Ofrecemos servicios de boosting.</h2>
+            <h2 className='text-xl font-bold sm:text-2xl' data-aos="fade-up" data-aos-delay="400">Registrate y llevate 10% de descuento en tu primera compra.</h2>
             <button className='px-4 py-2 text-xl font-bold transition-all duration-150 rounded-lg cursor-pointer bg-cardGreen hover:scale-110 bg-opacity-80'
               onClick={scrollToPricingSection}
             >Ver Precios</button>
@@ -65,7 +66,7 @@ function Main() {
         </section>
 
         <Faq/>
-        <Social />
+        <Social phrase={"Contactanos por Instagram o WhatsApp para comprar tus monedas al mejor precio del mercado."}/>
       </section>
 
 

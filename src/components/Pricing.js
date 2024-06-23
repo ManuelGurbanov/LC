@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { RadioGroup, Radio } from '@headlessui/react';
-import Coins from '../img/coins.png';
+import Coins from '../img/coins.webp';
 
-import flagArg from '../img/flags/arg.png';
-import flagChi from '../img/flags/chi.png';
-import flagCol from '../img/flags/col.png';
-import flagEurusd from '../img/flags/eurusd.png';
+import flagArg from '../img/flags/arg.webp';
+import flagChi from '../img/flags/chi.webp';
+import flagCol from '../img/flags/col.webp';
+import flagEurusd from '../img/flags/eurusd.webp';
 
-import PS from '../img/platforms/ps.png';
-import XB from '../img/platforms/xb.png';
-import PC from '../img/platforms/pc.png';
+import PS from '../img/platforms/ps.webp';
+import XB from '../img/platforms/xb.webp';
+import PC from '../img/platforms/pc.webp';
 
 const currencyFlags = {
   arg: flagArg,
