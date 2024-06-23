@@ -7,17 +7,26 @@ import flagChi from '../img/flags/chi.png';
 import flagCol from '../img/flags/col.png';
 import flagEurusd from '../img/flags/eurusd.png';
 
+import PS from '../img/platforms/ps.png';
+import XB from '../img/platforms/xb.png';
+import PC from '../img/platforms/pc.png';
+
 const currencyFlags = {
   arg: flagArg,
   chi: flagChi,
   col: flagCol,
   eurusd: flagEurusd,
 };
+const platforms = {
+  ps: PS,
+  xb: XB,
+  pc: PC,
+};
 
 
 const Pricing = () => {
   const [frequency, setFrequency] = useState('arg');
-
+  const [platform, setPlatform] = useState('ps');
   const hrefOptions = [
     'https://wa.me/message/OWAU65Z5WGWMI1',
     'https://wa.me/message/OWAU65Z5WGWMI1',
@@ -83,7 +92,9 @@ const Pricing = () => {
   const handleFrequencyChange = (value) => {
     setFrequency(value);
   };
-
+  const handlePlatformChange = (value) => {
+    setPlatform(value);
+  };
   return (
     <div className="flex flex-col items-center w-full h-auto px-4 py-8 sm:px-8 sm:py-16">
       <h1 data-aos="fade-up" data-aos-delay="100" className="max-w-4xl mx-auto text-5xl font-bold tracking-tight text-center text-black">
@@ -92,7 +103,36 @@ const Pricing = () => {
       <p data-aos="fade-up" data-aos-delay="200" className="max-w-2xl mx-auto mt-4 text-lg leading-8 text-center text-gray-800">
         Precios para cada región
       </p>
-      <div data-aos="fade-up" data-aos-delay="300" className="flex justify-center mt-10">
+      <div data-aos="fade-up" data-aos-delay="300" className="flex flex-col justify-center gap-4 mt-10">
+
+      <fieldset aria-label="platforms">
+          <RadioGroup
+            value={platform}
+            onChange={handlePlatformChange}
+            className="flex justify-center text-center text-black rounded-full gap-x-1"
+          >
+              {['ps', 'xb', 'pc'].map((option) => (
+                  <Radio
+                      key={option}
+                      value={option}
+                      className={({ checked }) =>
+                          checked
+                              ? 'bg-cardGreen cursor-pointer rounded-full px-2 py-2 transition-colors duration-150 overflow-hidden text-black w-16 h-16 flex items-center justify-center'
+                              : 'bg-transparent cursor-pointer rounded-full px-2 py-2 transition-colors duration-150 overflow-hidden text-black w-16 h-16 flex items-center justify-center'
+                      }
+                  >
+                      <img 
+                          src={platforms[option]} 
+                          alt={`${option}`} 
+                          className="w-8 h-8"
+                      />
+                  </Radio>
+              ))}
+          </RadioGroup>
+        </fieldset>
+
+
+        
         <fieldset aria-label="Frecuencia de pago">
           <RadioGroup
             value={frequency}
