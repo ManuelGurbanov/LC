@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { auth, provider } from '../firebase';
-import { createUserWithEmailAndPassword, updateProfile, signInWithPopup } from 'firebase/auth';
+import { auth } from '../firebase';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 
 const Register = () => {
   const [email, setEmail] = useState('');
@@ -41,17 +41,6 @@ const Register = () => {
     }
   };
 
-  const handleGoogleLogin = async () => {
-    try {
-      const result = await signInWithPopup(auth, provider);
-      const user = result.user;
-      console.log('Usuario logueado con Google:', user);
-      alert('Usuario logueado exitosamente con Google');
-    } catch (error) {
-      console.error('Error al loguear con Google', error);
-      setErrorText('Error al loguear con Google.');
-    }
-  };
 
   return (
     <div className="flex flex-col items-center justify-start min-h-screen">
@@ -89,12 +78,9 @@ const Register = () => {
           className="w-full p-2 mb-2 border rounded"
           required
         />
-        <button type="submit" className="w-full p-2 text-white bg-blue-500 rounded">Registrarse</button>
-        {errorText && <p className="mt-2 text-red-500">{errorText}</p>}
+        <button type="submit" className="w-full p-2 text-white transition-all duration-100 bg-blue-500 rounded hover:bg-blue-600">Registrarse</button>
+        {errorText && <p className="mt-2 text-red-500" >{errorText}</p>}
       </form>
-      <button onClick={handleGoogleLogin} className="w-4/5 p-2 mt-4 text-white bg-red-500 rounded sm:w-1/4">
-        Iniciar sesión con Google
-      </button>
     </div>
   );
 };

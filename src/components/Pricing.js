@@ -118,7 +118,7 @@ const Pricing = () => {
                       className={({ checked }) =>
                           checked
                               ? 'bg-cardGreen cursor-pointer rounded-full px-2 py-2 transition-colors duration-150 overflow-hidden text-black w-16 h-16 flex items-center justify-center'
-                              : 'bg-transparent cursor-pointer rounded-full px-2 py-2 transition-colors duration-150 overflow-hidden text-black w-16 h-16 flex items-center justify-center'
+                              : 'bg-transparent cursor-pointer rounded-full px-2 py-2 transition-all duration-150 overflow-hidden text-black w-16 h-16 flex items-center justify-center hover:scale-110'
                       }
                   >
                       <img 
@@ -146,7 +146,7 @@ const Pricing = () => {
                                 className={({ checked }) =>
                                     checked
                                         ? 'bg-cardGreen cursor-pointer rounded-full px-2.5 py-1 transition-colors duration-150 overflow-hidden text-black w-16 h-8 flex items-center justify-center'
-                                        : 'bg-transparent cursor-pointer rounded-full px-2.5 py-1 transition-colors duration-150 overflow-hidden text-black w-16 h-8 flex items-center justify-center'
+                                        : 'bg-transparent cursor-pointer rounded-full px-2.5 py-1 transition-all duration-150 overflow-hidden text-black w-16 h-8 flex items-center justify-center hover:scale-110'
                                 }
                             >
                                 <img 

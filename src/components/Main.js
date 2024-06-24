@@ -62,7 +62,7 @@ function Main() {
 
         <section className="mt-10 mb-10">
           <MessageSlider />
-          {user ? <SendMessage currentUser={user} /> : <p className='text-xl text-center'>Inicia sesión para enviar un comentario.</p>}
+          {user ? <SendMessage currentUser={user} /> : <p className='text-xl text-center'>Ingresa con Google o registrate para enviar un comentario.</p>}
         </section>
 
         <Faq/>

@@ -55,10 +55,10 @@ const Login = () => {
           className="w-full p-2 mb-2 border rounded"
           required
         />
-        <button type="submit" className="w-full p-2 mb-4 text-white bg-blue-500 rounded">Iniciar Sesión</button>
+        <button type="submit" className="w-full p-2 mb-2 text-white transition-all duration-100 bg-blue-500 rounded hover:bg-blue-600">Iniciar Sesión</button>
 
-        <button onClick={handleGoogleLogin} className="w-full p-2 text-white bg-red-500 rounded">
-        Iniciar sesión con Google
+        <button onClick={handleGoogleLogin} className="w-full p-2 mb-4 text-white transition-all duration-100 bg-red-500 rounded hover:bg-red-600">
+        Ingresar con Google
         </button>
         
         <h2 className={loggedIn ? 'text-green-500' : 'text-red-500'}>{loginMessage}</h2>
