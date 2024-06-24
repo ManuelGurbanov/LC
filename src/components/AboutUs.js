@@ -20,10 +20,10 @@ AOS.init({
 function AboutUs() {
   return (
     <div className="flex flex-col items-center justify-center w-screen min-h-screen">
-      <section className="flex flex-col items-center justify-start w-[70vw] sm:w-[80vw] flex-grow mt-12 text-black gap-1 p-4">
+      <section className="flex flex-col items-center justify-start w-[90vw] sm:w-[80vw] flex-grow mt-12 text-black gap-1 p-4">
         <div className='flex items-center justify-center gap-4'>
           <img src={Logo} className='w-12 mt-3 sm:w-14' data-aos="fade-up"></img>
-          <h1 className='text-4xl italic font-bold sm:text-7xl' data-aos="fade-up">
+          <h1 className='text-4xl italic font-bold text-center sm:text-7xl' data-aos="fade-up">
             Nosotros
           </h1>
         </div>
@@ -42,7 +42,7 @@ function AboutUs() {
           <img src={c00} alt="c03" className="w-auto h-auto sm:max-w-[8%]"/>
         </div>
 
-        <h2 className="mt-8 text-3xl italic font-bold sm:text-2xl" data-aos="fade-up" data-aos-delay="80">Acerca de las monedas EA FC 24:</h2>
+        <h2 className="mt-8 text-3xl italic font-bold text-center sm:text-2xl" data-aos="fade-up" data-aos-delay="80">Acerca de las monedas EA FC 24:</h2>
         <div className="relative flex flex-col items-center w-full p-4 text-lg sm:flex-row sm:w-auto font-regular" data-aos="fade-up" data-aos-delay="90">
           <img src={c04} alt="c04" className="w-auto h-auto sm:max-w-[8%]"/>
           <p className="flex-grow px-4">
@@ -50,7 +50,7 @@ function AboutUs() {
           </p>
         </div>
 
-        <h3 className="mt-6 text-2xl italic font-bold sm:text-2xl" data-aos="fade-up" data-aos-delay="100">Existen diferentes maneras de ganar monedas en EAFC24:</h3>
+        <h3 className="mt-6 text-2xl italic font-bold text-center sm:text-2xl" data-aos="fade-up" data-aos-delay="100">Existen diferentes maneras de ganar monedas en EAFC24:</h3>
         <div className="relative flex flex-col items-center w-full p-4 text-lg sm:flex-row sm:w-auto font-regular" data-aos="fade-up" data-aos-delay="100">
           <ul className="flex-grow px-4 list-disc list-inside">
             <li>Jugando Division rivals donde te darán sobres una vez a la semana (todos los jueves, se pueden elegir sobres transferibles o intransferibles).</li>
@@ -62,7 +62,7 @@ function AboutUs() {
           <img src={c01} alt="c01" className="w-auto h-auto sm:max-w-[8%]"/>
         </div>
 
-        <h3 className="mt-6 text-2xl italic font-bold sm:text-2xl" data-aos="fade-up" data-aos-delay="200">¿Por qué necesito comprar monedas FUT 24?</h3>
+        <h3 className="mt-6 text-2xl italic font-bold text-center sm:text-2xl" data-aos="fade-up" data-aos-delay="200">¿Por qué necesito comprar monedas FUT 24?</h3>
         <div className="relative flex flex-col items-center w-full p-4 text-lg sm:flex-row sm:w-auto font-regular" data-aos="fade-up" data-aos-delay="300">
           <img src={c02} alt="c02" className="w-auto h-auto sm:max-w-[8%]"/>
           <p className="flex-grow px-4">
