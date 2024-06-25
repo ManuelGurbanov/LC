@@ -31,7 +31,7 @@ function Main() {
 
   return (
     <section className="flex flex-col">
-      <section className="flex flex-col items-center justify-center w-screen h-auto mt-8 text-black lg:mt-24 md:flex-row lg:items-start gap-30 lg:gap-10">
+      <section className="flex flex-col items-center justify-center w-screen h-auto mt-16 text-black lg:mt-24 md:flex-row lg:items-start gap-30 lg:gap-10">
           <div className="flex flex-col items-start justify-start h-auto gap-4 p-5 mt-5 sm:w-full md:w-2/5">
             <div className='flex items-center justify-center gap-4'>
               <img src={Logo}

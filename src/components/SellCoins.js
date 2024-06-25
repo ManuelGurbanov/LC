@@ -11,8 +11,8 @@ AOS.init({
 function SellCoins() {
   return (
     <>
-      <section className="flex flex-col items-center justify-start w-[100vw]">
-        <section className="flex flex-col items-center justify-start w-[90vw] min-h-[70vh] mt-12 text-black gap-2">
+      <section className="flex flex-col items-center justify-start w-[100vw] ">
+        <section className="flex flex-col items-center justify-start w-[90vw] min-h-[70vh] mt-28 lg:mt-28 text-black gap-2">
           <h1 className="text-3xl font-bold sm:text-6xl" data-aos="fade-up" data-aos-delay="100">Vende tus Monedas</h1>
           
           <p className="p-4 mt-4 text-xl font-regular" data-aos="fade-right" data-aos-delay="200">

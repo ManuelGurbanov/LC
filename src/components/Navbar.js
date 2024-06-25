@@ -36,7 +36,7 @@ export default function Navbar() {
 
 
   return (
-    <header className="w-full bg-opacity-75 bg-cardGreen2">
+    <header className="fixed z-50 w-full bg-opacity-95 bg-cardGreen2">
       <nav className="items-center justify-between hidden p-2 mx-auto lg:flex max-w-7xl lg:px-8" aria-label="Global">
         <Link to="/">
           <span className="sr-only">LC</span>

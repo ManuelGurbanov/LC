@@ -20,7 +20,7 @@ AOS.init({
 function AboutUs() {
   return (
     <div className="flex flex-col items-center justify-center w-screen min-h-screen">
-      <section className="flex flex-col items-center justify-start w-[90vw] sm:w-[80vw] flex-grow mt-12 text-black gap-1 p-4">
+      <section className="flex flex-col items-center justify-start w-[90vw] sm:w-[80vw] flex-grow mt-20 lg:mt-24 text-black gap-1 p-4">
         <div className='flex items-center justify-center gap-4'>
           <img src={Logo} className='w-12 mt-3 sm:w-14' data-aos="fade-up"></img>
           <h1 className='text-4xl italic font-bold text-center sm:text-7xl' data-aos="fade-up">
