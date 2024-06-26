@@ -36,8 +36,8 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-start min-h-screen mt-12">
-      <form onSubmit={handleLogin} className="w-4/5 p-4 rounded shadow-md sm:w-1/4 bg-zinc-100">
+    <div className="flex flex-col items-center justify-start min-h-screen">
+      <form onSubmit={handleLogin} className="w-4/5 p-4 rounded shadow-md sm:w-1/4 bg-zinc-100 mt-28">
         <h2 className="mb-4 text-2xl font-bold">Iniciar Sesión</h2>
         <input
           type="email"

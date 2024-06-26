@@ -44,7 +44,7 @@ const Register = () => {
 
   return (
     <div className="flex flex-col items-center justify-start min-h-screen">
-      <form onSubmit={handleRegister} className="w-4/5 p-4 mt-12 rounded shadow-md sm:w-1/4 bg-zinc-100">
+      <form onSubmit={handleRegister} className="w-4/5 p-4 rounded shadow-md mt-28 sm:w-1/4 bg-zinc-100">
         <h2 className="mb-4 text-2xl font-bold">Registrarse</h2>
         <input
           type="text"
