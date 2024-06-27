@@ -5,7 +5,8 @@ import Coins from '../img/coins.webp';
 import flagArg from '../img/flags/arg.webp';
 import flagChi from '../img/flags/chi.webp';
 import flagCol from '../img/flags/col.webp';
-import flagEurusd from '../img/flags/eurusd.webp';
+import flagEur from '../img/flags/eur.webp';
+import flagEeuu from '../img/flags/eurusd.webp';
 
 import PS from '../img/platforms/ps.webp';
 import XB from '../img/platforms/xb.webp';
@@ -15,7 +16,8 @@ const currencyFlags = {
   arg: flagArg,
   chi: flagChi,
   col: flagCol,
-  eurusd: flagEurusd,
+  eurusd: flagEur,
+  eeuu: flagEeuu,
 };
 const platforms = {
   ps: PS,
@@ -38,6 +40,7 @@ const Pricing = () => {
     chi: 1805,
     col: 15640,
     eurusd: 4,
+    eeuu: 4,
   };
 
   const mainFeatures = ['Transaccion segura', 'Entrega rapida y confiable.', 'Asesoria gratuita para tu equipo.'];
@@ -83,7 +86,9 @@ const Pricing = () => {
       case 'col':
         return `${price} COP`;
       case 'eurusd':
-        return `${price} USD/EUR`;
+        return `${price} EUR/USDt`;
+      case 'eeuu':
+          return `${price} USD/USDt`;
       default:
         return `${price}`;
     }
@@ -137,22 +142,22 @@ const Pricing = () => {
           <RadioGroup
             value={frequency}
             onChange={handleFrequencyChange}
-            className="grid grid-cols-4 p-1 text-xs font-semibold leading-5 text-center text-black rounded-full gap-x-1"
+            className="grid grid-cols-5 p-1 text-xs font-semibold leading-5 text-center text-black rounded-full gap-x-1"
           >
-                        {['arg', 'chi', 'col', 'eurusd'].map((option) => (
+                        {['arg', 'chi', 'col', 'eeuu', 'eurusd'].map((option) => (
                             <Radio
                                 key={option}
                                 value={option}
                                 className={({ checked }) =>
                                     checked
-                                        ? 'bg-cardGreen cursor-pointer rounded-full px-2.5 py-1 transition-colors duration-150 overflow-hidden text-black w-16 h-8 flex items-center justify-center'
-                                        : 'bg-transparent cursor-pointer rounded-full px-2.5 py-1 transition-all duration-150 overflow-hidden text-black w-16 h-8 flex items-center justify-center hover:scale-110'
+                                        ? 'bg-cardGreen cursor-pointer rounded-full px-4.5 py-3 transition-colors duration-150 overflow-hidden text-black w-16 h-8 flex items-center justify-center'
+                                        : 'bg-transparent cursor-pointer rounded-full px-4.5 py-3 transition-all duration-150 overflow-hidden text-black w-16 h-8 flex items-center justify-center hover:scale-110'
                                 }
                             >
                                 <img 
                                     src={currencyFlags[option]} 
                                     alt={`${option} flag`} 
-                                    className="w-6 h-4"
+                                    className="w-8"
                                 />
                             </Radio>
                         ))}

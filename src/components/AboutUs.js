@@ -91,9 +91,15 @@ function AboutUs() {
           <img src={c07} alt="c03" className="w-auto h-auto sm:max-w-[8%]"/>
         </div>
         
-        <h3 className="w-full p-4 mt-2 text-2xl italic font-bold text-center sm:w-auto" data-aos="fade-up" data-aos-delay="600">
-          Comprá ya tus monedas
-        </h3>
+        <a href="https://wa.me/message/OWAU65Z5WGWMI1" 
+            className="flex items-center justify-center px-3 py-2 transition-all duration-75 rounded-lg bg-cardGreen2 hover:bg-opacity-45"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-aos="fade-up" data-aos-delay="400">
+          <h3 className="w-full text-2xl italic font-bold text-center sm:w-auto" >
+            Comprá ya tus monedas
+          </h3>
+        </a>
       </section>
     </div>
   );
