@@ -29,8 +29,9 @@ const platforms = {
 const Pricing = () => {
   const [frequency, setFrequency] = useState('arg');
   const [platform, setPlatform] = useState('ps');
+  
   const hrefOptions = [
-    'https://wa.me/message/OWAU65Z5WGWMI1',
+    'https://wa.me/message/BCJSJE3WA5BDE1',
     'https://wa.me/message/OWAU65Z5WGWMI1',
   ];
 
@@ -172,7 +173,7 @@ const Pricing = () => {
 
         {tiers.map((tier, index) => {
           const tierPrice = basePrices[frequency] * (index + 1);
-          const randomHref = hrefOptions[Math.floor(Math.random() * hrefOptions.length)];
+          const randomHref = hrefOptions[Math.round(Math.random())];
           return (
             <div
               key={index}

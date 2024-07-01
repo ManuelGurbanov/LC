@@ -5,7 +5,6 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Navbar from './components/Navbar';
 import Main from './components/Main';
-import Pricing from './components/Pricing';
 import AboutUs from './components/AboutUs';
 import SellCoins from './components/SellCoins';
 import Social from './components/Social';

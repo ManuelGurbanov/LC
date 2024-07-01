@@ -45,8 +45,9 @@ function Main() {
             <p className='text-2xl font-bold sm:text-4xl' data-aos="fade-up" data-aos-delay="300">Comprá tus coins al mejor precio del mercado.</p>
             <h2 className='text-xl font-bold sm:text-2xl' data-aos="fade-up" data-aos-delay="400">Ofrecemos servicios de boosting.</h2>
             <h2 className='text-xl font-bold sm:text-2xl' data-aos="fade-up" data-aos-delay="400">Registrate y llevate 10% de descuento en tu primera compra.</h2>
-            <button className='px-4 py-2 text-xl font-bold transition-all duration-150 rounded-lg cursor-pointer bg-cardGreen hover:scale-110 bg-opacity-80'
+            <button className='px-4 py-2 text-xl font-bold transition-transform duration-150 rounded-lg cursor-pointer bg-cardGreen hover:scale-110 bg-opacity-80'
               onClick={scrollToPricingSection}
+              data-aos="fade-up" data-aos-delay="400"
             >Ver Precios</button>
           </div>
           <div className='flex items-center justify-center'>
