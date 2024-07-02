@@ -38,7 +38,7 @@ const Pricing = () => {
   //precio de las 100k, después se calculan solos
   const basePrices = {
     arg: 3500,
-    chi: 1805,
+    chi: 3610,
     col: 15640,
     eurusd: 4,
     eeuu: 4,
