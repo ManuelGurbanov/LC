@@ -9,6 +9,7 @@ const Register = () => {
   const [displayName, setDisplayName] = useState('');
   const [errorText, setErrorText] = useState('');
 
+  
   const handleRegister = async (e) => {
     e.preventDefault();
 

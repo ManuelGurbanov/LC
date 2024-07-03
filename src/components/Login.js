@@ -30,6 +30,7 @@ const Login = () => {
       const user = result.user;
       console.log('Usuario logueado con Google:', user);
       alert('Usuario logueado exitosamente con Google');
+      navigate('/');
     } catch (error) {
       console.error('Error al loguear con Google', error);
     }

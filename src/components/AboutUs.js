@@ -11,7 +11,7 @@ import c05 from '../img/cards/c05.webp';
 import c06 from '../img/cards/c06.webp';
 import c07 from '../img/cards/c07.webp';
 
-import Logo from '../img/Logo.png';
+import Logo from '../img/Logo.webp';
 AOS.init({
   duration: 500,
   once: true,

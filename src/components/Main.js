@@ -6,7 +6,7 @@ import Pricing from './Pricing';
 import Social from './Social';
 import Faq from './Faq';
 import Cards from '../img/cards.webp'
-import Logo from '../img/Logo.png'
+import Logo from '../img/Logo.webp'
 
 import SendMessage from './SendMessaje';
 import MessageSlider from './MessageSlider';

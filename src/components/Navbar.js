@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Dialog, DialogPanel } from '@headlessui/react';
 import { Link, useLocation } from 'react-router-dom';
-import Logo from '../img/Logo.png';
+import Logo from '../img/Logo.webp';
 import { auth } from '../firebase';
 
 const navigation = [
