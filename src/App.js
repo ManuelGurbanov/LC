@@ -15,6 +15,7 @@ import Register from './components/Register';
 import Login from './components/Login';
 import UpdatePassword from './components/UpdatePassword';
 import MyAccount from './components/MyAccount';
+import Slider from './components/Slider';
 
 function App() {
   useEffect(() => {
@@ -41,6 +42,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/password" element={<UpdatePassword />} />
               <Route path="/acount" element={<MyAccount />} />
+              <Route path="/clients" element={<Slider />} />
             </Routes>
           </main>
           <Footer/>
