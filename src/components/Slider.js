@@ -57,7 +57,7 @@ const Slider = () => {
         </button>
       </div>
 
-      <p className='w-1/2 mt-4 text-3xl text-center text-black'>
+      <p className='w-3/4 mt-4 mb-4 text-3xl text-center text-black sm:w-1/2'>
         Aca les dejamos los equipos de nuestros clientes. A muchos los ayudamos con nuestra asesoria.
       </p>
       <p className='w-3/4 mb-10 text-3xl font-bold text-center text-black'>
