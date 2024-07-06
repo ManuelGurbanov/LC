@@ -1,16 +1,25 @@
 import React, { useState } from 'react';
-import team0 from '../img/teams/0.jpg';
-import team1 from '../img/teams/1.jpg';
-import team2 from '../img/teams/2.jpg';
-
+import team0 from '../img/teams/0.webp';
+import team1 from '../img/teams/1.webp';
+import team2 from '../img/teams/2.webp';
+import team3 from '../img/teams/3.webp';
+import team4 from '../img/teams/4.webp';
+import team5 from '../img/teams/5.webp';
+import team6 from '../img/teams/6.webp';
 
 import ArrowLeft from '../img/arrows/ArrowLeft.svg';
 import ArrowRight from '../img/arrows/ArrowRight.svg';
 
+import Social from './Social';
+
 const images = [
     team0,
     team1,
-    team2
+    team2,
+    team3,
+    team4,
+    team5,
+    team6
 ];
 
 const Slider = () => {
@@ -25,9 +34,9 @@ const Slider = () => {
   };
 
   return (
-    <main className='flex flex-col h-screen gap-2 p-4 mb-10 rounded-2xl'>
+    <main className='flex flex-col items-center justify-start min-h-screen gap-2 p-4 mb-10 rounded-2xl'>
       <h1 className='mt-24 text-4xl font-bold text-center text-black'>Equipos de clientes</h1>
-      
+
       <div className="relative flex items-center justify-center w-full mx-auto mt-10 sm:w-3/5">
         <button
           onClick={prevSlide}
@@ -47,7 +56,17 @@ const Slider = () => {
           <img src={ArrowRight} alt='ArrowRight' className='w-6' />
         </button>
       </div>
+
+      <p className='w-1/2 mt-4 text-3xl text-center text-black'>
+        Aca les dejamos los equipos de nuestros clientes. A muchos los ayudamos con nuestra asesoria.
+      </p>
+      <p className='w-3/4 mb-10 text-3xl font-bold text-center text-black'>
+        Todos confiaron en nosotros y nos compraron monedas para poder lograrlos. Pedinos las tuyas y proba alguno de estos jugadorazos!!!
+      </p>
+
+      <Social/>
     </main>
+
   );
 };
 
