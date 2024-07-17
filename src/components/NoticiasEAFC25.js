@@ -13,7 +13,7 @@ const NoticiasEAFC25 = () => {
       <div className='flex flex-col items-center w-4/5 text-center sm:flex-row'>
         <div className='flex flex-col items-center w-full h-full'>
           <h2 className='mt-10 text-3xl font-bold'>Edición Estándar</h2>
-          <h3 className='mt-2 text-3xl font-regular'>$69,99 USD</h3>
+          {/* <h3 className='mt-2 text-3xl font-regular'>$69,99 USD</h3> */}
           <img className='w-full p-2 mt-5 sm:w-3/5' src={img2URL} alt='EAFC 25' />
         </div>
         <div className='flex flex-col items-center w-full h-full'>
