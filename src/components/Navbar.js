@@ -9,7 +9,8 @@ const navigation = [
   { name: 'Nosotros', href: '/about-us' },
   { name: 'Vende tus Monedas', href: '/sell-coins' },
   { name: 'Métodos de Pago', href: '/payment' },
-  { name: 'Equipos de Clientes', href: '/clients' }
+  { name: 'Equipos de Clientes', href: '/clients' },
+  { name: 'EAFC25', href: '/eafc25' }
 ];
 
 export default function Navbar() {
@@ -38,12 +39,12 @@ export default function Navbar() {
 
   return (
     <header className="fixed z-50 w-full bg-opacity-95 bg-cardGreen2">
-      <nav className="items-center justify-between hidden p-2 mx-auto lg:flex max-w-7xl lg:px-8" aria-label="Global">
+      <nav className="items-center justify-between hidden p-2 mx-auto lg:flex max-w-7xl lg:px-5" aria-label="Global">
         <Link to="/">
           <span className="sr-only">LC</span>
           <img className="w-auto h-8 m-3 transition duration-75 hover:scale-110" src={Logo} alt="Logo" />
         </Link>
-        <div className="flex gap-x-12">
+        <div className="flex gap-x-8">
           {navigation.map((item) => (
             <Link
               key={item.name}

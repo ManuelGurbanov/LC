@@ -16,6 +16,8 @@ import Login from './components/Login';
 import UpdatePassword from './components/UpdatePassword';
 import MyAccount from './components/MyAccount';
 import Slider from './components/Slider';
+import NoticiasEAFC25 from './components/NoticiasEAFC25';
+
 
 function App() {
   useEffect(() => {
@@ -43,6 +45,7 @@ function App() {
               <Route path="/password" element={<UpdatePassword />} />
               <Route path="/acount" element={<MyAccount />} />
               <Route path="/clients" element={<Slider />} />
+              <Route path='/eafc25' element={<NoticiasEAFC25 />} />
             </Routes>
           </main>
           <Footer/>

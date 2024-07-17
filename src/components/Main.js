@@ -14,6 +14,7 @@ import MessageSlider from './MessageSlider';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../firebase';
 
+
 function Main() {
   const [user] = useAuthState(auth);
   
