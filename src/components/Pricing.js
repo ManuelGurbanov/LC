@@ -37,11 +37,11 @@ const Pricing = () => {
 
   //precio de las 100k, después se calculan solos
   const basePrices = {
-    arg: 3500,
-    chi: 3610,
-    col: 15640,
-    eurusd: 4,
-    eeuu: 4,
+    arg: 3000,
+    chi: 3230,
+    col: 14179,
+    eurusd: 2,
+    eeuu: 2,
   };
 
   const mainFeatures = ['Transaccion segura', 'Entrega rapida y confiable.', 'Asesoria gratuita para tu equipo.'];
