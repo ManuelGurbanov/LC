@@ -40,8 +40,8 @@ const Pricing = () => {
     arg: 3000,
     chi: 3230,
     col: 14179,
-    eurusd: 2,
-    eeuu: 2,
+    eurusd: 3.50,
+    eeuu: 3.50,
   };
 
   const mainFeatures = ['Transaccion segura', 'Entrega rapida y confiable.', 'Asesoria gratuita para tu equipo.'];
