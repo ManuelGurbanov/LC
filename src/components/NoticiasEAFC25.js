@@ -10,15 +10,18 @@ const almacenamientoDuplicadosURL = "img/duplicates.jpeg";
 const rivalsURL = "/img/rivals.jpeg";
 const seasonPassURL = "/img/seassonpass.jpeg";
 
+const maiconURL = '/img/maicon.webp';
+const gutiURL = '/img/guti.webp';
+
 const NoticiasEAFC25 = () => {
   const [selectedOption, setSelectedOption] = useState('noticias');
-
+  
   return (
     <section className='flex flex-col items-center justify-start w-full min-h-dvh'>
       <h1 className='p-4 mt-24 text-4xl font-bold text-center'>Noticias, Filtraciones y Predicciones de EAFC 25</h1>
       
       <div className='grid grid-cols-2 gap-4 mt-10 sm:flex sm:flex-row sm:space-x-4'>
-        {['noticias', 'ediciones', 'ligas', 'pase de temporada', 'almacenamiento', 'rivals', 'evoluciones'].map((option) => (
+        {['noticias', 'ediciones', 'ligas', 'pase de temporada', 'almacenamiento', 'rivals', 'evoluciones', 'cartas'].map((option) => (
           <button
             key={option}
             className={`cursor-pointer rounded-full px-4 py-2 transition-all duration-150 text-black ${
@@ -139,6 +142,13 @@ const NoticiasEAFC25 = () => {
           <div className='flex flex-col items-center w-4/5 mt-10'>
             <h2 className='text-3xl font-bold'>Evoluciones</h2>
             <img className='w-full p-2 mt-5 sm:w-3/5' src={evolucionesURL} alt='EAFC 25 Evoluciones' />
+          </div>
+        )}
+        
+        {selectedOption === 'cartas' && (
+          <div className='flex flex-col items-center justify-center sm:flex-row'>
+              <img className='w-full p-2 mt-5 sm:w-1/4' src={maiconURL} alt='EAFC 25 Evoluciones' />
+              <img className='w-full p-2 mt-5 sm:w-1/4' src={gutiURL} alt='EAFC 25 Evoluciones' />
           </div>
         )}
       </div> 
