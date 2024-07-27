@@ -12,7 +12,7 @@ const seasonPassURL = "/img/seassonpass.jpeg";
 
 const maiconURL = '/img/maicon.webp';
 const gutiURL = '/img/guti.webp';
-
+const matuURL = '/img/matuidi.webp';
 const gkURL = '/img/gk.png';
 
 const NoticiasEAFC25 = () => {
@@ -162,6 +162,7 @@ const NoticiasEAFC25 = () => {
         {selectedOption === 'pase de temporada' && (
           <div className='flex flex-col items-center w-full mt-10'>
             <h2 className='text-3xl font-bold'>Pase de Temporada</h2>
+            <p className='text-xl '>En Fc25 Tendremos un pase premium y un pase gratuito.</p>
             <img className='w-full mt-5 sm:p-2' src={seasonPassURL} alt='EAFC 25 Evoluciones' />
           </div>
         )}
@@ -180,15 +181,20 @@ const NoticiasEAFC25 = () => {
         {selectedOption === 'evoluciones' && (
           <div className='flex flex-col items-center w-4/5 mt-10'>
             <h2 className='text-3xl font-bold'>Evoluciones</h2>
+            <p className='text-xl '>Ahora en Fc25 podrás elegir el color de tu carta en Evoluciones.</p>
             <img className='w-full p-2 mt-5 sm:w-3/5' src={evolucionesURL} alt='EAFC 25 Evoluciones' />
           </div>
         )}
         
         {selectedOption === 'cartas' && (
-          <div className='flex flex-col items-center justify-center sm:flex-row'>
-              <img className='w-full p-2 mt-5 sm:w-1/4' src={maiconURL} alt='EAFC 25 Evoluciones' />
-              <img className='w-full p-2 mt-5 sm:w-1/4' src={gutiURL} alt='EAFC 25 Evoluciones' />
-          </div>
+          <>
+            <h1 className='w-full mt-4 text-3xl font-bold text-center'>Filtraciones de jugadores en FC25</h1>
+                <div className='flex flex-col items-center justify-center sm:flex-row'>
+                <img className='w-full p-2 mt-5 sm:w-1/4' src={maiconURL} alt='Maicon' />
+                <img className='w-full p-2 mt-5 sm:w-1/4' src={gutiURL} alt='Guti' />
+                <img className='w-full p-2 mt-5 sm:w-1/4' src={matuURL} alt='Matuidi' />
+            </div>
+          </>
         )}
       </div> 
     </section>
