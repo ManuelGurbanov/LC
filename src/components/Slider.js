@@ -7,6 +7,7 @@ import team4 from '../img/teams/4.webp';
 import team5 from '../img/teams/5.webp';
 import team6 from '../img/teams/6.webp';
 import team7 from '../img/teams/7.webp';
+import team8 from '../img/teams/8.webp';
 
 import ArrowLeft from '../img/arrows/ArrowLeft.svg';
 import ArrowRight from '../img/arrows/ArrowRight.svg';
@@ -21,7 +22,8 @@ const images = [
     team4,
     team5,
     team6,
-    team7
+    team7,
+    team8
 ];
 
 const Slider = () => {
