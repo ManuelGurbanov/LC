@@ -15,6 +15,7 @@ const gutiURL = '/img/guti.webp';
 const matuURL = '/img/matuidi.webp';
 const gkURL = '/img/gk.png';
 const rushIMG = '/img/rushImg.webp';
+const noorURL = '/img/noor.png';
 
 const NoticiasEAFC25 = () => {
   const [selectedOption, setSelectedOption] = useState('noticias');
@@ -190,6 +191,7 @@ const NoticiasEAFC25 = () => {
                 <img className='w-full p-2 mt-5 sm:w-1/4' src={maiconURL} alt='Maicon' />
                 <img className='w-full p-2 mt-5 sm:w-1/4' src={gutiURL} alt='Guti' />
                 <img className='w-full p-2 mt-5 sm:w-1/4' src={matuURL} alt='Matuidi' />
+                <img className='w-full p-2 mt-5 sm:w-1/4' src={noorURL} alt='Noor' />
             </div>
           </>
         )}
