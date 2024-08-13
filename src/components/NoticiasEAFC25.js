@@ -10,12 +10,11 @@ const almacenamientoDuplicadosURL = "img/duplicates.jpeg";
 const rivalsURL = "/img/rivals.jpeg";
 const seasonPassURL = "/img/seassonpass.jpeg";
 
-const maiconURL = '/img/maicon.webp';
-const gutiURL = '/img/guti.webp';
-const matuURL = '/img/matuidi.webp';
-const gkURL = '/img/gk.png';
-const rushIMG = '/img/rushImg.webp';
-const noorURL = '/img/noor.png';
+const rushIMG = "/img/rushImg.webp";
+const gkURL = "/img/gk.webp";
+
+const heroes = '/img/heroes.jpg';
+const heroes2 = '/img/heroes2.jpg';
 
 const NoticiasEAFC25 = () => {
   const [selectedOption, setSelectedOption] = useState('noticias');
@@ -25,7 +24,7 @@ const NoticiasEAFC25 = () => {
       <h1 className='p-4 mt-24 text-4xl font-bold text-center'>Noticias, Filtraciones y Predicciones de EAFC 25</h1>
       
       <div className='grid grid-cols-2 gap-4 mt-10 sm:flex sm:flex-row sm:space-x-4'>
-        {['noticias', 'ediciones', 'ligas', 'pase de temporada', 'almacenamiento', 'rivals', 'evoluciones', 'cartas'].map((option) => (
+        {['noticias', 'ediciones', 'ligas', 'pase de temporada', 'almacenamiento', 'rivals', 'evoluciones', 'jugadores'].map((option) => (
           <button
             key={option}
             className={`cursor-pointer rounded-full px-4 py-2 transition-all duration-150 text-black ${
@@ -184,14 +183,12 @@ const NoticiasEAFC25 = () => {
           </div>
         )}
         
-        {selectedOption === 'cartas' && (
+        {selectedOption === 'jugadores' && (
           <>
             <h1 className='w-full mt-4 text-3xl font-bold text-center'>Filtraciones de jugadores en FC25</h1>
-                <div className='flex flex-col items-center justify-center sm:flex-row'>
-                <img className='w-full p-2 mt-5 sm:w-1/4' src={maiconURL} alt='Maicon' />
-                <img className='w-full p-2 mt-5 sm:w-1/4' src={gutiURL} alt='Guti' />
-                <img className='w-full p-2 mt-5 sm:w-1/4' src={matuURL} alt='Matuidi' />
-                <img className='w-full p-2 mt-5 sm:w-1/4' src={noorURL} alt='Noor' />
+                <div className='flex flex-col items-center justify-center gap-3 mt-4 sm:flex-row'>
+                <img src={heroes} className='w-full sm:w-1/2'></img>
+                <img src={heroes2} className='w-full sm:w-1/2'></img>
             </div>
           </>
         )}
