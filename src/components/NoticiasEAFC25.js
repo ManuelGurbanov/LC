@@ -16,6 +16,16 @@ const gkURL = "/img/gk.webp";
 const heroes = '/img/heroes.jpg';
 const heroes2 = '/img/heroes2.jpg';
 
+const p1 = '/img/p1.jpg';
+const p2 = '/img/p2.jpg';
+const p3 = '/img/p3.jpg';
+const p4 = '/img/p4.jpg';
+
+const messi = '/img/messi.jpg';
+const cr7 = '/img/cr7.jpg';
+const mbappe = '/img/mbappe.jpg';
+const bellingham = '/img/bellingham.jpg';
+
 const NoticiasEAFC25 = () => {
   const [selectedOption, setSelectedOption] = useState('noticias');
   
@@ -184,14 +194,25 @@ const NoticiasEAFC25 = () => {
         )}
         
         {selectedOption === 'jugadores' && (
-          <>
-            <h1 className='w-full mt-4 text-3xl font-bold text-center'>Filtraciones de jugadores en FC25</h1>
-                <div className='flex flex-col items-center justify-center gap-3 mt-4 sm:flex-row'>
-                <img src={heroes} className='w-full sm:w-1/2'></img>
-                <img src={heroes2} className='w-full sm:w-1/2'></img>
-            </div>
-          </>
-        )}
+  <>
+    <h1 className='w-full mt-4 text-3xl font-bold text-center'>
+      Filtraciones de jugadores en FC25
+    </h1>
+    <div className='grid gap-3 mt-4 sm:grid-cols-2'>
+      <img src={heroes} className='w-full mx-auto my-auto'></img>
+      <img src={heroes2} className='w-full mx-auto my-auto'></img>
+      <img src={messi} className='w-full mx-auto my-auto'></img>
+      <img src={mbappe} className='w-full mx-auto my-auto'></img>
+      <img src={cr7} className='w-full mx-auto my-auto'></img>
+      <img src={bellingham} className='w-full mx-auto my-auto'></img>
+      <img src={p1} className='w-full mx-auto my-auto'></img>
+      <img src={p2} className='w-full mx-auto my-auto'></img>
+      <img src={p3} className='w-full mx-auto my-auto'></img>
+      <img src={p4} className='w-full mx-auto my-auto'></img>
+    </div>
+  </>
+)}
+
       </div> 
     </section>
   );
