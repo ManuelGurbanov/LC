@@ -47,7 +47,7 @@ const Payment = () => {
 
     return (
         <div className="flex flex-col items-center justify-center w-screen h-[80vh]">
-            <h1 className='font-bold text-4xl w-[80vw] text-black mt-24 lg:mt-28 text-center'>Métodos de Pago</h1>
+            <h1 className='font-bold text-4xl w-[80vw] text-white mt-24 lg:mt-28 text-center'>Métodos de Pago</h1>
 
             <div data-aos="fade-up" data-aos-delay="300" className="flex justify-center mt-10">
                 <fieldset aria-label="Frecuencia de pago">

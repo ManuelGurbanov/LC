@@ -5,8 +5,8 @@ import 'aos/dist/aos.css';
 import Pricing from './Pricing';
 import Social from './Social';
 import Faq from './Faq';
-import Cards from '../img/cards.webp'
-import Logo from '../img/Logo.webp'
+import Cards from '../img/cards_25.png'
+import Logo from '../img/logo.png'
 
 import SendMessage from './SendMessaje';
 import MessageSlider from './MessageSlider';
@@ -32,7 +32,7 @@ function Main() {
 
   return (
     <section className="flex flex-col">
-      <section className="flex flex-col items-center justify-center w-screen h-auto mt-16 text-black lg:mt-24 md:flex-row lg:items-start gap-30 lg:gap-10">
+      <section className="flex flex-col items-center justify-center w-screen h-auto mt-16 text-white lg:mt-24 md:flex-row lg:items-start gap-30 lg:gap-10">
           <div className="flex flex-col items-start justify-start h-auto gap-4 p-5 mt-5 sm:w-full md:w-2/5">
             <div className='flex items-center justify-center gap-4'>
               <img src={Logo}
@@ -61,7 +61,7 @@ function Main() {
 
       <section id="pricing-section" className="flex-grow">
         <Pricing />
-        <section className="flex flex-col items-center justify-center w-screen h-auto mt-16 text-black lg:mt-24 md:flex-row lg:items-start gap-30 lg:gap-10">
+        <section className="flex flex-col items-center justify-center w-screen h-auto mt-16 text-white lg:mt-24 md:flex-row lg:items-start gap-30 lg:gap-10">
           <div className="flex flex-col items-center justify-start w-full h-auto gap-4 p-5 mt-5 sm:w-4/5">
             <p className='mb-4 text-2xl font-bold text-center' data-aos="fade-up">
             ¿Querés mejores recompensas?, ¿Te cansaste de hacerte problema?, ¿No tenes tiempo de sobra para el fin de semana?

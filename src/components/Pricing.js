@@ -103,10 +103,10 @@ const Pricing = () => {
   };
   return (
     <div className="flex flex-col items-center w-full h-auto px-4 py-8 sm:px-8 sm:py-16">
-      <h1 data-aos="fade-up" data-aos-delay="100" className="max-w-4xl mx-auto text-5xl font-bold tracking-tight text-center text-black">
+      <h1 data-aos="fade-up" data-aos-delay="100" className="max-w-4xl mx-auto text-5xl font-bold tracking-tight text-center text-white">
         Precios de Monedas
       </h1>
-      <p data-aos="fade-up" data-aos-delay="200" className="max-w-2xl mx-auto mt-4 text-lg leading-8 text-center text-gray-800">
+      <p data-aos="fade-up" data-aos-delay="200" className="max-w-2xl mx-auto mt-4 text-lg leading-8 text-center text-gray-200">
         Precios para cada región
       </p>
       <div data-aos="fade-up" data-aos-delay="300" className="flex flex-col justify-center gap-4 mt-10">
@@ -115,7 +115,7 @@ const Pricing = () => {
           <RadioGroup
             value={platform}
             onChange={handlePlatformChange}
-            className="flex justify-center text-center text-black rounded-full gap-x-1"
+            className="flex justify-center text-center text-white rounded-full gap-x-1"
           >
               {['ps', 'xb', 'pc'].map((option) => (
                   <Radio
@@ -123,8 +123,8 @@ const Pricing = () => {
                       value={option}
                       className={({ checked }) =>
                           checked
-                              ? 'bg-cardGreen cursor-pointer rounded-full px-2 py-2 transition-colors duration-150 overflow-hidden text-black w-16 h-16 flex items-center justify-center'
-                              : 'bg-transparent cursor-pointer rounded-full px-2 py-2 transition-all duration-150 overflow-hidden text-black w-16 h-16 flex items-center justify-center hover:scale-110'
+                              ? 'bg-cardGreen cursor-pointer rounded-full px-2 py-2 transition-colors duration-150 overflow-hidden text-white w-16 h-16 flex items-center justify-center'
+                              : 'bg-transparent cursor-pointer rounded-full px-2 py-2 transition-all duration-150 overflow-hidden text-white w-16 h-16 flex items-center justify-center hover:scale-110'
                       }
                   >
                       <img 
@@ -143,7 +143,7 @@ const Pricing = () => {
           <RadioGroup
             value={frequency}
             onChange={handleFrequencyChange}
-            className="grid grid-cols-5 p-1 text-xs font-semibold leading-5 text-center text-black rounded-full gap-x-1"
+            className="grid grid-cols-5 p-1 text-xs font-semibold leading-5 text-center text-white rounded-full gap-x-1"
           >
                         {['arg', 'chi', 'col', 'eeuu', 'eurusd'].map((option) => (
                             <Radio
@@ -151,8 +151,8 @@ const Pricing = () => {
                                 value={option}
                                 className={({ checked }) =>
                                     checked
-                                        ? 'bg-cardGreen cursor-pointer rounded-full px-4.5 py-3 transition-colors duration-150 overflow-hidden text-black w-16 h-8 flex items-center justify-center'
-                                        : 'bg-transparent cursor-pointer rounded-full px-4.5 py-3 transition-all duration-150 overflow-hidden text-black w-16 h-8 flex items-center justify-center hover:scale-110'
+                                        ? 'bg-cardGreen cursor-pointer rounded-full px-4.5 py-3 transition-colors duration-150 overflow-hidden text-white w-16 h-8 flex items-center justify-center'
+                                        : 'bg-transparent cursor-pointer rounded-full px-4.5 py-3 transition-all duration-150 overflow-hidden text-white w-16 h-8 flex items-center justify-center hover:scale-110'
                                 }
                             >
                                 <img 
@@ -181,7 +181,7 @@ const Pricing = () => {
             >
               <div className="p-8 lg:pt-12 xl:p-10 xl:pt-14">
                 <div className="flex items-center justify-start gap-2">
-                  <h2 id={tier.name} className="text-2xl font-semibold leading-6 text-cardGreen">
+                  <h2 id={tier.name} className="text-2xl font-semibold leading-6 text-white">
                     {tier.name}
                   </h2>
                   <img className="w-8 h-auto" src={Coins} alt="Coins" />
@@ -197,7 +197,7 @@ const Pricing = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-describedby={tier.name}
-                    className="px-3 py-2 text-sm font-semibold leading-6 text-center text-white rounded-md shadow-sm bg-cardGreen hover:bg-gray-800 focus-visible:outline-cardGreen focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                    className="px-3 py-2 text-sm font-semibold leading-6 text-center text-white rounded-md shadow-sm bg-cardGreen2 hover:bg-gray-800 focus-visible:outline-cardGreen focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                   >
                     Comprar
                   </a>
@@ -214,7 +214,7 @@ const Pricing = () => {
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
-                          stroke="currentColor"
+                          stroke="white"
                           aria-hidden="true"
                         >
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />

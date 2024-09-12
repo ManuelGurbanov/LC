@@ -14,7 +14,7 @@ function SellCoins() {
   return (
     <>
       <section className="flex flex-col items-center justify-start w-[100vw] ">
-        <section className="flex flex-col items-center justify-start w-[90vw] min-h-[70vh] mt-28 lg:mt-28 text-black gap-2">
+        <section className="flex flex-col items-center justify-start w-[90vw] min-h-[70vh] mt-28 lg:mt-28 text-white gap-2">
           <div className="flex items-center justify-center w-full gap-5">
 
             <img src={Coins} className='w-12 mt-3 sm:w-14' data-aos="fade-up"></img>

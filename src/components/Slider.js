@@ -39,7 +39,7 @@ const Slider = () => {
 
   return (
     <main className='flex flex-col items-center justify-start min-h-screen gap-2 p-4 mb-10 rounded-2xl'>
-      <h1 className='mt-24 text-4xl font-bold text-center text-black'>Equipos de clientes</h1>
+      <h1 className='mt-24 text-4xl font-bold text-center text-white'>Equipos de clientes</h1>
 
       <div className="relative flex items-center justify-center w-full mx-auto mt-10 sm:w-3/5">
         <button
@@ -61,10 +61,10 @@ const Slider = () => {
         </button>
       </div>
 
-      <p className='w-3/4 mt-4 mb-4 text-3xl text-center text-black sm:w-1/2'>
+      <p className='w-3/4 mt-4 mb-4 text-3xl text-center text-white sm:w-1/2'>
         Aca les dejamos los equipos de nuestros clientes. A muchos los ayudamos con nuestra asesoria.
       </p>
-      <p className='w-3/4 mb-10 text-3xl font-bold text-center text-black'>
+      <p className='w-3/4 mb-10 text-3xl font-bold text-center text-white'>
         Todos confiaron en nosotros y nos compraron monedas para poder lograrlos. Pedinos las tuyas y proba alguno de estos jugadorazos!!!
       </p>
 

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Dialog, DialogPanel } from '@headlessui/react';
 import { Link, useLocation } from 'react-router-dom';
-import Logo from '../img/Logo.webp';
+import Logo from '../img/logo.png';
 import { auth } from '../firebase';
 
 const navigation = [
@@ -50,7 +50,7 @@ export default function Navbar() {
               key={item.name}
               to={item.href}
               className={`text-sm font-semibold leading-6 transition-all duration-75 px-3 py-2 rounded-xl ${
-                location.pathname === item.href ? 'bg-cardGreen text-black  hover:bg-cardGreen2' : 'text-gray-800 hover:text-white hover:bg-cardGreen2 rounded-2xl'
+                location.pathname === item.href ? 'bg-cardGreen text-white  hover:bg-cardGreen2' : 'text-gray-200 hover:text-white hover:bg-cardGreen2 rounded-2xl'
               }`}
             >
               {item.name}
@@ -72,7 +72,7 @@ export default function Navbar() {
           ) : (
             <Link
               to="/login"
-              className={`text-sm font-semibold leading-6 transition-all duration-75 px-3 py-2 text-gray-800 rounded-md hover:text-white hover:bg-cardGreen2`}
+              className={`text-sm font-semibold leading-6 transition-all duration-75 px-3 py-2 text-gray-400 rounded-md hover:text-white hover:bg-cardGreen2`}
             >
               Iniciar Sesión
             </Link>

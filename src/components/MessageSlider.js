@@ -40,8 +40,8 @@ const MessageSlider = () => {
         {reviews.map((review) => (
           <div key={review.id} className="p-5 text-center">
             <p className="text-2xl">{review.reviewtext}</p>
-            <p className="mt-2 text-xl text-gray-500">Enviado por: {review.username}</p>
-            <p className="mt-2 text-xl text-gray-500">{review.timestamp?.toDate().toLocaleString()}</p>
+            <p className="mt-2 text-xl text-white">Enviado por: {review.username}</p>
+            <p className="mt-2 text-xl text-white">{review.timestamp?.toDate().toLocaleString()}</p>
           </div>
         ))}
       </Slider>

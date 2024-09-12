@@ -51,7 +51,7 @@ const Faq = () => {
 
   return (
     <div className="max-w-[70vw] sm:max-w-[50vw] mx-auto my-8">
-      <h1 className='mb-10 text-4xl font-bold text-center text-black'>Preguntas Frecuentes</h1>
+      <h1 className='mb-10 text-4xl font-bold text-center text-white'>Preguntas Frecuentes</h1>
       {faqs.map((faq, index) => {
         const delay = currentDelay;
         currentDelay += 100;
@@ -62,10 +62,10 @@ const Faq = () => {
             onClick={() => toggleFaq(index)}
             data-aos="fade-up" data-aos-delay={delay} 
           >
-            <div className="font-bold text-center text-black bg-cardGreen">
+            <div className="font-bold text-center text-white bg-cardGreen">
               {faq.question}
             </div>
-            {faq.isOpen && <div className="mt-2 text-gray-800">{faq.answer}</div>}
+            {faq.isOpen && <div className="mt-2 text-gray-200">{faq.answer}</div>}
           </div>
         );
       })}

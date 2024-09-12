@@ -21,7 +21,7 @@ function getRandomWhatsAppLink() {
 export default function Social({phrase}) {
 
   return (
-    <div className="flex flex-col items-center justify-start text-black h-[70vh]" id="social-section">
+    <div className="flex flex-col items-center justify-start text-white h-[70vh]" id="social-section">
       <div className="flex flex-col items-center justify-start w-[80vw]">
         <h1 className='mt-24 text-4xl font-bold' data-aos="fade-up" data-aos-delay="100">Nuestras Redes</h1>
         <p className='mt-4 text-xl font-regular' data-aos="fade-up" data-aos-delay="200">
@@ -37,7 +37,7 @@ export default function Social({phrase}) {
              rel="noopener noreferrer"
           >
             <img className="w-8 h-8" src={Instagram} alt="Instagram"/>
-            <p className="ml-2 font-bold text-black">Instagram</p>
+            <p className="ml-2 font-bold text-white">Instagram</p>
           </a>
 
           <a href={getRandomWhatsAppLink()} 
@@ -45,7 +45,7 @@ export default function Social({phrase}) {
             target="_blank"
             rel="noopener noreferrer">
             <img className="w-8 h-8" src={WhatsApp} alt="WhatsApp"/>
-            <p className="ml-2 font-bold text-black">WhatsApp</p>
+            <p className="ml-2 font-bold text-white">WhatsApp</p>
           </a>
         </div>
 
