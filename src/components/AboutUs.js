@@ -31,7 +31,7 @@ function AboutUs() {
         <div className="relative flex flex-col items-center w-full p-4 text-lg sm:flex-row sm:w-auto font-regular" data-aos="fade-up" data-aos-delay="60">
           <img src={c03} alt="c00" className="w-auto h-auto sm:max-w-[8%]"/>
           <p className="flex-grow px-4">
-            Comenzamos esta aventura hace 4 años, en FIFA 20, desde casa, con una play y con muchas ganas de aprender, de a poco fuimos evolucionando, creamos nuestro Instagram, conseguimos nuestros primeros clientes y seguidores, al principio fue difícil, pero con trabajo y constancia logramos que confíen en nosotros.
+            Comenzamos esta aventura hace 5 años, en FIFA 20, desde casa, con una play y con muchas ganas de aprender, de a poco fuimos evolucionando, creamos nuestro Instagram, conseguimos nuestros primeros clientes y seguidores, al principio fue difícil, pero con trabajo y constancia logramos que confíen en nosotros.
           </p>
         </div>
 
@@ -42,15 +42,15 @@ function AboutUs() {
           <img src={c00} alt="c03" className="w-auto h-auto sm:max-w-[8%]"/>
         </div>
 
-        <h2 className="mt-8 text-3xl italic font-bold text-center sm:text-2xl" data-aos="fade-up" data-aos-delay="80">Acerca de las monedas EA FC 24:</h2>
+        <h2 className="mt-8 text-3xl italic font-bold text-center sm:text-2xl" data-aos="fade-up" data-aos-delay="80">Acerca de las monedas EA FC 25:</h2>
         <div className="relative flex flex-col items-center w-full p-4 text-lg sm:flex-row sm:w-auto font-regular" data-aos="fade-up" data-aos-delay="90">
           <img src={c04} alt="c04" className="w-auto h-auto sm:max-w-[8%]"/>
           <p className="flex-grow px-4">
-            En FC 24, la moneda principal del juego se conoce como "FC 24 Coins". Estas monedas se pueden usar para casi todo lo que puedas imaginar, desde comprar sobres en la tienda, adquirir jugadores, venderlos en un mercado global, donde todas las consolas se unen, comprar uniformes, estadios, escudos y así, armar el equipo de tus sueños.
+            En FC 25, la moneda principal del juego se conoce como "FC 25 Coins". Estas monedas se pueden usar para casi todo lo que puedas imaginar, desde comprar sobres en la tienda, adquirir jugadores, venderlos en un mercado global, donde todas las consolas se unen, comprar uniformes, estadios, escudos y así, armar el equipo de tus sueños.
           </p>
         </div>
 
-        <h3 className="mt-6 text-2xl italic font-bold text-center sm:text-2xl" data-aos="fade-up" data-aos-delay="100">Existen diferentes maneras de ganar monedas en EAFC24:</h3>
+        <h3 className="mt-6 text-2xl italic font-bold text-center sm:text-2xl" data-aos="fade-up" data-aos-delay="100">Existen diferentes maneras de ganar monedas en EAFC25:</h3>
         <div className="relative flex flex-col items-center w-full p-4 text-lg sm:flex-row sm:w-auto font-regular" data-aos="fade-up" data-aos-delay="100">
           <ul className="flex-grow px-4 list-disc list-inside">
             <li>Jugando Division rivals donde te darán sobres una vez a la semana (todos los jueves, se pueden elegir sobres transferibles o intransferibles).</li>
@@ -62,11 +62,11 @@ function AboutUs() {
           <img src={c01} alt="c01" className="w-auto h-auto sm:max-w-[8%]"/>
         </div>
 
-        <h3 className="mt-6 text-2xl italic font-bold text-center sm:text-2xl" data-aos="fade-up" data-aos-delay="200">¿Por qué necesito comprar monedas FUT 24?</h3>
+        <h3 className="mt-6 text-2xl italic font-bold text-center sm:text-2xl" data-aos="fade-up" data-aos-delay="200">¿Por qué necesito comprar monedas FUT 25?</h3>
         <div className="relative flex flex-col items-center w-full p-4 text-lg sm:flex-row sm:w-auto font-regular" data-aos="fade-up" data-aos-delay="300">
           <img src={c02} alt="c02" className="w-auto h-auto sm:max-w-[8%]"/>
           <p className="flex-grow px-4">
-            Suena fácil ganar un flujo constante de monedas jugando Ultimate Team, ¿no? Sin embargo, el problema es que acumular suficientes monedas EA FC 24 puede ser un gran desafío. Los desarrolladores de juegos hacen que este proceso sea intencionalmente largo y tedioso para mantener la competitividad del juego y la equidad para todos los jugadores. Esto puede resultar frustrante para aquellos que quieren formar rápidamente el equipo de sus sueños.
+            Suena fácil ganar un flujo constante de monedas jugando Ultimate Team, ¿no? Sin embargo, el problema es que acumular suficientes monedas EA FC 25 puede ser un gran desafío. Los desarrolladores de juegos hacen que este proceso sea intencionalmente largo y tedioso para mantener la competitividad del juego y la equidad para todos los jugadores. Esto puede resultar frustrante para aquellos que quieren formar rápidamente el equipo de sus sueños.
           </p>
         </div>
         
