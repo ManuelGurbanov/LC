@@ -36,13 +36,13 @@ const ChangePassword = () => {
 
   return (
     <div className='flex flex-col items-center justify-center w-full gap-3 text-center'>
-      <h2 className='mt-12 text-3xl font-semibold text-black'>Cambiar Contraseña</h2>
+      <h2 className='mt-12 text-3xl font-semibold text-white'>Cambiar Contraseña</h2>
       <input
         type="password"
         value={newPassword}
         onChange={(e) => setNewPassword(e.target.value)}
         placeholder="Nueva contraseña"
-        className="w-3/4 p-2 text-black border rounded sm:w-1/4"
+        className="w-3/4 p-2 text-white border rounded sm:w-1/4"
       />
       <input
         type="password"

@@ -30,10 +30,10 @@ const MyAccount = () => {
   
   return (
     <section className="flex flex-col items-center justify-start w-screen h-[90vh] p-0 text-white">
-      <h1 className="mt-24 mb-8 text-4xl font-bold text-black lg:mt-28">
+      <h1 className="mt-24 mb-8 text-4xl font-bold text-white lg:mt-28">
         Mi Cuenta
       </h1>
-      <h1 className="mb-8 text-2xl font-semibold text-black">
+      <h1 className="mb-8 text-2xl font-semibold text-white">
         {user ? user.displayName : 'Necesitas Iniciar Sesión'}
       </h1>
       <button

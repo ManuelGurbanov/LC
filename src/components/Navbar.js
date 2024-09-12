@@ -58,12 +58,12 @@ export default function Navbar() {
           ))}
           {user ? (
             <div className="flex items-center gap-x-12">
-              <div className="px-3 py-2 text-sm font-black leading-6 text-gray-800">
+              <div className="px-3 py-2 text-sm font-black leading-6 text-white">
                 {user.displayName}
               </div>
               <Link
                     to="/acount"
-                    className={`bg-cardGreen2 px-3 py-2 -mx-3 text-base font-semibold leading-7 text-gray-800 rounded-lg hover:text-white `}
+                    className={`bg-cardGreen2 px-3 py-2 -mx-3 text-base font-semibold leading-7 text-white rounded-lg hover:text-white `}
                     onClick={handleLinkClick}
                   >
                     Mi Cuenta
@@ -72,7 +72,7 @@ export default function Navbar() {
           ) : (
             <Link
               to="/login"
-              className={`text-sm font-semibold leading-6 transition-all duration-75 px-3 py-2 text-gray-400 rounded-md hover:text-white hover:bg-cardGreen2`}
+              className={`text-sm font-semibold leading-6 transition-all duration-75 px-3 py-2 text-white rounded-md hover:text-white hover:bg-cardGreen2`}
             >
               Iniciar Sesión
             </Link>
@@ -96,7 +96,7 @@ export default function Navbar() {
             <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M4 6H20M4 12H20M4 18H20"
-                stroke="black"
+                stroke="white"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -139,20 +139,20 @@ export default function Navbar() {
                   <Link
                     key={item.name}
                     to={item.href}
-                    className="block px-3 py-2 -mx-3 text-base font-semibold leading-7 text-gray-800 rounded-lg hover:text-white hover:bg-gray-800/10"
+                    className="block px-3 py-2 -mx-3 text-base font-semibold leading-7 text-white rounded-lg hover:text-white hover:bg-gray-800/10"
                     onClick={handleLinkClick}
                   >
                     {item.name}
                   </Link>
                 ))}
                 {user ? (
-                  <div className="block px-3 py-2 -mx-3 text-base font-black leading-7 text-gray-800 rounded-lg">
+                  <div className="block px-3 py-2 -mx-3 text-base font-black leading-7 text-white rounded-lg">
                     {user.displayName}
                   </div>
                 ) : (
                   <Link
                     to="/login"
-                    className={`block px-3 py-2 -mx-3 text-base font-semibold leading-7 text-gray-800 rounded-lg hover:text-white hover:bg-gray-800/10`}
+                    className={`block px-3 py-2 -mx-3 text-base font-semibold leading-7 text-white rounded-lg hover:text-white hover:bg-gray-800/10`}
                     onClick={handleLinkClick}
                   >
                     Iniciar Sesión
@@ -162,7 +162,7 @@ export default function Navbar() {
                   
                   <Link
                     to="/acount"
-                    className={`block px-3 py-2 -mx-3 text-base font-semibold leading-7 text-gray-800 rounded-lg hover:text-white hover:bg-gray-800/10`}
+                    className={`block px-3 py-2 -mx-3 text-base font-semibold leading-7 text-white rounded-lg hover:text-white hover:bg-gray-800/10`}
                     onClick={handleLinkClick}
                   >
                     Mi Cuenta
