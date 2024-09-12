@@ -28,7 +28,7 @@ function SellCoins() {
             ¿Queres ganar dinero jugando Fifa?
           </p>
           <p className="p-4 text-xl font-regular" data-aos="fade-left" data-aos-delay="300">
-          <span className='text-2xl font-bold'>Contactate</span> con nosotros, y sumate a nuestro equipo de trabajo siendo proveedor de Monedas de FC24.
+          <span className='text-2xl font-bold'>Contactate</span> con nosotros, y sumate a nuestro equipo de trabajo siendo proveedor de Monedas de FC25.
           </p>
 
           <p className="p-4 text-xl font-regular" data-aos="fade-left" data-aos-delay="300">

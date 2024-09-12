@@ -10,8 +10,8 @@ AOS.init({
 const Faq = () => {
   const [faqs, setFaqs] = useState([
     {
-      question: "¿Cómo funciona la entrega de Monedas FIFA 24?",
-      answer: "La entrega de monedas FC 24 UT se procesará mediante Compra ya, que es un método cómodo y rápido. Las monedas te llegarán al instante y ya podrás gastarlas para armar tu equipo.",
+      question: "¿Cómo funciona la entrega de Monedas en FC25?",
+      answer: "La entrega de monedas FC 25 UT se procesará mediante Compra ya, que es un método cómodo y rápido. Las monedas te llegarán al instante y ya podrás gastarlas para armar tu equipo.",
       isOpen: false,
     },
     {
@@ -20,7 +20,7 @@ const Faq = () => {
       isOpen: false,
     },
     {
-      question: "¿Es seguro comprar FIFA Coins de FC 24?",
+      question: "¿Es seguro comprar FIFA Coins de FC 25?",
       answer: "Como probablemente sepas, los desarrolladores de juegos desaconsejan este comportamiento de comprar monedas. Con nuestros años en el rubro, hemos comprobado que nuestro método es confiable y seguro para nuestros clientes.",
       isOpen: false,
     },
