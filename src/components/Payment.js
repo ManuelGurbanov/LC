@@ -84,7 +84,7 @@ const Payment = () => {
                             key={index} 
                             src={method} 
                             alt={`Payment method`} 
-                            className='w-full h-auto p-1 opacity-60 sm:w-28' 
+                            className='w-full h-auto p-2 mb-2 bg-purple-400 opacity-60 sm:w-28 rounded-3xl' 
                         />
                     ))}
                 </section>
