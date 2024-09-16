@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import totw1 from '../img/totw1.jpg';
 
 const NoticiasEAFC25 = () => {
   const [selectedOption, setSelectedOption] = useState('contenido');
@@ -31,8 +32,7 @@ const NoticiasEAFC25 = () => {
       )}
         {selectedOption === 'totw' && (
           <div className='flex flex-col items-center w-4/5 mt-10'>
-            <h2 className='text-3xl font-bold'>TOTW</h2>
-            <p className=''>En esta sección subiremos el TOTW de FC25 y predicciones.</p>
+            <img className='w-full' src={totw1}></img>
           </div>
         )}
         {selectedOption === 'sbc' && (
