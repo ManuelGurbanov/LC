@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import totw1 from '../img/totw1.jpg';
 
-
+import range1 from '../img/rangos/1.png';
 import range2 from '../img/rangos/2.png';
 import range3 from '../img/rangos/3.png';
 import range4 from '../img/rangos/4.png';
@@ -70,6 +70,7 @@ const NoticiasEAFC25 = () => {
               <img className='w-full rounded-3xl' src={range4}></img>
               <img className='w-full rounded-3xl' src={range3}></img>
               <img className='w-full rounded-3xl' src={range2}></img>
+              <img className='w-full rounded-3xl' src={range1}></img>
             </div>
           </div>
         )}
