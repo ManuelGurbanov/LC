@@ -16,6 +16,10 @@ import range10 from '../img/rangos/10.png';
 
 import sosa from '../img/cards/sosa.jpg';
 
+import evo1 from '../img/cards/evo1.jpg';
+import evo2 from '../img/cards/evo2.jpg';
+import evo3 from '../img/cards/evo3.jpg';
+
 
 const NoticiasEAFC25 = () => {
   const [selectedOption, setSelectedOption] = useState('contenido');
@@ -40,9 +44,10 @@ const NoticiasEAFC25 = () => {
 
       <div className='flex flex-col items-center w-10/12 text-center sm:w-1/2'>
       {selectedOption === 'contenido' && (
-        <div className='flex flex-col items-center w-full h-full mt-10'>
-          <h2 className='text-3xl font-bold'>Contenido</h2>
-            <p className=''>En esta sección subiremos el mejor contenido de FC25.</p>
+        <div className='flex flex-col items-center w-full h-full gap-2 mt-10'>
+          <img className='w-2/3' src={evo1}></img>
+          <img className='w-2/3' src={evo2}></img>
+          <img className='w-2/3' src={evo3}></img>
         </div>
       )}
         {selectedOption === 'TOTW' && (
