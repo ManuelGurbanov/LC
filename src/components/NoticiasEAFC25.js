@@ -14,7 +14,7 @@ import range9 from '../img/rangos/9.png';
 import range10 from '../img/rangos/10.png';
 
 
-
+import sosa from '../img/cards/sosa.jpg';
 
 
 const NoticiasEAFC25 = () => {
@@ -51,9 +51,8 @@ const NoticiasEAFC25 = () => {
           </div>
         )}
         {selectedOption === 'SBC' && (
-          <div className='flex flex-col items-center w-full mt-10'>
-            <h2 className='text-3xl font-bold'>Squad Building Challenge</h2>
-            <p className='text-xl '>Aquí subiremos los mejores SBC de FC25.</p>
+          <div className='flex flex-col items-center w-full gap-2 mt-10'>
+            <img className='w-2/3 rounded-3xl' src={sosa}></img>
           </div>
         )}
         {selectedOption === 'BOOSTING' && (
