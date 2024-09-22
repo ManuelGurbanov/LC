@@ -23,6 +23,9 @@ import evo3 from '../img/cards/evo3.jpg';
 import danjuma from '../img/cards/danjuma.jpg';
 import alaba from '../img/cards/alaba.jpg';
 
+import haaland from '../img/cards/haaland.jpg';
+import navarro from '../img/cards/navarro.jpg';
+
 const NoticiasEAFC25 = () => {
   const [selectedOption, setSelectedOption] = useState('contenido');
   
@@ -59,6 +62,8 @@ const NoticiasEAFC25 = () => {
         )}
         {selectedOption === 'SBC' && (
           <div className='flex flex-col items-center w-full gap-2 mt-10'>
+            <img className='w-2/3 rounded-3xl' src={navarro}></img>
+            <img className='w-2/3 rounded-3xl' src={haaland}></img>
             <img className='w-2/3 rounded-3xl' src={alaba}></img>
             <img className='w-2/3 rounded-3xl' src={danjuma}></img>
             <img className='w-2/3 rounded-3xl' src={sosa}></img>
