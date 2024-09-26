@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import totw1 from '../img/totw1.jpg';
+import totw2 from '../img/totw2.jpg';
 
 import range1 from '../img/rangos/1.png';
 import range2 from '../img/rangos/2.png';
@@ -13,7 +13,7 @@ import range8 from '../img/rangos/8.png';
 import range9 from '../img/rangos/9.png';
 import range10 from '../img/rangos/10.png';
 
-
+import marquesinas from '../img/marquesinas.jpg';
 import sosa from '../img/cards/sosa.jpg';
 
 import evo1 from '../img/cards/evo1.jpg';
@@ -58,11 +58,12 @@ const NoticiasEAFC25 = () => {
       )}
         {selectedOption === 'TOTW' && (
           <div className='flex flex-col items-center w-4/5 mt-10'>
-            <img className='w-full' src={totw1}></img>
+            <img className='w-full' src={totw2}></img>
           </div>
         )}
         {selectedOption === 'SBC' && (
           <div className='flex flex-col items-center w-full gap-2 mt-10'>
+            <img className='w-2/3' src={marquesinas}></img>
             <img className='w-2/3 rounded-3xl' src={aleix}></img>
             <img className='w-2/3 rounded-3xl' src={navarro}></img>
             <img className='w-2/3 rounded-3xl' src={haaland}></img>
