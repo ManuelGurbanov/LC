@@ -111,7 +111,8 @@ const Pricing = () => {
       '900K': 1116000,
       '1M': 1200000,
     },
-};
+  };
+  
 
 
   const mainFeatures = ['Transacción segura', 'Entrega rápida y confiable.', 'Asesoría gratuita para tu equipo.'];
