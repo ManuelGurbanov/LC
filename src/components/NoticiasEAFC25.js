@@ -30,6 +30,8 @@ import aleix from '../img/cards/aleix.jpg';
 import locelso from '../img/cards/locelso.jpg';
 import maxi from '../img/cards/maxi.jpg';
 
+import totw3 from '../img/cards/totw3.jpg';
+
 const NoticiasEAFC25 = () => {
   const [selectedOption, setSelectedOption] = useState('contenido');
   
@@ -61,7 +63,7 @@ const NoticiasEAFC25 = () => {
       )}
         {selectedOption === 'TOTW' && (
           <div className='flex flex-col items-center w-4/5 mt-10'>
-            <img className='w-full' src={totw2}></img>
+            <img className='w-full' src={totw3}></img>
           </div>
         )}
         {selectedOption === 'SBC' && (
