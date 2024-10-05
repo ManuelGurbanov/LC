@@ -32,6 +32,11 @@ import maxi from '../img/cards/maxi.jpg';
 
 import totw3 from '../img/cards/totw3.jpg';
 
+import rttk from '../img/cards/rttk.jpg';
+
+import nico from '../img/cards/nico.jpg';
+import yamal from '../img/cards/yamal.jpg';
+
 const NoticiasEAFC25 = () => {
   const [selectedOption, setSelectedOption] = useState('contenido');
   
@@ -56,6 +61,7 @@ const NoticiasEAFC25 = () => {
       <div className='flex flex-col items-center w-10/12 text-center sm:w-1/2'>
       {selectedOption === 'contenido' && (
         <div className='flex flex-col items-center w-full h-full gap-2 mt-10'>
+          <img className='w-2/3' src={rttk}></img>
           <img className='w-2/3' src={evo1}></img>
           <img className='w-2/3' src={evo2}></img>
           <img className='w-2/3' src={evo3}></img>
@@ -68,15 +74,14 @@ const NoticiasEAFC25 = () => {
         )}
         {selectedOption === 'SBC' && (
           <div className='flex flex-col items-center w-full gap-2 mt-10'>
+            <img className='w-2/3 rounded-3xl' src={nico}></img>
+            <img className='w-2/3 rounded-3xl' src={yamal}></img>
             <img className='w-2/3 rounded-3xl' src={locelso}></img>
             <img className='w-2/3 rounded-3xl' src={maxi}></img>
             <img className='w-2/3' src={marquesinas}></img>
             <img className='w-2/3 rounded-3xl' src={aleix}></img>
             <img className='w-2/3 rounded-3xl' src={navarro}></img>
             <img className='w-2/3 rounded-3xl' src={haaland}></img>
-            <img className='w-2/3 rounded-3xl' src={alaba}></img>
-            <img className='w-2/3 rounded-3xl' src={danjuma}></img>
-            <img className='w-2/3 rounded-3xl' src={sosa}></img>
           </div>
         )}
         {selectedOption === 'BOOSTING' && (
