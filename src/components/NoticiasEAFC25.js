@@ -38,9 +38,10 @@ import rttk from '../img/cards/rttk.jpg';
 
 import nico from '../img/cards/nico.jpg';
 import yamal from '../img/cards/yamal.jpg';
+import BoostingPricing from './BoostingPricing';
 
 const NoticiasEAFC25 = () => {
-  const [selectedOption, setSelectedOption] = useState('contenido');
+  const [selectedOption, setSelectedOption] = useState('BOOSTING');
   
   return (
     <section className='flex flex-col items-center justify-start w-full min-h-dvh'>
@@ -89,20 +90,8 @@ const NoticiasEAFC25 = () => {
         )}
         {selectedOption === 'BOOSTING' && (
           <div className='flex flex-col items-center w-full mt-10'>
+            <BoostingPricing/>
             <h2 className='text-3xl font-bold'>Contactanos para conseguir las mejores recompensas!</h2>
-            <p className='mb-4 text-xl'>Rangos en FC25:</p>
-            <div className='flex flex-col gap-2 sm:grid sm:grid-cols-2'>
-              <img className='w-full rounded-3xl' src={range10}></img>
-              <img className='w-full rounded-3xl' src={range9}></img>
-              <img className='w-full rounded-3xl' src={range8}></img>
-              <img className='w-full rounded-3xl' src={range7}></img>
-              <img className='w-full rounded-3xl' src={range6}></img>
-              <img className='w-full rounded-3xl' src={range5}></img>
-              <img className='w-full rounded-3xl' src={range4}></img>
-              <img className='w-full rounded-3xl' src={range3}></img>
-              <img className='w-full rounded-3xl' src={range2}></img>
-              <img className='w-full rounded-3xl' src={range1}></img>
-            </div>
           </div>
         )}
         
