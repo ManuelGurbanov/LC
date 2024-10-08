@@ -30,6 +30,8 @@ import aleix from '../img/cards/aleix.jpg';
 import locelso from '../img/cards/locelso.jpg';
 import maxi from '../img/cards/maxi.jpg';
 
+import ajibade from '../img/cards/ajibade.jpg';
+
 import totw3 from '../img/cards/totw3.jpg';
 
 import rttk from '../img/cards/rttk.jpg';
@@ -74,6 +76,7 @@ const NoticiasEAFC25 = () => {
         )}
         {selectedOption === 'SBC' && (
           <div className='flex flex-col items-center w-full gap-2 mt-10'>
+            <img className='w-2/3 rounded-3xl' src={ajibade}></img>
             <img className='w-2/3 rounded-3xl' src={nico}></img>
             <img className='w-2/3 rounded-3xl' src={yamal}></img>
             <img className='w-2/3 rounded-3xl' src={locelso}></img>
