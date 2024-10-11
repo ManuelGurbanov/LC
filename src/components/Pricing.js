@@ -19,6 +19,7 @@ const currencyFlags = {
   eurusd: flagEur,
   eeuu: flagEeuu,
 };
+
 const platforms = {
   ps: PS,
   xb: XB,
@@ -37,74 +38,69 @@ const Pricing = () => {
   // Precios por región y cantidad
   const prices = {
     arg: {
-      '50K': 9000,
-      '75K': 13500,
-      '100K': 18000,
-      '200K': 34000, // ¡OFERTA!
-      '300K': 54000,
-      '400K': 72000,
-      '500K': 87000, // ¡OFERTA!
-      '600K': 108000,
-      '700K': 126000,
-      '800K': 144000,
-      '900K': 162000,
-      '1M': 175000, // ¡OFERTA!
+      '50K': 7750,
+      '100K': 15500,
+      '200K': 30000,
+      '300K': 46500,
+      '400K': 62000,
+      '500K': 75000,
+      '600K': 93000,
+      '700K': 108500,
+      '800K': 124000,
+      '900K': 139500,
+      '1M': 150000,
     },
     eeuu: {
-      '50K': 9.50,
-      '75K': 14.25,
-      '100K': 19,
-      '200K': 36, // ¡OFERTA!
-      '300K': 57,
-      '400K': 76,
-      '500K': 90, // ¡OFERTA!
-      '600K': 114,
-      '700K': 133,
-      '800K': 152,
-      '900K': 171,
-      '1M': 180, // ¡OFERTA!
+      '50K': 8,
+      '100K': 16,
+      '200K': 30,
+      '300K': 48,
+      '400K': 64,
+      '500K': 76,
+      '600K': 96,
+      '700K': 112,
+      '800K': 128,
+      '900K': 144,
+      '1M': 155,
     },
     eurusd: {
-      '50K': 8.50,
-      '75K': 12.75,
-      '100K': 17,
-      '200K': 32, // ¡OFERTA!
-      '300K': 51,
-      '400K': 68,
-      '500K': 80, // ¡OFERTA!
-      '600K': 102,
-      '700K': 119,
-      '800K': 136,
-      '900K': 153,
-      '1M': 160, // ¡OFERTA!
+      '50K': 8,
+      '100K': 15,
+      '200K': 30,
+      '300K': 45,
+      '400K': 60,
+      '500K': 75,
+      '600K': 90,
+      '700K': 105,
+      '800K': 120,
+      '900K': 135,
+      '1M': 145,
     },
     chi: {
-      '50K': 8810,
-      '75K': 13215,
-      '100K': 17620,
-      '200K': 35000, // ¡OFERTA!
-      '300K': 52860,
-      '400K': 70480,
-      '500K': 88000, // ¡OFERTA!
-      '600K': 105720,
-      '700K': 123340,
-      '800K': 140960,
-      '900K': 158580,
-      '1M': 176000, // ¡OFERTA!
+      '50K': 8370,
+      '100K': 14882,
+      '200K': 29764,
+      '300K': 44646,
+      '400K': 59528,
+      '500K': 74410,
+      '600K': 89298,
+      '700K': 104174,
+      '800K': 119056,
+      '900K': 133938,
+      '1M': 148820,
     },
     col: {
-      '50K': 39390,
-      '75K': 59085,
-      '100K': 78780,
-      '200K': 157000, // ¡OFERTA!
-      '300K': 236340,
-      '400K': 315120,
-      '500K': 393900, // ¡OFERTA!
-      '600K': 472680,
-      '700K': 551460,
-      '800K': 630240,
-      '900K': 709020,
-      '1M': 787800, // ¡OFERTA!
+      '50K': 37913,
+      '100K': 67400,
+      '200K': 134800,
+      '300K': 202200,
+      '400K': 269600,
+      '500K': 337000,
+      '600K': 404400,
+      '700K': 471800,
+      '800K': 539200,
+      '900K': 606600,
+      '1M': 674000,
     },
   };
 
@@ -112,7 +108,6 @@ const Pricing = () => {
 
   const tiers = [
     '50K',
-    '75K',
     '100K',
     '200K',
     '300K',
@@ -145,6 +140,7 @@ const Pricing = () => {
   const handleFrequencyChange = (value) => {
     setFrequency(value);
   };
+
   const handlePlatformChange = (value) => {
     setPlatform(value);
   };
@@ -158,7 +154,6 @@ const Pricing = () => {
         Precios para cada región
       </p>
       <div data-aos="fade-up" data-aos-delay="300" className="flex flex-col justify-center gap-4 mt-10">
-
         <fieldset aria-label="platforms">
           <RadioGroup
             value={platform}
@@ -175,11 +170,7 @@ const Pricing = () => {
                     : 'bg-transparent cursor-pointer rounded-full px-2 py-2 transition-all duration-150 overflow-hidden text-white w-16 h-16 flex items-center justify-center hover:scale-110'
                 }
               >
-                <img 
-                  src={platforms[option]} 
-                  alt={`${option}`} 
-                  className="w-8 h-8"
-                />
+                <img src={platforms[option]} alt={`${option}`} className="w-8 h-8" />
               </Radio>
             ))}
           </RadioGroup>
@@ -201,11 +192,7 @@ const Pricing = () => {
                     : 'bg-transparent cursor-pointer rounded-full px-4.5 py-3 transition-all duration-150 overflow-hidden text-white w-16 h-8 flex items-center justify-center hover:scale-110'
                 }
               >
-                <img 
-                  src={currencyFlags[option]} 
-                  alt={`${option} flag`} 
-                  className="w-8"
-                />
+                <img src={currencyFlags[option]} alt={`${option} flag`} className="w-8" />
               </Radio>
             ))}
           </RadioGroup>
@@ -214,7 +201,6 @@ const Pricing = () => {
 
       {/* Grid de tiers */}
       <div className="relative grid w-4/5 max-w-screen-lg grid-cols-1 mx-auto mt-2 gap-y-2 md:grid-cols-3 sm:grid-cols-2 sm:gap-x-3 lg:mx-0 lg:-mb-14">
-        
         <div className="hidden lg:absolute lg:inset-x-px lg:bottom-0 lg:top-4 lg:block lg:rounded-t-2xl bg-gray-800/80 ring-1 ring-white/10" aria-hidden="true" />
 
         {tiers.map((tier, index) => {
@@ -241,35 +227,32 @@ const Pricing = () => {
                   <a
                     href={randomHref}
                     target="_blank"
-                    rel="noopener noreferrer"
-                    aria-describedby={tier}
-                    className="px-3 py-2 text-sm font-semibold leading-6 text-center text-white rounded-md shadow-sm bg-cardGreen2 hover:bg-gray-800 focus-visible:outline-cardGreen focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                    className="flex justify-center py-3 text-sm font-semibold text-center text-gray-100 transition-all duration-150 rounded-lg shadow-sm bg-cardGreen hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cardGreen"
                   >
-                    Comprar
+                    Comprar ahora
                   </a>
                 </div>
-                <div className="flow-root mt-8 sm:mt-10">
-                  <ul
-                    role="list"
-                    className="-my-2 text-sm leading-6 text-gray-900 border-t divide-y divide-gray-900/5 border-gray-900/5"
-                  >
-                    {mainFeatures.map((mainFeature, idx) => (
-                      <li key={idx} className="flex py-2 text-white gap-x-3">
-                        <svg
-                          className="flex-none w-5 h-6 text-cardGreen"
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="white"
-                          aria-hidden="true"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                        {mainFeature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              </div>
+              <div className="relative p-8 bg-gray-900 lg:rounded-t-none lg:rounded-b-2xl lg:bg-transparent sm:pt-8 lg:pt-4 lg:px-6 xl:px-8 xl:pt-6">
+                <ul role="list" className="space-y-3 text-sm leading-6 text-gray-300 lg:gap-2">
+                  {mainFeatures.map((feature, idx) => (
+                    <li key={idx} className="flex gap-3">
+                      <svg
+                        className="flex-none w-5 h-5 text-cardGreen"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm-1.707-6.707a1 1 0 011.414 0L10 11.586l1.293-1.293a1 1 0 111.414 1.414l-2 2a1 1 0 01-1.414 0l-2-2a1 1 0 010-1.414z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           );

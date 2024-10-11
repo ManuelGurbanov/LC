@@ -4,12 +4,13 @@ import flagArg from '../img/flags/arg.webp';
 import flagChi from '../img/flags/chi.webp';
 import flagCol from '../img/flags/col.webp';
 import flagEeuu from '../img/flags/eurusd.webp';
-
+import flagEur from '../img/flags/eur.webp';
 const currencyFlags = {
   arg: flagArg,
   chi: flagChi,
   col: flagCol,
   eeuu: flagEeuu,
+  eur: flagEur,
 };
 
 const boostingPrices = {
@@ -35,6 +36,27 @@ const boostingPrices = {
     },
   },
   eeuu: {
+    futChampions: {
+      'Rango 1': 85,
+      'Rango 2': 70,
+      'Rango 3': 55,
+      'Rango 4': 45,
+      'Rango 5': 30,
+      'Rango 6': 20,
+    },
+    rivals: {
+      'Rango 1': 55,
+      'Rango 2': 50,
+      'Rango 3': 45,
+      'Rango 4': 40,
+      'Rango 5': 35,
+      'Rango 6': 29,
+      'Rango 7': 25,
+      'Rango 8': 21,
+      'Rango 9': 18,
+    },
+  },
+  eur: {
     futChampions: {
       'Rango 1': 85,
       'Rango 2': 70,
@@ -126,6 +148,8 @@ const BoostingPricing = () => {
         return `${price} COP`;
       case 'eeuu':
         return `${price} USD`;
+      case 'eur':
+        return `${price} EUR`;
       default:
         return `${price}`;
     }
@@ -153,9 +177,9 @@ const BoostingPricing = () => {
         <RadioGroup
           value={frequency}
           onChange={handleFrequencyChange}
-          className="grid grid-cols-4 p-1 text-xs font-semibold leading-5 text-center text-white rounded-full gap-x-1"
+          className="grid grid-cols-5 p-1 text-xs font-semibold leading-5 text-center text-white rounded-full gap-x-1"
         >
-          {['arg', 'chi', 'col', 'eeuu'].map((option) => (
+          {['arg', 'chi', 'col', 'eeuu', 'eur'].map((option) => (
             <Radio
               key={option}
               value={option}
