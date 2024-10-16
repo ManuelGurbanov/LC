@@ -40,6 +40,10 @@ import nico from '../img/cards/nico.jpg';
 import yamal from '../img/cards/yamal.jpg';
 import BoostingPricing from './BoostingPricing';
 
+import icon from '../img/icon.jpg';
+import sterling from '../img/sterling.jpg';
+import gomes from '../img/gomes.jpg';
+
 const NoticiasEAFC25 = () => {
   const [selectedOption, setSelectedOption] = useState('BOOSTING');
   
@@ -77,6 +81,9 @@ const NoticiasEAFC25 = () => {
         )}
         {selectedOption === 'SBC' && (
           <div className='flex flex-col items-center w-full gap-2 mt-10'>
+            <img className='w-2/3 rounded-3xl' src={icon}></img>
+            <img className='w-2/3 rounded-3xl' src={gomes}></img>
+            <img className='w-2/3 rounded-3xl' src={sterling}></img>
             <img className='w-2/3 rounded-3xl' src={ajibade}></img>
             <img className='w-2/3 rounded-3xl' src={nico}></img>
             <img className='w-2/3 rounded-3xl' src={yamal}></img>
