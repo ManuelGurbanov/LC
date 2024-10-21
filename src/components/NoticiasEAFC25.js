@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import totw2 from '../img/totw2.jpg';
+import totw5 from '../img/totw5.jpg';
 
 import range1 from '../img/rangos/1.png';
 import range2 from '../img/rangos/2.png';
@@ -27,16 +27,9 @@ import alaba from '../img/cards/alaba.jpg';
 
 import all from '../img/cards/all_sbc.jpg';
 
-import haaland from '../img/cards/haaland.jpg';
-import navarro from '../img/cards/navarro.jpg';
-import aleix from '../img/cards/aleix.jpg';
-
-import locelso from '../img/cards/locelso.jpg';
-import maxi from '../img/cards/maxi.jpg';
 
 import ajibade from '../img/cards/ajibade.jpg';
-
-import totw3 from '../img/cards/totw3.jpg';
+import sellner from '../img/cards/sellner.jpg';
 
 import rttk from '../img/cards/rttk.jpg';
 
@@ -47,6 +40,10 @@ import BoostingPricing from './BoostingPricing';
 import icon from '../img/icon.jpg';
 import sterling from '../img/sterling.jpg';
 import gomes from '../img/gomes.jpg';
+
+import tierlist from '../img/cards/tierlist_1.jpg';
+
+import watt_evo from '../img/cards/watt_evo.jpg';
 
 const NoticiasEAFC25 = () => {
   const [selectedOption, setSelectedOption] = useState('BOOSTING');
@@ -73,15 +70,16 @@ const NoticiasEAFC25 = () => {
       <div className='flex flex-col items-center w-10/12 text-center sm:w-1/2'>
       {selectedOption === 'contenido' && (
         <div className='flex flex-col items-center w-full h-full gap-2 mt-10'>
+          <img className='w-2/3' src={watt_evo}></img>
+          <h2 className='text-3xl font-bold m-3'>Les dejamos una tierlist del nuevo SBC de Icono Asegurado</h2>
+          <img className='w-2/3' src={tierlist}></img>
           <img className='w-2/3' src={rttk}></img>
           <img className='w-2/3' src={evo1}></img>
-          <img className='w-2/3' src={evo2}></img>
-          <img className='w-2/3' src={evo3}></img>
         </div>
       )}
         {selectedOption === 'TOTW' && (
           <div className='flex flex-col items-center w-4/5 mt-10'>
-            <img className='w-full' src={totw3}></img>
+            <img className='w-full' src={totw5}></img>
           </div>
         )}
         {selectedOption === 'SBC' && (
@@ -105,6 +103,7 @@ const NoticiasEAFC25 = () => {
             {sbcOption === 'SBC Actuales' && (
               <div className='flex flex-col items-center gap-2'>
                 <img className='w-2/3 rounded-3xl' src={lorenzo}></img>
+                <img className='w-2/3 rounded-3xl' src={sellner}></img>
                 <img className='w-2/3 rounded-3xl' src={icon}></img>
                 <img className='w-2/3 rounded-3xl' src={gomes}></img>
                 <img className='w-2/3 rounded-3xl' src={sterling}></img>
@@ -121,7 +120,7 @@ const NoticiasEAFC25 = () => {
           </div>
         )}
         {selectedOption === 'BOOSTING' && (
-          <div className='flex flex-col items-center w-full mt-10'>
+          <div className='flex flex-col items-center w-full mt-2'>
             <BoostingPricing/>
             <h2 className='text-3xl font-bold'>Contactanos para conseguir las mejores recompensas!</h2>
           </div>
