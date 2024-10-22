@@ -10,10 +10,14 @@ const AdminPanel = ({ user }) => {
   const [expirationDate, setExpirationDate] = useState('');
   const [expirationTime, setExpirationTime] = useState(null);
   const [regionPrices, setRegionPrices] = useState({}); // Para los precios por región
+  const [totwImg, setTotwImg] = useState(null);
+  const [totwTitle, setTotwTitle] = useState('');
+  const [contenidoImg, setContenidoImg] = useState(null);
+  const [contenidoTitle, setContenidoTitle] = useState(''); // Corrige aquí: contenidoTitle en lugar de titulo
   const storage = getStorage(); // Obtén la referencia del storage
 
+  // Cargar precios existentes al iniciar el componente
   useEffect(() => {
-    // Cargar precios existentes al iniciar el componente
     const fetchPrices = async () => {
       try {
         const pricesCollection = collection(db, 'Prices');
@@ -31,6 +35,7 @@ const AdminPanel = ({ user }) => {
     fetchPrices(); // Llama a la función para obtener precios al montar el componente
   }, []);
 
+  // Lógica de conteo regresivo
   useEffect(() => {
     if (expirationDate) {
       const interval = setInterval(() => {
@@ -58,6 +63,15 @@ const AdminPanel = ({ user }) => {
     setCardImg(e.target.files[0]); // Guarda el archivo de imagen
   };
 
+  const handleTotwImageChange = (e) => {
+    setTotwImg(e.target.files[0]);
+  };
+
+  const handleContenidoImageChange = (e) => {
+    setContenidoImg(e.target.files[0]);
+  };
+
+  // Función para manejar el envío de datos SBC
   const handleSubmitSBC = async (e) => {
     e.preventDefault();
     if (!cardImg || !precioPS || !precioPC || !expirationDate) {
@@ -96,6 +110,76 @@ const AdminPanel = ({ user }) => {
     }
   };
 
+  // Función para manejar el envío de TOTW
+  const handleSubmitTOTW = async (e) => {
+    e.preventDefault();
+    if (!totwImg || !totwTitle) {
+      alert('Por favor completa todos los campos.');
+      return;
+    }
+
+    const storageRef = ref(storage, `images/totw/${totwImg.name}`); // Crea una referencia para la imagen de TOTW
+
+    try {
+      // Subir la imagen a Firebase Storage
+      await uploadBytes(storageRef, totwImg);
+      const downloadURL = await getDownloadURL(storageRef); // Obtén la URL de descarga
+
+      // Subir los datos a Firebase Firestore
+      const totwData = {
+        titulo: totwTitle,
+        imagen: downloadURL,
+      };
+
+      // Cambia a Firestore
+      const totwCollection = collection(db, 'TOTW'); // 'TOTW' es el nombre de la colección
+      await addDoc(totwCollection, totwData); // Agrega el documento
+      alert('TOTW agregado exitosamente.');
+
+      // Reiniciar el formulario
+      setTotwImg(null);
+      setTotwTitle('');
+    } catch (error) {
+      console.error('Error al agregar TOTW: ', error);
+      alert('Hubo un error al agregar el TOTW.');
+    }
+  };
+
+  // Función para manejar el envío de contenido
+  const handleSubmitContenido = async (e) => {
+    e.preventDefault();
+    if (!contenidoImg || !contenidoTitle) { // Cambia a contenidoImg y contenidoTitle
+      alert('Por favor completa todos los campos.');
+      return;
+    }
+  
+    const storageRef = ref(storage, `images/contenido/${contenidoImg.name}`); // Cambia a la ruta correcta
+  
+    try {
+      // Subir la imagen a Firebase Storage
+      await uploadBytes(storageRef, contenidoImg);
+      const downloadURL = await getDownloadURL(storageRef); // Obtén la URL de descarga
+  
+      // Aquí puedes agregar la lógica para subir los datos a Firestore, si es necesario
+      const contenidoData = {
+        titulo: contenidoTitle, // Cambia a contenidoTitle
+        imagen: downloadURL,
+      };
+  
+      const contenidoCollection = collection(db, 'contenido'); // Asegúrate de que la colección sea la correcta
+      await addDoc(contenidoCollection, contenidoData); // Agrega el documento
+      alert('Contenido agregado exitosamente.');
+  
+      // Reiniciar el formulario
+      setContenidoImg(null);
+      setContenidoTitle(''); // Reinicia el campo título
+    } catch (error) {
+      console.error('Error al agregar Contenido: ', error);
+      alert('Hubo un error al agregar el Contenido.');
+    }
+  };
+  
+  // Función para manejar el cambio de precios por región
   const handleRegionPriceChange = (e) => {
     const { name, value } = e.target;
     setRegionPrices((prev) => ({
@@ -169,6 +253,49 @@ const AdminPanel = ({ user }) => {
         </button>
       </form>
 
+      {/* Formulario para agregar TOTW */}
+      <form onSubmit={handleSubmitTOTW} className="flex flex-col items-center w-10/12 sm:w-1/2 mt-10 text-black">
+        <input
+          type="file"
+          accept="image/*"
+          onChange={handleTotwImageChange}
+          className="p-2 mb-4 border rounded"
+          required
+        />
+        <input
+          type="text"
+          placeholder="Título TOTW"
+          value={totwTitle}
+          onChange={(e) => setTotwTitle(e.target.value)}
+          className="p-2 mb-4 border rounded"
+          required
+        />
+        <button type="submit" className="bg-cardGreen text-white rounded px-4 py-2 transition-all duration-150 hover:scale-110">
+          Agregar TOTW
+        </button>
+      </form>
+
+      {/* Formulario para agregar Contenido */}
+      <form onSubmit={handleSubmitContenido} className="flex flex-col items-center w-10/12 sm:w-1/2 mt-10 text-black">
+        <input
+          type="file"
+          accept="image/*"
+          onChange={handleContenidoImageChange}
+          className="p-2 mb-4 border rounded"
+          required
+        />
+        <input
+          type="text"
+          placeholder="Título Contenido"
+          value={contenidoTitle}
+          onChange={(e) => setContenidoTitle(e.target.value)} // Cambia a setContenidoTitle
+          className="p-2 mb-4 border rounded"
+          required
+        />
+        <button type="submit" className="bg-cardGreen text-white rounded px-4 py-2 transition-all duration-150 hover:scale-110">
+          Agregar Contenido
+        </button>
+      </form>
     </section>
   );
 };
