@@ -14,7 +14,6 @@ const Countdown = ({ date }) => {
     return () => clearInterval(timer); // Limpiar intervalo al desmontar el componente
   }, [date]);
 
-  // Función auxiliar para calcular el tiempo restante
   function calculateTimeLeft(targetDate) {
     const now = new Date().getTime();
     const distance = new Date(targetDate).getTime() - now;
@@ -41,9 +40,9 @@ const Countdown = ({ date }) => {
 const NoticiasEAFC25 = () => {
   const [selectedOption, setSelectedOption] = useState('SBC');
   const [sbcData, setSbcData] = useState([]);
-  const [totwData, setTotwData] = useState([]); // Estado para TOTW
-  const [contenidoData, setContenidoData] = useState([]); // Estado para contenido
-  const [sortCriteria, setSortCriteria] = useState('expiringSoon'); // Estado para el criterio de ordenación
+  const [totwData, setTotwData] = useState([]);
+  const [contenidoData, setContenidoData] = useState([]);
+  const [sortCriteria, setSortCriteria] = useState('expiringSoon');
 
   useEffect(() => {
     const fetchSbcData = async () => {
@@ -56,7 +55,7 @@ const NoticiasEAFC25 = () => {
 
     const fetchTotwData = async () => {
       const db = getFirestore();
-      const totwCollection = collection(db, 'TOTW'); // Cambiar según la colección real en Firestore
+      const totwCollection = collection(db, 'TOTW');
       const totwSnapshot = await getDocs(totwCollection);
       const totwList = totwSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
       setTotwData(totwList);
@@ -64,37 +63,45 @@ const NoticiasEAFC25 = () => {
 
     const fetchContenidoData = async () => {
       const db = getFirestore();
-      const contenidoCollection = collection(db, 'contenido'); // Cambiar según la colección real en Firestore
+      const contenidoCollection = collection(db, 'contenido');
       const contenidoSnapshot = await getDocs(contenidoCollection);
       const contenidoList = contenidoSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
       setContenidoData(contenidoList);
     };
 
-    // Llama a las funciones de obtención de datos
     fetchSbcData();
     fetchTotwData();
     fetchContenidoData();
   }, []);
 
-  // Función para ordenar los SBC según el criterio seleccionado
+  // Ordenar SBC
   const sortedSbcData = [...sbcData].sort((a, b) => {
     switch (sortCriteria) {
       case 'newest':
-        return new Date(b.expiration) - new Date(a.expiration); // Más nuevos
+        return new Date(b.expiration) - new Date(a.expiration);
       case 'expiringSoon':
-        return new Date(a.expiration) - new Date(b.expiration); // Más próximos a expirar
+        return new Date(a.expiration) - new Date(b.expiration);
       case 'price':
-        return b.precio_ps - a.precio_ps; // Más caros a más baratos
+        return b.precio_ps - a.precio_ps;
       default:
-        return 0; // Sin ordenación
+        return 0;
     }
   });
 
+  // Ordenar TOTW por fecha de publicación (suponiendo que tienen una propiedad 'fecha')
+  const sortedTotwData = [...totwData].sort((a, b) => {
+    return new Date(b.fecha) - new Date(a.fecha); // Más nuevos primero
+  });
+
+  // Ordenar contenido por fecha de publicación (suponiendo que tienen una propiedad 'fecha')
+  const sortedContenidoData = [...contenidoData].sort((a, b) => {
+    return new Date(b.fecha) - new Date(a.fecha); // Más nuevos primero
+  });
 
   return (
     <section className='flex flex-col items-center justify-start w-full min-h-dvh'>
       <h1 className='p-4 mt-24 text-4xl font-bold text-center'>FC25</h1>
-      
+
       <div className='grid grid-cols-2 gap-4 mt-10 sm:flex sm:flex-row sm:space-x-4'>
         {['contenido', 'SBC', 'TOTW', 'BOOSTING'].map((option) => (
           <button
@@ -137,7 +144,7 @@ const NoticiasEAFC25 = () => {
                 <div key={sbc.id} className='flex flex-row items-center p-4 bg-white rounded-3xl text-black ring-4 mb-2 ring-cardGreen2'>
                   <img className='w-36 rounded-3xl' src={sbc.cardimg} alt={sbc.cardimg} />
 
-                  <div className='flex flex-col items-center gap-0 font-bold'> 
+                  <div className='flex flex-col items-center gap-0 font-bold'>
                     <p className='text-xl'>
                       <span className='font-extrabold text-blue-400'>PS</span>  {sbc.precio_ps}K
                     </p>
@@ -155,7 +162,7 @@ const NoticiasEAFC25 = () => {
             </div>
           </div>
         )}
-        
+
         {selectedOption === 'BOOSTING' && (
           <div className='flex flex-col items-center w-full mt-2'>
             <BoostingPricing />
@@ -166,7 +173,7 @@ const NoticiasEAFC25 = () => {
         {selectedOption === 'TOTW' && (
           <div className='flex flex-col items-center w-full mt-2'>
             <div className='flex flex-col items-center gap-2'>
-              {totwData.map((totw) => (
+              {sortedTotwData.map((totw) => (
                 <div key={totw.id} className='flex flex-col items-center p-4 bg-white rounded-3xl text-black mt-4'>
                   <img className='w-full rounded-3xl' src={totw.imagen} alt={totw.titulo} />
                   <p className='text-4xl font-bold p-4'>{totw.titulo}</p>
@@ -175,11 +182,11 @@ const NoticiasEAFC25 = () => {
             </div>
           </div>
         )}
-        
+
         {selectedOption === 'contenido' && (
           <div className='flex flex-col items-center w-full mt-2'>
             <div className='flex flex-col items-center gap-2 w-full'>
-              {contenidoData.map((contenido) => (
+              {sortedContenidoData.map((contenido) => (
                 <div key={contenido.id} className='flex flex-col items-center p-4 bg-white rounded-3xl text-black mt-4'>
                   <img className='w-full rounded-3xl' src={contenido.imagen} alt={contenido.titulo} />
                   <p className='text-xl font-bold'>{contenido.titulo}</p>
@@ -191,6 +198,6 @@ const NoticiasEAFC25 = () => {
       </div>
     </section>
   );
-}
+};
 
 export default NoticiasEAFC25;

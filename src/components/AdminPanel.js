@@ -118,25 +118,23 @@ const AdminPanel = ({ user }) => {
       return;
     }
 
-    const storageRef = ref(storage, `images/totw/${totwImg.name}`); // Crea una referencia para la imagen de TOTW
+    const storageRef = ref(storage, `images/totw/${totwImg.name}`);
 
     try {
-      // Subir la imagen a Firebase Storage
       await uploadBytes(storageRef, totwImg);
-      const downloadURL = await getDownloadURL(storageRef); // Obtén la URL de descarga
+      const downloadURL = await getDownloadURL(storageRef);
 
-      // Subir los datos a Firebase Firestore
+      const currentDate = new Date();
       const totwData = {
         titulo: totwTitle,
         imagen: downloadURL,
+        fecha: currentDate.toISOString(),
       };
 
-      // Cambia a Firestore
-      const totwCollection = collection(db, 'TOTW'); // 'TOTW' es el nombre de la colección
-      await addDoc(totwCollection, totwData); // Agrega el documento
-      alert('TOTW agregado exitosamente.');
 
-      // Reiniciar el formulario
+      const totwCollection = collection(db, 'TOTW');
+      await addDoc(totwCollection, totwData);
+      alert('TOTW agregado exitosamente.');
       setTotwImg(null);
       setTotwTitle('');
     } catch (error) {
@@ -145,29 +143,31 @@ const AdminPanel = ({ user }) => {
     }
   };
 
-  // Función para manejar el envío de contenido
+
   const handleSubmitContenido = async (e) => {
     e.preventDefault();
-    if (!contenidoImg || !contenidoTitle) { // Cambia a contenidoImg y contenidoTitle
+    if (!contenidoImg || !contenidoTitle) {
       alert('Por favor completa todos los campos.');
       return;
     }
   
-    const storageRef = ref(storage, `images/contenido/${contenidoImg.name}`); // Cambia a la ruta correcta
+    const storageRef = ref(storage, `images/contenido/${contenidoImg.name}`);
   
     try {
       // Subir la imagen a Firebase Storage
       await uploadBytes(storageRef, contenidoImg);
-      const downloadURL = await getDownloadURL(storageRef); // Obtén la URL de descarga
+      const downloadURL = await getDownloadURL(storageRef); 
   
-      // Aquí puedes agregar la lógica para subir los datos a Firestore, si es necesario
+      const currentDate = new Date();
+
       const contenidoData = {
-        titulo: contenidoTitle, // Cambia a contenidoTitle
+        titulo: contenidoTitle,
         imagen: downloadURL,
+        fecha: currentDate.toISOString(),
       };
   
-      const contenidoCollection = collection(db, 'contenido'); // Asegúrate de que la colección sea la correcta
-      await addDoc(contenidoCollection, contenidoData); // Agrega el documento
+      const contenidoCollection = collection(db, 'contenido');
+      await addDoc(contenidoCollection, contenidoData);
       alert('Contenido agregado exitosamente.');
   
       // Reiniciar el formulario
