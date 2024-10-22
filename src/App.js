@@ -17,6 +17,8 @@ import UpdatePassword from './components/UpdatePassword';
 import MyAccount from './components/MyAccount';
 import Slider from './components/Slider';
 import NoticiasEAFC25 from './components/NoticiasEAFC25';
+import AdminPanel from './components/AdminPanel';
+import AdminPricing from './components/AdminPricing';
 
 
 function App() {
@@ -46,6 +48,8 @@ function App() {
               <Route path="/acount" element={<MyAccount />} />
               <Route path="/clients" element={<Slider />} />
               <Route path='/eafc25' element={<NoticiasEAFC25 />} />
+              <Route path='/adminsbc' element={<AdminPanel/>} />
+              <Route path='/adminpricing' element={<AdminPricing />} />
             </Routes>
           </main>
           <Footer/>

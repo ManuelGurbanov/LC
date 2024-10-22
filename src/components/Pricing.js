@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { RadioGroup, Radio } from '@headlessui/react';
 import Coins from '../img/coins.webp';
 
@@ -11,6 +11,9 @@ import flagEeuu from '../img/flags/eurusd.webp';
 import PS from '../img/platforms/ps.webp';
 import XB from '../img/platforms/xb.webp';
 import PC from '../img/platforms/pc.webp';
+
+import { db } from '../firebase'; // Asegúrate de que esta ruta sea correcta
+import { collection, getDocs } from 'firebase/firestore'; // Importa las funciones necesarias
 
 const currencyFlags = {
   arg: flagArg,
@@ -29,96 +32,35 @@ const platforms = {
 const Pricing = () => {
   const [frequency, setFrequency] = useState('arg');
   const [platform, setPlatform] = useState('ps');
+  const [prices, setPrices] = useState({}); // Para almacenar precios obtenidos de Firebase
 
   const hrefOptions = [
     'https://wa.me/message/BCJSJE3WA5BDE1',
     'https://wa.me/message/OWAU65Z5WGWMI1',
   ];
 
-  // Precios por región y cantidad
-  const prices = {
-    arg: {
-      '50K': 7750,
-      '100K': 15500,
-      '200K': 30000,
-      '300K': 46500,
-      '400K': 62000,
-      '500K': 75000,
-      '600K': 93000,
-      '700K': 108500,
-      '800K': 124000,
-      '900K': 139500,
-      '1M': 150000,
-    },
-    eeuu: {
-      '50K': 8,
-      '100K': 16,
-      '200K': 30,
-      '300K': 48,
-      '400K': 64,
-      '500K': 76,
-      '600K': 96,
-      '700K': 112,
-      '800K': 128,
-      '900K': 144,
-      '1M': 155,
-    },
-    eurusd: {
-      '50K': 8,
-      '100K': 15,
-      '200K': 30,
-      '300K': 45,
-      '400K': 60,
-      '500K': 75,
-      '600K': 90,
-      '700K': 105,
-      '800K': 120,
-      '900K': 135,
-      '1M': 145,
-    },
-    chi: {
-      '50K': 8370,
-      '100K': 14882,
-      '200K': 29764,
-      '300K': 44646,
-      '400K': 59528,
-      '500K': 74410,
-      '600K': 89298,
-      '700K': 104174,
-      '800K': 119056,
-      '900K': 133938,
-      '1M': 148820,
-    },
-    col: {
-      '50K': 37913,
-      '100K': 67400,
-      '200K': 134800,
-      '300K': 202200,
-      '400K': 269600,
-      '500K': 337000,
-      '600K': 404400,
-      '700K': 471800,
-      '800K': 539200,
-      '900K': 606600,
-      '1M': 674000,
-    },
-  };
+  useEffect(() => {
+    const fetchPrices = async () => {
+      try {
+        const pricesCollection = collection(db, 'prices'); // Reemplaza 'prices' con el nombre de tu colección en Firestore
+        const pricesSnapshot = await getDocs(pricesCollection);
+        const pricesData = {};
+        pricesSnapshot.forEach((doc) => {
+          pricesData[doc.id] = doc.data(); // Almacena cada documento por su ID
+        });
+        setPrices(pricesData);
+      } catch (error) {
+        console.error('Error al obtener precios:', error);
+      }
+    };
+
+    fetchPrices(); // Llama a la función para obtener precios al montar el componente
+  }, []);
 
   const mainFeatures = ['Transacción segura', 'Entrega rápida y confiable.', 'Asesoría gratuita para tu equipo.'];
 
-  const tiers = [
-    '50K',
-    '100K',
-    '200K',
-    '300K',
-    '400K',
-    '500K',
-    '600K',
-    '700K',
-    '800K',
-    '900K',
-    '1M',
-  ];
+  // Incluye 50K en la lista de tiers
+  const tiers = ['50K', '100K', '200K', '300K', '400K', '500K', '600K', '700K', '800K', '900K', '1M'];
 
   const getPriceWithSymbol = (price, currency) => {
     switch (currency) {
@@ -204,7 +146,7 @@ const Pricing = () => {
         <div className="hidden lg:absolute lg:inset-x-px lg:bottom-0 lg:top-4 lg:block lg:rounded-t-2xl bg-gray-800/80 ring-1 ring-white/10" aria-hidden="true" />
 
         {tiers.map((tier, index) => {
-          const tierPrice = prices[frequency][tier];
+          const tierPrice = prices[frequency]?.[tier] || "Cargando"; // Obtén el precio del tier correspondiente
           const randomHref = hrefOptions[Math.round(Math.random())];
           return (
             <div
@@ -221,12 +163,13 @@ const Pricing = () => {
                 <div className="flex flex-col gap-6 sm:justify-between lg:flex-col lg:items-stretch">
                   <div className="flex items-center mt-2 gap-x-4">
                     <p className="text-3xl font-bold tracking-tight text-white">
-                      ${getPriceWithSymbol(tierPrice, frequency)}
+                      {getPriceWithSymbol(tierPrice, frequency)}
                     </p>
                   </div>
                   <a
                     href={randomHref}
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="flex justify-center py-3 text-sm font-semibold text-center text-gray-100 transition-all duration-150 rounded-lg shadow-sm bg-cardGreen hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cardGreen"
                   >
                     Comprar ahora
@@ -263,3 +206,6 @@ const Pricing = () => {
 };
 
 export default Pricing;
+
+
+
