@@ -141,12 +141,18 @@ const NoticiasEAFC25 = () => {
                 <img className='w-2/3 rounded-3xl' src={all} alt="Todos los SBC" />
               </div>
             )}
+            
           </div>
         )}
         {selectedOption === 'BOOSTING' && (
           <div className='flex flex-col items-center w-full mt-2'>
             <BoostingPricing />
             <h2 className='text-3xl font-bold'>Contáctanos para conseguir las mejores recompensas!</h2>
+          </div>
+        )}
+        {selectedOption === 'TOTW' && (
+          <div className='flex flex-col items-center w-full mt-2'>
+            <img className='w-2/3 rounded-3xl' src={totw5} />
           </div>
         )}
       </div>
