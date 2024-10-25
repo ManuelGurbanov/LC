@@ -6,11 +6,11 @@ import { auth } from '../firebase';
 
 const navigation = [
   { name: 'Home', href: '/' },
+  { name: 'EAFC25', href: '/eafc25' },
+  { name: 'Métodos de Pago', href: '/payment' },
   { name: 'Nosotros', href: '/about-us' },
   { name: 'Vende tus Monedas', href: '/sell-coins' },
-  { name: 'Métodos de Pago', href: '/payment' },
-  { name: 'Equipos de Clientes', href: '/clients' },
-  { name: 'EAFC25', href: '/eafc25' }
+  { name: 'Equipos de Clientes', href: '/clients' }
 ];
 
 export default function Navbar() {
@@ -44,13 +44,13 @@ export default function Navbar() {
           <span className="sr-only">LC</span>
           <img className="w-auto h-8 m-3 transition duration-75 hover:scale-110" src={Logo} alt="Logo" />
         </Link>
-        <div className="flex gap-x-8">
+        <div className="flex gap-x-4">
           {navigation.map((item) => (
             <Link
               key={item.name}
               to={item.href}
-              className={`text-sm font-semibold leading-6 transition-all duration-75 px-3 py-2 rounded-xl ${
-                location.pathname === item.href ? 'bg-cardGreen text-white  hover:bg-cardGreen2' : 'text-gray-200 hover:text-white hover:bg-cardGreen2 rounded-2xl'
+              className={`text-xs font-semibold leading-6 transition-all duration-75 px-3 py-2 rounded-xl ${
+                location.pathname === item.href ? 'bg-cardGreen text-white' : 'text-white hover:text-zinc-400 scale-110 transition ease-in-out'
               }`}
             >
               {item.name}
@@ -58,12 +58,12 @@ export default function Navbar() {
           ))}
           {user ? (
             <div className="flex items-center gap-x-12">
-              <div className="px-3 py-2 text-sm font-black leading-6 text-white">
+              {/* <div className="px-3 py-2 text-sm font-black leading-6 text-white">
                 {user.displayName}
-              </div>
+              </div> */}
               <Link
                     to="/acount"
-                    className={`bg-cardGreen2 px-3 py-2 -mx-3 text-base font-semibold leading-7 text-white rounded-lg hover:text-white `}
+                    className={`px-2 py-1 -mx-3 text-sm font-semibold leading-7 text-white rounded-lg hover:text-zinc-600 `}
                     onClick={handleLinkClick}
                   >
                     Mi Cuenta

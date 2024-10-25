@@ -78,27 +78,32 @@ const AdminPanel = ({ user }) => {
       alert('Por favor completa todos los campos.');
       return;
     }
-
+  
+    // Obtener la fecha actual
+    const currentDate = new Date();
+    const formattedDate = `${currentDate.getDate()}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}`;
+  
     const storageRef = ref(storage, `images/${cardImg.name}`); // Crea una referencia para la imagen
-
+  
     try {
       // Subir la imagen a Firebase Storage
       await uploadBytes(storageRef, cardImg);
       const downloadURL = await getDownloadURL(storageRef); // Obtén la URL de descarga
-
+  
       // Subir los datos a Firebase Firestore
       const sbcData = {
         cardimg: downloadURL,
         precio_ps: Number(precioPS),
         precio_pc: Number(precioPC),
         expiration: expirationDate,
+        date: formattedDate, // Agregar la fecha actual al objeto
       };
-
+  
       // Cambia a Firestore
       const sbcCollection = collection(db, 'SBC'); // 'SBC' es el nombre de la colección
       await addDoc(sbcCollection, sbcData); // Agrega el documento
       alert('SBC agregado exitosamente.');
-
+  
       // Reiniciar el formulario
       setCardImg(null);
       setPrecioPS('');
@@ -109,6 +114,7 @@ const AdminPanel = ({ user }) => {
       alert('Hubo un error al agregar el SBC.');
     }
   };
+  
 
   // Función para manejar el envío de TOTW
   const handleSubmitTOTW = async (e) => {

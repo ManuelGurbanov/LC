@@ -19,7 +19,7 @@ const Countdown = ({ date }) => {
     const distance = new Date(targetDate).getTime() - now;
 
     if (distance < 0) {
-      return 'EXPIRED';
+      return 'EXPIRADO';
     }
 
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -74,11 +74,12 @@ const NoticiasEAFC25 = () => {
     fetchContenidoData();
   }, []);
 
-  // Ordenar SBC
   const sortedSbcData = [...sbcData].sort((a, b) => {
     switch (sortCriteria) {
       case 'newest':
-        return new Date(b.expiration) - new Date(a.expiration);
+        const dateA = a.date ? new Date(a.date.split('/').reverse().join('-')) : new Date(0);
+        const dateB = b.date ? new Date(b.date.split('/').reverse().join('-')) : new Date(0);
+        return dateB - dateA;
       case 'expiringSoon':
         return new Date(a.expiration) - new Date(b.expiration);
       case 'price':
@@ -139,9 +140,9 @@ const NoticiasEAFC25 = () => {
               </button>
             </div>
 
-            <div className='flex flex-col items-center gap-2'>
+            <div className='flex flex-col items-center gap-2 lg:grid lg:grid-cols-2 lg:gap-x-6'>
               {sortedSbcData.map((sbc) => (
-                <div key={sbc.id} className='flex flex-row items-center p-4 bg-white rounded-3xl text-black ring-4 mb-2 ring-cardGreen2'>
+                <div key={sbc.id} className='flex flex-row items-center p-4 bg-cardGreen rounded-3xl text-white ring-4 mb-2 ring-cardGreen2'>
                   <img className='w-36 rounded-3xl' src={sbc.cardimg} alt={sbc.cardimg} />
 
                   <div className='flex flex-col items-center gap-0 font-bold'>
