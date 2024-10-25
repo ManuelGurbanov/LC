@@ -42,7 +42,7 @@ const Pricing = () => {
   useEffect(() => {
     const fetchPrices = async () => {
       try {
-        const pricesCollection = collection(db, 'prices'); // Reemplaza 'prices' con el nombre de tu colección en Firestore
+        const pricesCollection = collection(db, 'prices');
         const pricesSnapshot = await getDocs(pricesCollection);
         const pricesData = {};
         pricesSnapshot.forEach((doc) => {
@@ -54,12 +54,11 @@ const Pricing = () => {
       }
     };
 
-    fetchPrices(); // Llama a la función para obtener precios al montar el componente
+    fetchPrices();
   }, []);
 
   const mainFeatures = ['Transacción segura', 'Entrega rápida y confiable.', 'Asesoría gratuita para tu equipo.'];
 
-  // Incluye 50K en la lista de tiers
   const tiers = ['50K', '100K', '200K', '300K', '400K', '500K', '600K', '700K', '800K', '900K', '1M'];
 
   const getPriceWithSymbol = (price, currency) => {
@@ -146,7 +145,7 @@ const Pricing = () => {
         <div className="hidden lg:absolute lg:inset-x-px lg:bottom-0 lg:top-4 lg:block lg:rounded-t-2xl bg-gray-800/80 ring-1 ring-white/10" aria-hidden="true" />
 
         {tiers.map((tier, index) => {
-          const tierPrice = prices[frequency]?.[tier] || "Cargando"; // Obtén el precio del tier correspondiente
+          const tierPrice = prices[frequency]?.[tier] || "Cargando";
           const randomHref = hrefOptions[Math.round(Math.random())];
           return (
             <div

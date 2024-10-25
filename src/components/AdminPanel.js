@@ -80,8 +80,8 @@ const AdminPanel = ({ user }) => {
     }
   
     // Obtener la fecha actual
-    const currentDate = new Date();
-    const formattedDate = `${currentDate.getDate()}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}`;
+    const currentDateTime = new Date();
+    const formattedDate = currentDateTime.toISOString().slice(0, 16);
   
     const storageRef = ref(storage, `images/${cardImg.name}`); // Crea una referencia para la imagen
   
