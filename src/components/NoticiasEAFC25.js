@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { getFirestore, collection, getDocs, doc, updateDoc, deleteDoc } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
 import BoostingPricing from './BoostingPricing';
 import all from '../img/cards/all_sbc.jpg';
+
+import { useNavigate } from 'react-router-dom';
 
 const Countdown = ({ date }) => {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(date));
@@ -11,7 +14,7 @@ const Countdown = ({ date }) => {
       setTimeLeft(calculateTimeLeft(date));
     }, 1000);
 
-    return () => clearInterval(timer); // Limpiar intervalo al desmontar el componente
+    return () => clearInterval(timer);
   }, [date]);
 
   function calculateTimeLeft(targetDate) {
@@ -37,42 +40,95 @@ const Countdown = ({ date }) => {
   );
 };
 
+
+
+const EditModal = ({ document, onSave, onClose }) => {
+  const [formData, setFormData] = useState(document);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleSave = () => {
+    onSave(formData);
+  };
+
+  return (
+    <div className="modal">
+      <h3>Edit Document</h3>
+      <input
+        name="titulo"
+        value={formData.titulo}
+        onChange={handleChange}
+        placeholder="Título"
+      />
+      <input
+        name="precio_ps"
+        type="number"
+        value={formData.precio_ps}
+        onChange={handleChange}
+        placeholder="Precio PS"
+      />
+      <input
+        name="precio_pc"
+        type="number"
+        value={formData.precio_pc}
+        onChange={handleChange}
+        placeholder="Precio PC"
+      />
+      <button onClick={handleSave}>Save</button>
+      <button onClick={onClose}>Close</button>
+    </div>
+  );
+};
+
 const NoticiasEAFC25 = () => {
   const [selectedOption, setSelectedOption] = useState('SBC');
   const [sbcData, setSbcData] = useState([]);
   const [totwData, setTotwData] = useState([]);
   const [contenidoData, setContenidoData] = useState([]);
   const [sortCriteria, setSortCriteria] = useState('expiringSoon');
+  const [userEmail, setUserEmail] = useState(null);
+  const [editingDoc, setEditingDoc] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchSbcData = async () => {
+    const auth = getAuth();
+    auth.onAuthStateChanged((user) => {
+      if (user) setUserEmail(user.email);
+    });
+
+    const fetchData = async () => {
       const db = getFirestore();
-      const sbcCollection = collection(db, 'SBC');
-      const sbcSnapshot = await getDocs(sbcCollection);
-      const sbcList = sbcSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-      setSbcData(sbcList);
+      const fetchCollection = async (name) => {
+        const snapshot = await getDocs(collection(db, name));
+        return snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      };
+      setSbcData(await fetchCollection('SBC'));
+      setTotwData(await fetchCollection('TOTW'));
+      setContenidoData(await fetchCollection('contenido'));
     };
 
-    const fetchTotwData = async () => {
-      const db = getFirestore();
-      const totwCollection = collection(db, 'TOTW');
-      const totwSnapshot = await getDocs(totwCollection);
-      const totwList = totwSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-      setTotwData(totwList);
-    };
-
-    const fetchContenidoData = async () => {
-      const db = getFirestore();
-      const contenidoCollection = collection(db, 'contenido');
-      const contenidoSnapshot = await getDocs(contenidoCollection);
-      const contenidoList = contenidoSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-      setContenidoData(contenidoList);
-    };
-
-    fetchSbcData();
-    fetchTotwData();
-    fetchContenidoData();
+    fetchData();
   }, []);
+
+  const handleEdit = async (updatedData) => {
+    const db = getFirestore();
+    await updateDoc(doc(db, selectedOption, editingDoc.id), updatedData);
+    setEditingDoc(null);
+    // Re-fetch data to show updated information
+    // Can also update only edited item to avoid re-fetching all data
+  };
+
+  const handleDelete = async (id) => {
+    const db = getFirestore();
+    await deleteDoc(doc(db, selectedOption, id));
+    // Update the local state by removing deleted item
+    if (selectedOption === 'SBC') setSbcData(sbcData.filter(item => item.id !== id));
+    else if (selectedOption === 'TOTW') setTotwData(totwData.filter(item => item.id !== id));
+    else if (selectedOption === 'contenido') setContenidoData(contenidoData.filter(item => item.id !== id));
+  };
 
   const sortedSbcData = [...sbcData].sort((a, b) => {
     switch (sortCriteria) {
@@ -99,6 +155,7 @@ const NoticiasEAFC25 = () => {
     <section className='flex flex-col items-center justify-start w-full min-h-dvh'>
       <h1 className='p-4 mt-24 text-4xl font-bold text-center'>FC25</h1>
 
+      {/* Selector de opción */}
       <div className='grid grid-cols-2 gap-4 mt-10 sm:flex sm:flex-row sm:space-x-4'>
         {['contenido', 'SBC', 'TOTW', 'BOOSTING'].map((option) => (
           <button
@@ -111,56 +168,58 @@ const NoticiasEAFC25 = () => {
         ))}
       </div>
 
+      {/* Lista de documentos */}
       <div className='flex flex-col items-center w-10/12 text-center sm:w-1/2'>
         {selectedOption === 'SBC' && (
-          <div className='flex flex-col items-center w-full gap-2 mt-10'>
-            <h2>Ordenar por</h2>
-            <div className='flex space-x-4 mb-4'>
-              <button
-                className={`cursor-pointer px-4 py-2 rounded-lg transition-all duration-150 ${sortCriteria === 'expiringSoon' ? 'bg-cardGreen text-white' : 'bg-transparent text-white'}`}
-                onClick={() => setSortCriteria('expiringSoon')}
-              >
-                Más próximos a expirar
-              </button>
-              <button
-                className={`cursor-pointer px-4 py-2 rounded-lg transition-all duration-150 ${sortCriteria === 'newest' ? 'bg-cardGreen text-white' : 'bg-transparent text-white'}`}
-                onClick={() => setSortCriteria('newest')}
-              >
-                Más nuevos
-              </button>
-              <button
-                className={`cursor-pointer px-4 py-2 rounded-lg transition-all duration-150 ${sortCriteria === 'price' ? 'bg-cardGreen text-white' : 'bg-transparent text-white'}`}
-                onClick={() => setSortCriteria('price')}
-              >
-                Mas caros
-              </button>
-            </div>
+          <div className='flex flex-col items-center gap-2 lg:grid lg:grid-cols-2 lg:gap-6 mt-6'>
+            {sortedSbcData.map((sbc) => (
+              <div key={sbc.id} className='flex flex-row items-center p-4 bg-cardGreen rounded-3xl text-white ring-4 mb-2 ring-cardGreen2 h-full'>
+                <img className='w-36 rounded-3xl' src={sbc.cardimg} alt={sbc.cardimg} />
 
-            <div className='flex flex-col items-center gap-2 lg:grid lg:grid-cols-2 lg:gap-6'>
-              {sortedSbcData.map((sbc) => (
-                <div key={sbc.id} className='flex flex-row items-center p-4 bg-cardGreen rounded-3xl text-white ring-4 mb-2 ring-cardGreen2 w-full h-full'>
-                  <img className='w-36 rounded-3xl' src={sbc.cardimg} alt={sbc.cardimg} />
-
-                  <div className='flex flex-col items-center gap-0 font-bold'>
-                    <p className='text-xl'>
-                      <span className='font-extrabold text-blue-400'>PS</span>  {sbc.precio_ps}K
-                    </p>
-                    <p className='text-xl'>
-                      <span className='font-extrabold text-green-400'>XB</span>  {sbc.precio_ps}K
-                    </p>
-                    <p className='text-xl'>
-                      <span className='font-extrabold text-orange-400'>PC</span>  {sbc.precio_pc}K
-                    </p>
-                    <p className='text-lg tetxt-cener'>Finaliza el {new Date(sbc.expiration).toLocaleDateString()}</p>
-                    <Countdown date={new Date(sbc.expiration)} />
-                  </div>
+                <div className='flex flex-col items-center gap-0 font-bold'>
+                  <p className='text-xl'>
+                    <span className='font-extrabold text-blue-400'>PS</span>  {sbc.precio_ps}K
+                  </p>
+                  <p className='text-xl'>
+                    <span className='font-extrabold text-green-400'>XB</span>  {sbc.precio_ps}K
+                  </p>
+                  <p className='text-xl'>
+                    <span className='font-extrabold text-orange-400'>PC</span>  {sbc.precio_pc}K
+                  </p>
+                  <p className='text-lg tetxt-cener'>Finaliza el {new Date(sbc.expiration).toLocaleDateString()}</p>
+                  <Countdown date={new Date(sbc.expiration)} />
                 </div>
-              ))}
-            </div>
+                
+                {userEmail === 'manuelgurbanov@gmail.com' && (
+                  <div className="flex flex-col gap-2 ml-5">
+                    <button
+                      onClick={() => navigate(`/edit/${selectedOption}/${sbc.id}`)}
+                      className="text-blue-500"
+                    >
+                      Editar
+                    </button>
+                    <button
+                      onClick={() => handleDelete(sbc.id)}
+                      className="text-red-500"
+                    >
+                      Eliminar
+                    </button>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         )}
 
-        {selectedOption === 'BOOSTING' && (
+        {editingDoc && (
+          <EditModal
+            document={editingDoc}
+            onSave={handleEdit}
+            onClose={() => setEditingDoc(null)}
+          />
+        )}
+
+{selectedOption === 'BOOSTING' && (
           <div className='flex flex-col items-center w-full mt-2'>
             <BoostingPricing />
             <h2 className='text-3xl font-bold'>Contáctanos para conseguir las mejores recompensas!</h2>
