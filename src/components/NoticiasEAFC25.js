@@ -34,7 +34,7 @@ const Countdown = ({ date }) => {
   }
 
   return (
-    <p className="text-lg text-center font-semibold text-red-500">
+    <p className="text-lg font-semibold text-center text-red-500">
       {typeof timeLeft === 'string' ? timeLeft : `Expira en ${timeLeft}`}
     </p>
   );
@@ -133,11 +133,13 @@ const NoticiasEAFC25 = () => {
   const sortedSbcData = [...sbcData].sort((a, b) => {
     switch (sortCriteria) {
       case 'newest':
-          return new Date(b.date) - new Date(a.date);
+        return new Date(b.date) - new Date(a.date);
       case 'expiringSoon':
         return new Date(a.expiration) - new Date(b.expiration);
-      case 'price':
+      case 'priceHigh':
         return b.precio_ps - a.precio_ps;
+      case 'priceLow':
+        return a.precio_ps - b.precio_ps;
       default:
         return 0;
     }
@@ -170,10 +172,54 @@ const NoticiasEAFC25 = () => {
 
       {/* Lista de documentos */}
       <div className='flex flex-col items-center w-10/12 text-center sm:w-1/2'>
+            {/* Filtros de ordenación */}
+            {selectedOption === 'SBC' && (
+  <div className="flex flex-col items-center mt-6">
+    <label className="mb-4 text-lg font-bold text-white">Ordenar por:</label>
+    <div className="grid w-full grid-cols-2 gap-4 sm:grid-cols-4">
+      <button
+        className={`w-full px-2 py-2 rounded-full font-semibold ${
+          sortCriteria === 'newest' ? 'bg-cardGreen2 text-white' : 'bg-cardGreen text-white'
+        }`}
+        onClick={() => setSortCriteria('newest')}
+      >
+        Más nuevos
+      </button>
+      <button
+        className={`w-full px-2 py-2 rounded-full font-semibold ${
+          sortCriteria === 'expiringSoon' ? 'bg-cardGreen2 text-white' : 'bg-cardGreen text-white'
+        }`}
+        onClick={() => setSortCriteria('expiringSoon')}
+      >
+        Más próximos a vencer
+      </button>
+      <button
+        className={`w-full px-2 py-2 rounded-full font-semibold ${
+          sortCriteria === 'priceHigh' ? 'bg-cardGreen2 text-white' : 'bg-cardGreen text-white'
+        }`}
+        onClick={() => setSortCriteria('priceHigh')}
+      >
+        Más caros
+      </button>
+      <button
+        className={`w-full px-2 py-2 rounded-full font-semibold ${
+          sortCriteria === 'priceLow' ? 'bg-cardGreen2 text-white' : 'bg-cardGreen text-white'
+        }`}
+        onClick={() => setSortCriteria('priceLow')}
+      >
+        Más baratos
+      </button>
+    </div>
+  </div>
+)}
+
+
+
+
         {selectedOption === 'SBC' && (
-          <div className='flex flex-col items-center gap-2 lg:grid lg:grid-cols-2 lg:gap-6 mt-6'>
+          <div className='flex flex-col items-center gap-2 mt-6 lg:grid lg:grid-cols-2 lg:gap-6'>
             {sortedSbcData.map((sbc) => (
-              <div key={sbc.id} className='flex flex-row items-center p-4 bg-cardGreen rounded-3xl text-white ring-4 mb-2 ring-cardGreen2 h-full'>
+              <div key={sbc.id} className='flex flex-row items-center h-full p-4 mb-2 text-white bg-cardGreen rounded-3xl ring-4 ring-cardGreen2'>
                 <img className='w-36 rounded-3xl' src={sbc.cardimg} alt={sbc.cardimg} />
 
                 <div className='flex flex-col items-center gap-0 font-bold'>
@@ -230,9 +276,9 @@ const NoticiasEAFC25 = () => {
           <div className='flex flex-col items-center w-full mt-2'>
             <div className='flex flex-col items-center gap-2'>
               {sortedTotwData.map((totw) => (
-                <div key={totw.id} className='flex flex-col items-center p-4 bg-white rounded-3xl text-black mt-4'>
+                <div key={totw.id} className='flex flex-col items-center p-4 mt-4 text-black bg-white rounded-3xl'>
                   <img className='w-full rounded-3xl' src={totw.imagen} alt={totw.titulo} />
-                  <p className='text-4xl font-bold p-4'>{totw.titulo}</p>
+                  <p className='p-4 text-4xl font-bold'>{totw.titulo}</p>
                 </div>
               ))}
             </div>
@@ -241,9 +287,9 @@ const NoticiasEAFC25 = () => {
 
         {selectedOption === 'contenido' && (
           <div className='flex flex-col items-center w-full mt-2'>
-            <div className='flex flex-col items-center gap-2 w-full'>
+            <div className='flex flex-col items-center w-full gap-2'>
               {sortedContenidoData.map((contenido) => (
-                <div key={contenido.id} className='flex flex-col items-center p-4 bg-white rounded-3xl text-black mt-4'>
+                <div key={contenido.id} className='flex flex-col items-center p-4 mt-4 text-black bg-white rounded-3xl'>
                   <img className='w-full rounded-3xl' src={contenido.imagen} alt={contenido.titulo} />
                   <p className='text-xl font-bold'>{contenido.titulo}</p>
                 </div>

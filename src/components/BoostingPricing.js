@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { getFirestore, collection, getDocs, doc, setDoc } from 'firebase/firestore';
 import { RadioGroup, Radio } from '@headlessui/react';
 import flagArg from '../img/flags/arg.webp';
 import flagChi from '../img/flags/chi.webp';
 import flagCol from '../img/flags/col.webp';
 import flagEeuu from '../img/flags/eurusd.webp';
 import flagEur from '../img/flags/eur.webp';
+
 const currencyFlags = {
   arg: flagArg,
   chi: flagChi,
@@ -13,130 +15,41 @@ const currencyFlags = {
   eur: flagEur,
 };
 
-const boostingPrices = {
-  arg: {
-    futChampions: {
-      'Rango 1': 88000,
-      'Rango 2': 68000,
-      'Rango 3': 54000,
-      'Rango 4': 48000,
-      'Rango 5': 40000,
-      'Rango 6': 24000,
-    },
-    rivals: {
-      'Rango 1': 42000,
-      'Rango 2': 39000,
-      'Rango 3': 35000,
-      'Rango 4': 32000,
-      'Rango 5': 29000,
-      'Rango 6': 26000,
-      'Rango 7': 22000,
-      'Rango 8': 18000,
-      'Rango 9': 15000,
-    },
-  },
-  eeuu: {
-    futChampions: {
-      'Rango 1': 85,
-      'Rango 2': 70,
-      'Rango 3': 55,
-      'Rango 4': 45,
-      'Rango 5': 30,
-      'Rango 6': 20,
-    },
-    rivals: {
-      'Rango 1': 55,
-      'Rango 2': 50,
-      'Rango 3': 45,
-      'Rango 4': 40,
-      'Rango 5': 35,
-      'Rango 6': 29,
-      'Rango 7': 25,
-      'Rango 8': 21,
-      'Rango 9': 18,
-    },
-  },
-  eur: {
-    futChampions: {
-      'Rango 1': 85,
-      'Rango 2': 70,
-      'Rango 3': 55,
-      'Rango 4': 45,
-      'Rango 5': 30,
-      'Rango 6': 20,
-    },
-    rivals: {
-      'Rango 1': 55,
-      'Rango 2': 50,
-      'Rango 3': 45,
-      'Rango 4': 40,
-      'Rango 5': 35,
-      'Rango 6': 29,
-      'Rango 7': 25,
-      'Rango 8': 21,
-      'Rango 9': 18,
-    },
-  },
-  chi: {
-    futChampions: {
-      'Rango 1': 78741,
-      'Rango 2': 64845,
-      'Rango 3': 50950,
-      'Rango 4': 41686,
-      'Rango 5': 27791,
-      'Rango 6': 18527,
-    },
-    rivals: {
-      'Rango 1': 50950,
-      'Rango 2': 46318,
-      'Rango 3': 41686,
-      'Rango 4': 37054,
-      'Rango 5': 32422,
-      'Rango 6': 26864,
-      'Rango 7': 23159,
-      'Rango 8': 19453,
-      'Rango 9': 16674,
-    },
-  },
-  col: {
-    futChampions: {
-      'Rango 1': 358232,
-      'Rango 2': 295015,
-      'Rango 3': 231797,
-      'Rango 4': 189652,
-      'Rango 5': 126435,
-      'Rango 6': 84290,
-    },
-    rivals: {
-      'Rango 1': 231797,
-      'Rango 2': 210725,
-      'Rango 3': 189652,
-      'Rango 4': 168580,
-      'Rango 5': 147507,
-      'Rango 6': 122220,
-      'Rango 7': 105362,
-      'Rango 8': 88504,
-      'Rango 9': 75861,
-    },
-  },
-};
-
 const BoostingPricing = () => {
   const [frequency, setFrequency] = useState('arg');
   const [boostingType, setBoostingType] = useState('futChampions');
+  const [boostingPrices, setBoostingPrices] = useState({});
+  const [loading, setLoading] = useState(true);
 
-  const mainFeatures = [
-    'Transacción segura',
-  ];
+  const mainFeatures = ['Transacción segura'];
 
   const hrefOptions = [
     'https://wa.me/message/BCJSJE3WA5BDE1',
     'https://wa.me/message/OWAU65Z5WGWMI1',
   ];
   const randomHref = hrefOptions[Math.round(Math.random())];
-  const tiers = boostingType === 'futChampions'
-    ? ['Rango 1', 'Rango 2', 'Rango 3', 'Rango 4', 'Rango 5', 'Rango 6']
-    : ['Rango 1', 'Rango 2', 'Rango 3', 'Rango 4', 'Rango 5', 'Rango 6', 'Rango 7', 'Rango 8', 'Rango 9'];
+  const tiers =
+    boostingType === 'futChampions'
+      ? ['Rango 1', 'Rango 2', 'Rango 3', 'Rango 4', 'Rango 5', 'Rango 6']
+      : ['Rango 1', 'Rango 2', 'Rango 3', 'Rango 4', 'Rango 5', 'Rango 6', 'Rango 7', 'Rango 8', 'Rango 9'];
+
+  useEffect(() => {
+    const fetchPrices = async () => {
+      const db = getFirestore();
+      const pricesCollection = collection(db, 'boostingPrices');
+      const pricesSnapshot = await getDocs(pricesCollection);
+      const pricesData = {};
+
+      pricesSnapshot.forEach((doc) => {
+        pricesData[doc.id] = doc.data();
+      });
+
+      setBoostingPrices(pricesData);
+      setLoading(false);
+    };
+
+    fetchPrices();
+  }, []);
 
   const getPriceWithSymbol = (price, currency) => {
     switch (currency) {
@@ -155,13 +68,9 @@ const BoostingPricing = () => {
     }
   };
 
-  const handleFrequencyChange = (value) => {
-    setFrequency(value);
-  };
-
-  const handleBoostingTypeChange = (value) => {
-    setBoostingType(value);
-  };
+  if (loading) {
+    return <p className="text-center text-white">Cargando precios...</p>;
+  }
 
   return (
     <div className="flex flex-col items-center w-full h-auto px-4 py-8 mb-16 sm:px-8 sm:py-16">
@@ -176,7 +85,7 @@ const BoostingPricing = () => {
       <fieldset aria-label="Frecuencia de pago" className="mt-10">
         <RadioGroup
           value={frequency}
-          onChange={handleFrequencyChange}
+          onChange={setFrequency}
           className="grid grid-cols-5 p-1 text-xs font-semibold leading-5 text-center text-white rounded-full gap-x-1"
         >
           {['arg', 'chi', 'col', 'eeuu', 'eur'].map((option) => (
@@ -203,7 +112,7 @@ const BoostingPricing = () => {
       <fieldset aria-label="Tipo de boosting" className="mt-10">
         <RadioGroup
           value={boostingType}
-          onChange={handleBoostingTypeChange}
+          onChange={setBoostingType}
           className="flex justify-center text-center text-white rounded-full gap-x-1"
         >
           {['futChampions', 'rivals'].map((option) => (
@@ -225,7 +134,7 @@ const BoostingPricing = () => {
       {/* Lista de precios */}
       <div className="grid w-4/5 max-w-screen-lg grid-cols-1 mx-auto mt-2 gap-y-2 md:grid-cols-3 sm:grid-cols-2 sm:gap-x-3 lg:mx-0 lg:-mb-14">
         {tiers.map((tier, index) => {
-          const tierPrice = boostingPrices[frequency][boostingType][tier];
+          const tierPrice = boostingPrices[frequency]?.[boostingType]?.[tier] || 'N/A';
 
           return (
             <div

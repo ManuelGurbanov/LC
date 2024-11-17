@@ -20,6 +20,7 @@ import NoticiasEAFC25 from './components/NoticiasEAFC25';
 import AdminPanel from './components/AdminPanel';
 import AdminPricing from './components/AdminPricing';
 import EditSBC from './components/EditSBC';
+import BoostingEditPanel from './components/BoostingEditPanel';
 
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
               <Route path='/eafc25' element={<NoticiasEAFC25 />} />
               <Route path='/adminsbc' element={<AdminPanel/>} />
               <Route path='/adminpricing' element={<AdminPricing />} />
+              <Route path="/adminboosting" element={<BoostingEditPanel />} />
               <Route path="/edit/:collectionName/:id" element={<EditSBC />} />
             </Routes>
           </main>
