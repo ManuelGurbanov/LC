@@ -21,7 +21,7 @@ import AdminPanel from './components/AdminPanel';
 import AdminPricing from './components/AdminPricing';
 import EditSBC from './components/EditSBC';
 
-
+import Snowfall from 'react-snowfall';
 function App() {
   useEffect(() => {
     AOS.init({
@@ -33,7 +33,8 @@ function App() {
   return (
     <Router>
       <div className="relative w-full h-full">
-        <Background />
+        {/* <Background /> */}
+        <Snowfall />
         <div className="relative z-10">
           <Navbar />
           <main className="main-content">
