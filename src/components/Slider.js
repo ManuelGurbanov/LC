@@ -5,9 +5,11 @@ import ArrowRight from '../img/arrows/ArrowRight.svg';
 
 import Social from './Social';
 
-import team1 from '../img/cards/team1.jpg';
+import team1 from '../img/cards/team1.webp';
 
-import team2 from '../img/cards/team2.jpg';
+import team2 from '../img/cards/team2.webp';
+
+import team3 from '../img/cards/team3.webp';
 
 const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -23,6 +25,7 @@ const Slider = () => {
   const images = [
     team1,
     team2,
+    team3
   ];
 
   return (
