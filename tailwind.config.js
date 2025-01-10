@@ -11,8 +11,8 @@ module.exports = {
     },
     extend: {
       colors: {
-        cardGreen: '#000000',
-        cardGreen2: '#303030'
+        cardGreen: '#280A8A',
+        cardGreen2: '#000D8C'
       },
       keyframes: {
         scroll: {

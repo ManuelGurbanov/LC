@@ -122,13 +122,19 @@ const NoticiasEAFC25 = () => {
   };
 
   const handleDelete = async (id) => {
+    const confirmDelete = window.confirm("¿Estás seguro de que deseas eliminar este elemento?");
+    if (!confirmDelete) return;
+  
     const db = getFirestore();
     await deleteDoc(doc(db, selectedOption, id));
-    // Update the local state by removing deleted item
+  
+    // Actualizar el estado local
     if (selectedOption === 'SBC') setSbcData(sbcData.filter(item => item.id !== id));
     else if (selectedOption === 'TOTW') setTotwData(totwData.filter(item => item.id !== id));
     else if (selectedOption === 'contenido') setContenidoData(contenidoData.filter(item => item.id !== id));
   };
+  
+  
 
   const sortedSbcData = [...sbcData].sort((a, b) => {
     switch (sortCriteria) {
@@ -253,7 +259,8 @@ const NoticiasEAFC25 = () => {
                   </div>
                 )}
               </div>
-            ))}
+            ))} 
+
           </div>
         )}
 
@@ -279,6 +286,16 @@ const NoticiasEAFC25 = () => {
                 <div key={totw.id} className='flex flex-col items-center p-4 mt-4 text-black bg-white rounded-3xl'>
                   <img className='w-full rounded-3xl' src={totw.imagen} alt={totw.titulo} />
                   <p className='p-4 text-4xl font-bold'>{totw.titulo}</p>
+                  {userEmail === 'manuelgurbanov@gmail.com' && (
+                  <div className="flex flex-col gap-2 ml-5">
+                    <button
+                      onClick={() => handleDelete(totw.id)}
+                      className="text-red-500"
+                    >
+                      Eliminar
+                    </button>
+                  </div>
+                )}
                 </div>
               ))}
             </div>
@@ -291,7 +308,17 @@ const NoticiasEAFC25 = () => {
               {sortedContenidoData.map((contenido) => (
                 <div key={contenido.id} className='flex flex-col items-center p-4 mt-4 text-black bg-white rounded-3xl'>
                   <img className='w-full rounded-3xl' src={contenido.imagen} alt={contenido.titulo} />
-                  <p className='text-xl font-bold'>{contenido.titulo}</p>
+                  <p className='text-xl font-bold mt-2'>{contenido.titulo}</p>
+                  {userEmail === 'manuelgurbanov@gmail.com' && (
+                  <div className="flex flex-col gap-2 ml-5">
+                    <button
+                      onClick={() => handleDelete(contenido.id)}
+                      className="text-red-500"
+                    >
+                      Eliminar
+                    </button>
+                  </div>
+                )}
                 </div>
               ))}
             </div>

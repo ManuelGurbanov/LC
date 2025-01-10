@@ -11,14 +11,14 @@ const Background = () => {
       >
         <defs>
           <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style={{ stopColor: '#232230', stopOpacity: 1 }} />
-            <stop offset="100%" style={{ stopColor: '#38364D', stopOpacity: 1 }} />
+            <stop offset="0%" style={{ stopColor: '#0F0436', stopOpacity: 1 }} />
+            <stop offset="100%" style={{ stopColor: '#0F0436', stopOpacity: 1 }} />
           </linearGradient>
         </defs>
         <rect width="800" height="600" fill="url(#grad1)" />
-        <circle cx="400" cy="300" r="200" fill="#636087" />
-        <circle cx="600" cy="100" r="150" fill="#7572A1" />
-        <circle cx="200" cy="500" r="150" fill="#6E6BA6" />
+        <circle cx="400" cy="300" r="200" fill="#17064F" />
+        <circle cx="600" cy="100" r="150" fill="#000752" />
+        <circle cx="200" cy="500" r="150" fill="#000752" />
       </svg>
     </div>
   );

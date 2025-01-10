@@ -34,8 +34,8 @@ function App() {
   return (
     <Router>
       <div className="relative w-full h-full">
-        {/* <Background /> */}
-        <Snowfall />
+        <Background />
+        {/* <Snowfall /> */}
         <div className="relative z-10">
           <Navbar />
           <main className="main-content">

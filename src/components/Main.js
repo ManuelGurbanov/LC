@@ -5,7 +5,6 @@ import 'aos/dist/aos.css';
 import Pricing from './Pricing';
 import Social from './Social';
 import Faq from './Faq';
-import Cards from '../img/cards_25.png'
 import Logo from '../img/logo.png'
 
 import SendMessage from './SendMessaje';
@@ -52,8 +51,8 @@ function Main() {
             >Ver Precios</button>
           </div>
           <div className='flex items-center justify-center'>
-            <img className='w-4/5'
-            src={Cards} data-aos="fade-down" data-aos-delay="100">
+            <img className='w-3/4'
+            src="cards.webp" data-aos="fade-down" data-aos-delay="100">
 
             </img>
           </div>
