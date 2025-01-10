@@ -180,7 +180,7 @@ const Pricing = () => {
                   {mainFeatures.map((feature, idx) => (
                     <li key={idx} className="flex gap-3">
                       <svg
-                        className="flex-none w-5 h-5 text-cardGreen"
+                        className="flex-none w-5 h-5 text-white"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
